@@ -7,24 +7,26 @@
                  xmlns:iconPacks="clr-namespace:MahApps.Metro.IconPacks;assembly=MahApps.Metro.IconPacks.Modern"
                  Title="LTMP Paris"
                  Width="800"
-                 Height="630"
+                 Height="825"
                  WindowStartupLocation="CenterScreen"
                  mc:Ignorable="d"
                  x:Name="parent"
                  ResizeMode="NoResize"
                  Background="White">
     <Grid>
-        <Grid HorizontalAlignment="Center" Height="150" Margin="0,50,0,0" VerticalAlignment="Top" Width="694" Grid.Column="0">
+        <Grid HorizontalAlignment="Center" Height="150" Margin="0,10,0,0" VerticalAlignment="Top" Width="694">
             <Rectangle HorizontalAlignment="Center" Height="92" VerticalAlignment="Center" Fill="#FF434343" Width="674"/>
             <Image x:Name="img_logo" HorizontalAlignment="Left" Height="150" VerticalAlignment="Center" Width="150" Source="/assets/logo.png"/>
-            <Button x:Name="btn_accueil" Content="Accueil" HorizontalAlignment="Left" Height="92" Margin="150,0,0,0" VerticalAlignment="Center" Width="129" BorderBrush="#FFDDDDDD" Foreground="Black"/>
+            <Button x:Name="btn_accueil" Content="Accueil" HorizontalAlignment="Left" Height="92" Margin="150,0,0,0" VerticalAlignment="Center" Width="129" BorderBrush="#FFDDDDDD" Foreground="Black" Click="btn_accueil_Click"/>
             <Button x:Name="btn_gestion_inscription" Content="Gestion &amp; Inscription" HorizontalAlignment="Left" Height="92" Margin="279,0,0,0" VerticalAlignment="Center" Width="132" BorderBrush="#FFDDDDDD"/>
             <Button x:Name="btn_creer_paris" Content="Créer Paris" HorizontalAlignment="Left" Height="92" Margin="411,0,0,0" VerticalAlignment="Center" Width="128" BorderBrush="#FFDDDDDD"/>
             <Button x:Name="btn_gestion_promotion" Content="Gestion des promotions" HorizontalAlignment="Left" Height="92" Margin="539,0,0,0" VerticalAlignment="Center" Width="145" BorderBrush="#FFDDDDDD"/>
 
 
         </Grid>
-
-
+        <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="0,171,0,0">
+            <Frame x:Name="pageViewer" HorizontalAlignment="Center" Height="Auto" VerticalAlignment="Top" Width="800">
+            </Frame>
+        </ScrollViewer>
     </Grid>
 </mah:MetroWindow>
