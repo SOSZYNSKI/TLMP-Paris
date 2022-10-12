@@ -9,6 +9,11 @@
       Title="GestionInscription">
 
     <Grid>
-        
+        <Label x:Name="lbl_tableau_classement" Content="Tableau de Classement" HorizontalAlignment="Left" Height="37" Margin="323,10,0,0" VerticalAlignment="Top" Width="350" HorizontalContentAlignment="Center" FontSize="20"/>
+        <DataGrid x:Name="tbl_tableau_classement" HorizontalAlignment="Left" Height="294" Margin="182,52,0,0" VerticalAlignment="Top" Width="594" d:ItemsSource="{d:SampleData ItemCount=5}"/>
+        <Button x:Name="btn_importer" Content="Importer nouveaux utilisateurs" HorizontalAlignment="Left" Height="53" Margin="370,370,0,0" VerticalAlignment="Top" Width="168" FontStretch="Normal" Click="btn_importer_Click" FontStyle="Normal"/>
+        <Rectangle HorizontalAlignment="Left" Height="388" Margin="30,52,0,0" Stroke="Black" VerticalAlignment="Top" Width="128"/>
+        <Label x:Name="lbl_filtres" Content="Filtres :" HorizontalAlignment="Left" Height="24" Margin="36,17,0,0" VerticalAlignment="Top" Width="116" HorizontalContentAlignment="Center"/>
+
     </Grid>
 </Page>
