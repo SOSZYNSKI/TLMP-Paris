@@ -30,5 +30,20 @@ namespace TLMP_Paris
         {
             pageViewer.Content = new Accueil();
         }
+
+        private void btn_gestion_inscription_Click(object sender, RoutedEventArgs e)
+        {
+            pageViewer.Content = new GestionInscription();
+        }
+
+        private void btn_creer_paris_Click(object sender, RoutedEventArgs e)
+        {
+            pageViewer.Content = new CreerParis();
+        }
+
+        private void btn_gestion_promotion_Click(object sender, RoutedEventArgs e)
+        {
+            pageViewer.Content = new GestionPromotion();
+        }
     }
 }
