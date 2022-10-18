@@ -1,14 +1,19 @@
-﻿<Page x:Class="TLMP_Paris.GestionPromotion"
+﻿<Page
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:TLMP_Paris"
-      mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="GestionPromotion">
+      xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" x:Class="TLMP_Paris.GestionPromotion"
+      mc:Ignorable="d" d:DesignWidth="800"
+      Title="GestionPromotion" Height="819">
 
-    <Grid>
-        
+    <Grid Height="800">
+        <Label x:Name="lbl_tabpromotion" Content="Tableau des promotions" HorizontalAlignment="Center" Height="37" Margin="0,10,0,0" VerticalAlignment="Top" Width="220" FontSize="20"/>
+        <DataGrid x:Name="dgd_view_tabpromotion" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="47,47,34,0" SelectionChanged="DataGrid_SelectionChanged" Height="634" VerticalAlignment="Top"/>
+        <Button x:Name="btn_add" Content="Ajouter" HorizontalAlignment="Left" Height="37" Margin="47,733,0,0" VerticalAlignment="Top" Width="152" RenderTransformOrigin="0.025,0.9"/>
+        <Button x:Name="btn_del" Content="Supprimer" HorizontalAlignment="Center" Margin="0,733,0,0" VerticalAlignment="Top" Height="37" Width="152"/>
+        <Button x:Name="btn_edit" Content="Modifier" HorizontalAlignment="Left" Margin="614,733,0,0" VerticalAlignment="Top" Height="37" Width="152" RenderTransformOrigin="0.525,1.498" Click="Button_Click"/>
+
     </Grid>
 </Page>
