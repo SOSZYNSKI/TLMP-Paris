@@ -24,13 +24,13 @@ namespace TLMP_Paris.Classe
         {
             return "Ce pari est-un pari spéciale, il prend fin le : " + this.DateMax + " Le match sera le : " + this.DateMatch + " et aura comme libelle " + this.Libelle + " il aura comme récompense : " + this.PointsEarn + " points gagnable, il aura une pénalité de : " + this.penality + " points pour chaque dépassement équivalent à la rage : " + this.range;
         }
-        public void setResult(int result)
+        public void SetResult(int result)
         {
             this.ResultMatch = result;
         }
-        public void sustraction()
+        public void Sustraction()
         {
-            this.PointsEarn = this.PointsEarn - this.penality;
+            this.PointsEarn -= this.penality;
         }
     }
 }

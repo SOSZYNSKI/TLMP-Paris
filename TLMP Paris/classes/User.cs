@@ -40,12 +40,12 @@ namespace TLMP_Paris.Classe
             this.Paris = new Dictionary<Pari, int>();
         }
 
-        public void parier(Pari p, int userInformation)
+        public void Parier(Pari p, int userInformation)
         {
             paris.Add(p, userInformation);
         }
 
-        public void setPromotion(Promotion p)
+        public void SetPromotion(Promotion p)
         {
             this.Promotion = p;
         }

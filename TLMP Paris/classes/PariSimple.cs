@@ -14,7 +14,7 @@ namespace TLMP_Paris.Classe
         {
             this.Eliminations = elimination;
         }
-        public void setResult(int result)
+        public void SetResult(int result)
         {
             this.ResultMatch = result;
         }

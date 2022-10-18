@@ -30,7 +30,7 @@ namespace TLMP_Paris.Classe
             this.Libelle = libelles;
         }
 
-        public string setPari()
+        public string SetPari()
         {
             return "Date max du pari : " + this.DateMax + ", Date du match : " + this.DateMatch + ", le résultat du paris est : " + this.ResultMatch + ", le taux de point gagnable est de : " + this.PointsEarn + " et pour finir le paris à comme id : " + this.IdPari + " et a comme libelle : " + this.Libelle;
         } 

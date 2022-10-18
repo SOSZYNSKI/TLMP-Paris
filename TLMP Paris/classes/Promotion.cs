@@ -22,7 +22,7 @@ namespace TLMP_Paris.Classe
             IdPromotion = idpromotion;
             ListUser = new List<User>();
         }
-        public void addUser(User u)
+        public void AddUser(User u)
         {
             this.listUser.Add(u);
         }
