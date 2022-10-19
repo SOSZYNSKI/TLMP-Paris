@@ -12,16 +12,15 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using TLMP_Paris.Classe;
 
-namespace TLMP_Paris
+namespace TLMP_Paris.views
 {
     /// <summary>
-    /// Logique d'interaction pour Accueil.xaml
+    /// Logique d'interaction pour FormSpe.xaml
     /// </summary>
-    public partial class Accueil : Page
+    public partial class FormSpe : Page
     {
-        public Accueil()
+        public FormSpe()
         {
             InitializeComponent();
         }
