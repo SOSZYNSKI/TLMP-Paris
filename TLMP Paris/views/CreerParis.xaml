@@ -9,12 +9,12 @@
 
     <Grid>
         <DataGrid x:Name="tbl_dernier_paris" HorizontalAlignment="Left" Height="243" Margin="56,45,0,0" VerticalAlignment="Top" Width="318" d:ItemsSource="{d:SampleData ItemCount=5}"/>
-        <DataGrid x:Name="tbl_dernier_paris_2" HorizontalAlignment="Left" Height="243" Margin="425,45,0,0" VerticalAlignment="Top" Width="318" d:ItemsSource="{d:SampleData ItemCount=5}"/>
-        <Rectangle HorizontalAlignment="Left" Height="207" Margin="56,350,0,0" Stroke="Black" VerticalAlignment="Top" Width="318"/>
-        <Rectangle HorizontalAlignment="Left" Height="207" Margin="425,350,0,0" Stroke="Black" VerticalAlignment="Top" Width="318"/>
-        <Label x:Name="lbl_create_paris" Content="Créer un Pari" HorizontalAlignment="Center" Height="61" Margin="0,607,0,0" VerticalAlignment="Top" Width="687" FontSize="36" HorizontalContentAlignment="Center" FontWeight="Bold" BorderBrush="Black" BorderThickness="1,1,1,1"/>
-        <Rectangle HorizontalAlignment="Center" Height="311" Margin="0,706,0,0" Stroke="Black" VerticalAlignment="Top" Width="800"/>
-        <Label x:Name="lbl_form" Content="Formulaire" HorizontalAlignment="Center" Height="61" Margin="0,706,0,0" VerticalAlignment="Top" Width="300" HorizontalContentAlignment="Center" FontSize="36" FontWeight="Bold" VerticalContentAlignment="Center"/>
+        <DataGrid x:Name="tbl_dernier_paris_2" HorizontalAlignment="Left" Height="243" Margin="425,45,0,0" VerticalAlignment="Top" Width="318" d:ItemsSource="{d:SampleData ItemCount=5}" SelectionChanged="lbl_dernier_paris_2_SelectionChanged"/>
+        <Rectangle x:Name="lbl_result_pari1" HorizontalAlignment="Left" Height="207" Margin="56,350,0,0" Stroke="Black" VerticalAlignment="Top" Width="318"/>
+        <Rectangle x:Name="lbl_result_pari2" HorizontalAlignment="Left" Height="207" Margin="425,350,0,0" Stroke="Black" VerticalAlignment="Top" Width="318"/>
+        <Label x:Name="lbl_creer_paris" Content="Créer un Pari" HorizontalAlignment="Center" Height="61" Margin="0,607,0,0" VerticalAlignment="Top" Width="687" FontSize="36" HorizontalContentAlignment="Center" FontWeight="Bold" BorderBrush="Black" BorderThickness="1,1,1,1"/>
+        <Rectangle x:Name="rectangle_form" HorizontalAlignment="Center" Height="311" Margin="0,706,0,0" Stroke="Black" VerticalAlignment="Top" Width="800"/>
+        <Label x:Name="lbl_formulaire" Content="Formulaire" HorizontalAlignment="Center" Height="61" Margin="0,706,0,0" VerticalAlignment="Top" Width="300" HorizontalContentAlignment="Center" FontSize="36" FontWeight="Bold" VerticalContentAlignment="Center"/>
         <CheckBox x:Name="chk_simple" Content="Simple ?" HorizontalAlignment="Left" Height="34" Margin="85,844,0,0" VerticalAlignment="Top" Width="130" FontSize="22"/>
         <CheckBox x:Name="chk_special" Content="Special ?" HorizontalAlignment="Left" Height="34" Margin="584,844,0,0" VerticalAlignment="Top" Width="130" FontSize="22"/>
         <Button x:Name="btn_validate_pari" Content="Valider" HorizontalAlignment="Center" Height="34" Margin="0,927,0,0" VerticalAlignment="Top" Width="160"/>
