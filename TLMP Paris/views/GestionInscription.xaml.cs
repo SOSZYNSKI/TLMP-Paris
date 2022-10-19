@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TLMP_Paris.Classe;
 
 namespace TLMP_Paris
 {
@@ -20,6 +21,7 @@ namespace TLMP_Paris
     /// </summary>
     public partial class GestionInscription : Page
     {
+
         public GestionInscription()
         {
             InitializeComponent();

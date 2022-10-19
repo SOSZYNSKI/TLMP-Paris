@@ -23,7 +23,7 @@ namespace TLMP_Paris.Classe
         public string UserPassword { get => userPassword; set => userPassword = value; }
         public string UserLogin { get => userLogin; set => userLogin = value; }
         public int TotalPoint { get => totalPoint; set => totalPoint = value; }
-        internal Promotion Promotion { get => promotion; set => promotion = value; }
+        public Promotion Promotion { get => promotion; set => promotion = value; }
 
         Dictionary<Pari, int> paris;
         Promotion promotion;

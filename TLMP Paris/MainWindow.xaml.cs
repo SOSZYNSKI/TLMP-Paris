@@ -24,6 +24,8 @@ namespace TLMP_Paris
         public MainWindow()
         {
             InitializeComponent();
+            pageViewer.Content = new Accueil();
+            loading.Visibility = Visibility.Hidden;
         }
 
         private void btn_accueil_Click(object sender, RoutedEventArgs e)
