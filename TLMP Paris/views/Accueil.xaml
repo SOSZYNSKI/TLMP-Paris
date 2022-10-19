@@ -5,21 +5,28 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:TLMP_Paris"
       mc:Ignorable="d"
-      Title="Accueil" Height="991" Width="785">
+      Title="Accueil" Height="1041" Width="785">
 
     <Grid>
-        <Rectangle HorizontalAlignment="Center" Height="104" Margin="0,32,0,0" Stroke="Black" VerticalAlignment="Top" Width="658"/>
-        <Rectangle HorizontalAlignment="Center" Height="100" Margin="0,182,0,0" Stroke="Black" VerticalAlignment="Top" Width="658"/>
-        <Rectangle HorizontalAlignment="Center" Height="86" Margin="0,324,0,0" Stroke="Black" VerticalAlignment="Top" Width="658"/>
-        <Grid HorizontalAlignment="Center" Height="278" Margin="0,676,0,0" VerticalAlignment="Top">
-            <DataGrid x:Name="dataGrid" HorizontalAlignment="Center" Height="249" Margin="0,29,0,0" VerticalAlignment="Top" Width="658" d:ItemsSource="{d:SampleData ItemCount=5}"/>
+        <Rectangle HorizontalAlignment="Center" Height="104" Margin="0,90,0,0" Stroke="Black" VerticalAlignment="Top" Width="658"/>
+        <Rectangle HorizontalAlignment="Center" Height="100" Margin="0,240,0,0" Stroke="Black" VerticalAlignment="Top" Width="658"/>
+        <Rectangle HorizontalAlignment="Center" Height="86" Margin="0,382,0,0" Stroke="Black" VerticalAlignment="Top" Width="658"/>
+        <Grid HorizontalAlignment="Center" Height="278" Margin="0,734,0,0" VerticalAlignment="Top">
+            <DataGrid x:Name="tbl_topUsers" HorizontalAlignment="Center" Height="249" Margin="0,29,0,0" VerticalAlignment="Top" Width="658" AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Width="2*" Header="Login" Binding="{Binding UserLogin}" />
+                    <DataGridTextColumn Width="2*" Header="Nom" Binding="{Binding SecondName}" />
+                    <DataGridTextColumn Width="2*" Header="Total Points" Binding="{Binding TotalPoint}" />
+                </DataGrid.Columns>
+            </DataGrid>
             <Rectangle HorizontalAlignment="Center" Height="29" VerticalAlignment="Top" Width="658" Fill="#FF434343"/>
-            <Label x:Name="lbl_classement_user" Content="Classement des utilisateurs" HorizontalAlignment="Center" VerticalAlignment="Top" Width="588" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="16" Height="29"/>
+            <Label x:Name="lbl_topUsers" Content="Classement des utilisateurs" HorizontalAlignment="Center" VerticalAlignment="Top" Width="588" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="16" Height="29"/>
         </Grid>
-        <Rectangle HorizontalAlignment="Left" Height="78" Margin="64,462,0,0" Stroke="Black" VerticalAlignment="Top" Width="317"/>
-        <Rectangle HorizontalAlignment="Left" Height="78" Margin="64,568,0,0" Stroke="Black" VerticalAlignment="Top" Width="317"/>
-        <Rectangle HorizontalAlignment="Left" Height="78" Margin="421,568,0,0" Stroke="Black" VerticalAlignment="Top" Width="308"/>
-        <Rectangle HorizontalAlignment="Left" Height="78" Margin="421,462,0,0" Stroke="Black" VerticalAlignment="Top" Width="308"/>
+        <Rectangle HorizontalAlignment="Left" Height="78" Margin="64,520,0,0" Stroke="Black" VerticalAlignment="Top" Width="317"/>
+        <Rectangle HorizontalAlignment="Left" Height="78" Margin="64,626,0,0" Stroke="Black" VerticalAlignment="Top" Width="317"/>
+        <Rectangle HorizontalAlignment="Left" Height="78" Margin="421,626,0,0" Stroke="Black" VerticalAlignment="Top" Width="308"/>
+        <Rectangle HorizontalAlignment="Left" Height="78" Margin="421,520,0,0" Stroke="Black" VerticalAlignment="Top" Width="308"/>
+        <TextBlock x:Name="txt_welcome_message" HorizontalAlignment="Center" Height="39" Margin="0,25,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="658" Text="Bonjour x vous êtes actuellement sur la page d'accueil" TextAlignment="Center" FontSize="24"/>
 
     </Grid>
 </Page>
