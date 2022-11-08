@@ -6,20 +6,20 @@ using System.Threading.Tasks;
 
 namespace TLMP_Paris.Classe
 {
-    internal class Promotion
+    public class Promotion
     {
         string promotionName;
-        int idPromotion;
+        int nombreTotal;
         internal List<User> ListUser { get => listUser; set => listUser = value; }
         public string PromotionName { get => promotionName; set => promotionName = value; }
-        public int IdPromotion { get => idPromotion; set => idPromotion = value; }
+        public int NombreTotal { get => nombreTotal; set => nombreTotal = value; }
 
         List<User> listUser;
 
-        public Promotion(string promotionname, int idpromotion)
+        public Promotion(string promotionname, int nombreTotal)
         {
             PromotionName = promotionname;
-            IdPromotion = idpromotion;
+            NombreTotal = nombreTotal;
             ListUser = new List<User>();
         }
         public void AddUser(User u)
