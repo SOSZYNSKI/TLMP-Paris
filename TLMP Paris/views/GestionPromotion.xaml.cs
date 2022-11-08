@@ -66,5 +66,10 @@ namespace TLMP_Paris
         {
 
         }
+
+        private void btn_open_test_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
