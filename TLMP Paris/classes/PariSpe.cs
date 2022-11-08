@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace TLMP_Paris.Classe
 {
-    internal class PariSpe : Pari
+    public class PariSpe : Pari
     {
         DateTime range;
         int penality;

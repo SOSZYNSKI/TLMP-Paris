@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TLMP_Paris.Classe
 {
-    internal class Pari
+    public class Pari
     {
         DateTime dateMax;
         DateTime dateMatch;
