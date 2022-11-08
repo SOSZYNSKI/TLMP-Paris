@@ -87,6 +87,10 @@ namespace TLMP_Paris.classes
                 {
                     Console.WriteLine(e);
                 }
+                finally
+                {
+                    connexion.Close();
+                }
                 
             }
             
