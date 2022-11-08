@@ -46,7 +46,7 @@ namespace TLMP_Paris.classes
                         int totalpoint = Convert.ToInt32(row["totalpointUsers"].ToString());
                         int iduser = Convert.ToInt32(row["idUsers"].ToString());
 
-                        listuser.Add(new User(username, secondname, numberwinpari, userpassword, userlogin, totalpoint,   ));
+                        listuser.Add(new User(username, secondname, numberwinpari, userpassword, userlogin, totalpoint, iduser));
                     }
                 }
 
