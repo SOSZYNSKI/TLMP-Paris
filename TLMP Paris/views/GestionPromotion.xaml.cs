@@ -15,6 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using TLMP_Paris.Classe;
+using TLMP_Paris.classes;
 
 namespace TLMP_Paris
 {
@@ -25,15 +26,11 @@ namespace TLMP_Paris
     {
 
 
-        List<Promotion> promotions = new();
-
         public GestionPromotion()
         {
 
             InitializeComponent();
-            ADOpromotion adopromotions = new();
-            promotions = adopromotions.getall();
-            dgd_view_tabpromotion.ItemsSource = promotions;
+            dgd_view_tabpromotion.ItemsSource = MainWindow.promotions;
             txt_Name.Text = "Name";
             txt_nombre.Text = "Nombre";
         }

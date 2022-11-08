@@ -11,7 +11,7 @@
 
     <Grid Height="800">
         <Label x:Name="lbl_tabpromotion" Content="Tableau des promotions" HorizontalAlignment="Center" Height="37" Margin="0,10,0,0" VerticalAlignment="Top" Width="220" FontSize="20"/>
-        <DataGrid x:Name="dgd_view_tabpromotion" Margin="47,47,34,0" SelectionChanged="DataGrid_SelectionChanged" Height="634" VerticalAlignment="Top">
+        <DataGrid x:Name="dgd_view_tabpromotion" Margin="47,47,34,0" SelectionChanged="DataGrid_SelectionChanged" Height="634" VerticalAlignment="Top" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Width="2*" Header="Nom Promotion" Binding="{Binding PromotionName}" />
                 <DataGridTextColumn Width="2*" Header="Nombre Users" Binding="{Binding NombreTotal}"/>

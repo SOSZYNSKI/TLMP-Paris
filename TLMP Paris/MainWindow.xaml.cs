@@ -15,6 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MahApps.Metro.Controls;
 using TLMP_Paris.Classe;
+using TLMP_Paris.classes;
 
 namespace TLMP_Paris
 {
@@ -25,13 +26,13 @@ namespace TLMP_Paris
     {
         public static List<Promotion> promotions = new List<Promotion>();
         public List<User> Users = new List<User>();
+        public ADOpromotion adopromotions = new();
         public MainWindow()
         {
             InitializeComponent();
             pageViewer.Content = new Accueil();
             loading.Visibility = Visibility.Hidden;
-            Promotion test = new Promotion("Lol", 36);
-
+            promotions = adopromotions.getall();
         }
 
         private void btn_accueil_Click(object sender, RoutedEventArgs e)
