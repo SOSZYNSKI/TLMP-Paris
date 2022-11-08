@@ -4,22 +4,24 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:TLMP_Paris"
+    
       xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" x:Class="TLMP_Paris.GestionPromotion"
       mc:Ignorable="d" d:DesignWidth="800"
       Title="GestionPromotion" Height="819">
 
     <Grid Height="800">
         <Label x:Name="lbl_tabpromotion" Content="Tableau des promotions" HorizontalAlignment="Center" Height="37" Margin="0,10,0,0" VerticalAlignment="Top" Width="220" FontSize="20"/>
-        <DataGrid x:Name="liste_tabpromotion" AutoGenerateColumns="False" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="47,47,34,0" SelectionChanged="DataGrid_SelectionChanged" Height="634" VerticalAlignment="Top">
+        <DataGrid x:Name="dgd_view_tabpromotion" Margin="47,47,34,0" SelectionChanged="DataGrid_SelectionChanged" Height="634" VerticalAlignment="Top" AutoGenerateColumns="False">
             <DataGrid.Columns>
-                <DataGridTextColumn Width="1*" Header="Nom de la promotion" Binding="{Binding PromotionName}" />
-                <DataGridTextColumn Width="1*" Header="Nombre de personnes total" Binding="{Binding IdPromotion}"/>
+                <DataGridTextColumn Width="2*" Header="Nom Promotion" Binding="{Binding PromotionName}" />
+                <DataGridTextColumn Width="2*" Header="Nombre Users" Binding="{Binding NombreTotal}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button x:Name="btn_add" Content="Ajouter" HorizontalAlignment="Left" Height="37" Margin="47,733,0,0" VerticalAlignment="Top" Width="152" RenderTransformOrigin="0.025,0.9"/>
-        <Button x:Name="btn_del" Content="Supprimer" HorizontalAlignment="Center" Margin="0,733,0,0" VerticalAlignment="Top" Height="37" Width="152"/>
+        <Button x:Name="btn_add" Content="Ajouter" HorizontalAlignment="Left" Height="37" Margin="47,733,0,0" VerticalAlignment="Top" Width="152" RenderTransformOrigin="0.025,0.9" Click="btn_add_Click"/>
+        <Button x:Name="btn_del" Content="Supprimer" HorizontalAlignment="Center" Margin="0,733,0,0" VerticalAlignment="Top" Height="37" Width="152" Click="btn_del_Click"/>
         <Button x:Name="btn_edit" Content="Modifier" HorizontalAlignment="Left" Margin="614,733,0,0" VerticalAlignment="Top" Height="37" Width="152" RenderTransformOrigin="0.525,1.498" Click="Button_Click"/>
-        <Button x:Name="btn_open_test" Content="Button" HorizontalAlignment="Left" Margin="227,700,0,0" VerticalAlignment="Top" Click="btn_open_test_Click"/>
+        <TextBox x:Name="txt_Name" HorizontalAlignment="Left" Margin="47,686,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="136" Height="30"/>
+        <TextBox x:Name="txt_nombre" HorizontalAlignment="Left" Margin="188,686,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="136" Height="30"/>
 
     </Grid>
 </Page>

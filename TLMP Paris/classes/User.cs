@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TLMP_Paris.Classe
 {
-    internal class User
+    public class User
     {
         string userName;
         string secondName;

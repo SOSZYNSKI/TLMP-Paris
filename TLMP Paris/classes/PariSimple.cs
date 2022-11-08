@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TLMP_Paris.Classe
 {
-    internal class PariSimple : Pari
+    public class PariSimple : Pari
     {
         int eliminations;
         public int Eliminations { get => eliminations; set => eliminations = value; }

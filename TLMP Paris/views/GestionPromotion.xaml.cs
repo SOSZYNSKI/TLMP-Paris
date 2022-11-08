@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
@@ -14,6 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using TLMP_Paris.Classe;
+using TLMP_Paris.classes;
 
 namespace TLMP_Paris
 {
@@ -24,37 +26,13 @@ namespace TLMP_Paris
     {
 
 
-        List<Promotion> promotions;
-
         public GestionPromotion()
         {
- 
+
             InitializeComponent();
-            Promotion g = new Promotion("Lenom",2);
-            Promotion g1 = new Promotion("Lesnoms",3);
-            Promotion g2 = new Promotion("LE",4);
-            Promotion g3 = new Promotion("LES",5);
-            Promotion g4 = new Promotion("La",9);
-            Promotion g5 = new Promotion("lo",11);
-            Promotion g6 = new Promotion("vek",40);
-            Promotion g7 = new Promotion("zob",17);
-            Promotion g8 = new Promotion("element",6);
-            Promotion g9 = new Promotion("zola",41);
-
-            promotions = new List<Promotion>();
-
-            promotions.Add(g);
-            promotions.Add(g1);
-            promotions.Add(g2);
-            promotions.Add(g3);
-            promotions.Add(g4);
-            promotions.Add(g5);
-            promotions.Add(g6);
-            promotions.Add(g7);
-            promotions.Add(g8);
-            promotions.Add(g9);
-
-            liste_tabpromotion.ItemsSource = promotions;
+            dgd_view_tabpromotion.ItemsSource = MainWindow.promotions;
+            txt_Name.Text = "Name";
+            txt_nombre.Text = "Nombre";
         }
 
         private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -67,8 +45,19 @@ namespace TLMP_Paris
 
         }
 
-        private void btn_open_test_Click(object sender, RoutedEventArgs e)
+        private void btn_add_Click(object sender, RoutedEventArgs e)
         {
+            Promotion newProm = new Promotion(txt_Name.Text, Convert.ToInt32(txt_nombre.Text));
+            MainWindow.promotions.Add(newProm);
+            dgd_view_tabpromotion.Items.Refresh();
+        }
+
+        private void btn_del_Click(object sender, RoutedEventArgs e)
+        {
+            object objet = dgd_view_tabpromotion.SelectedItem;
+            Promotion promo = objet as Promotion;
+            MainWindow.promotions.Remove(promo);
+            dgd_view_tabpromotion.Items.Refresh();
 
         }
     }
