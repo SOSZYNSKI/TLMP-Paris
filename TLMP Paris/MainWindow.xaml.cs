@@ -30,22 +30,39 @@ namespace TLMP_Paris
 
         private void btn_accueil_Click(object sender, RoutedEventArgs e)
         {
+            loading.Visibility = Visibility.Visible;
             pageViewer.Content = new Accueil();
+            loadingDelay(1000);
         }
 
         private void btn_gestion_inscription_Click(object sender, RoutedEventArgs e)
         {
+            loading.Visibility = Visibility.Visible;
             pageViewer.Content = new GestionInscription();
+            loadingDelay(1000);
         }
 
         private void btn_creer_paris_Click(object sender, RoutedEventArgs e)
         {
+            loading.Visibility = Visibility.Visible;
             pageViewer.Content = new CreerParis();
+            loadingDelay(1000);
         }
 
         private void btn_gestion_promotion_Click(object sender, RoutedEventArgs e)
         {
+            loading.Visibility = Visibility.Visible;
             pageViewer.Content = new GestionPromotion();
+            loadingDelay(1000);
+        }
+
+        async private void loadingDelay(int time)
+        {
+            ldg_progressbar.Value = 0;
+            await Task.Delay(time);
+            ldg_progressbar.Value = 100;
+            await Task.Delay(100);
+            loading.Visibility = Visibility.Hidden;
         }
     }
 }

@@ -27,9 +27,10 @@
             <Frame x:Name="pageViewer" NavigationUIVisibility="Hidden" HorizontalAlignment="Center" Height="Auto" VerticalAlignment="Top" Width="800">
             </Frame>
         </ScrollViewer>
-        <Grid x:Name="loading" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Hidden">
+        <Grid x:Name="loading" Background="#BF000000" Visibility="Hidden">
             <Rectangle HorizontalAlignment="Center" Height="726" Stroke="Black" VerticalAlignment="Center" Width="800" Fill="White"/>
             <mah:ProgressRing x:Name="ldg_main_circle" Height="124" Width="124"/>
+            <mah:MetroProgressBar x:Name="ldg_progressbar" HorizontalAlignment="Center" Height="22" Margin="0,471,0,0" VerticalAlignment="Top" Width="470" Background="#FF848484" Foreground="#FF13FF00"/>
         </Grid>
     </Grid>
 </mah:MetroWindow>
