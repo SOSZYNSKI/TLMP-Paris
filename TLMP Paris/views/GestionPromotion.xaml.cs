@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using TLMP_Paris.Classe;
+using TLMP_Paris.classes;
 
 namespace TLMP_Paris
 {
@@ -69,7 +70,7 @@ namespace TLMP_Paris
 
         private void btn_open_test_Click(object sender, RoutedEventArgs e)
         {
-
+            ADO.Open();
         }
     }
 }
