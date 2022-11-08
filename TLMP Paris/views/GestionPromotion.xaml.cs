@@ -22,10 +22,13 @@ namespace TLMP_Paris
     /// </summary>
     public partial class GestionPromotion : Page
     {
+        List<Promotion> promotions = new();
         public GestionPromotion()
         {
             InitializeComponent();
-            dgd_view_tabpromotion.ItemsSource = MainWindow.promotions;
+            ADOpromotion adopromotions = new ADOpromotion();
+            promotions = adopromotions.getall();
+            dgd_view_tabpromotion.ItemsSource = promotions;
             txt_Name.Text = "Name";
             txt_nombre.Text = "Nombre";
         }
