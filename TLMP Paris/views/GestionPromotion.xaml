@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:TLMP_Paris"
+    
       xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" x:Class="TLMP_Paris.GestionPromotion"
       mc:Ignorable="d" d:DesignWidth="800"
       Title="GestionPromotion" Height="819">

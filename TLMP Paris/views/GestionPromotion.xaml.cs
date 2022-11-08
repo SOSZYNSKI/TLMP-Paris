@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Common;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,10 +23,17 @@ namespace TLMP_Paris
     /// </summary>
     public partial class GestionPromotion : Page
     {
+
+
+        List<Promotion> promotions = new();
+
         public GestionPromotion()
         {
+
             InitializeComponent();
-            dgd_view_tabpromotion.ItemsSource = MainWindow.promotions;
+            ADOpromotion adopromotions = new();
+            promotions = adopromotions.getall();
+            dgd_view_tabpromotion.ItemsSource = promotions;
             txt_Name.Text = "Name";
             txt_nombre.Text = "Nombre";
         }
