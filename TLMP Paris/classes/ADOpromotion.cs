@@ -57,7 +57,7 @@ namespace TLMP_Paris.classes
             return list;
         }
 
-        public void update()
+        public void save()
         {
             string del = "DELETE FROM promotions";
 

@@ -30,10 +30,8 @@ namespace TLMP_Paris.classes
             try
             {
                 using (SqlDataAdapter all = new SqlDataAdapter("SELECT * FROM promotions", connexion))
-                {
-                    DataTable dtTest = new();
+                { 
                     DataSet dsTest = new();
-                    all.Fill(dtTest);
                     all.Fill(dsTest);
                     var firstColumn = dsTest.Tables[0].Rows;
                     foreach (DataRow row in firstColumn)
