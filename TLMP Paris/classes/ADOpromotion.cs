@@ -57,7 +57,7 @@ namespace TLMP_Paris.classes
             return list;
         }
 
-        public void save()
+        public void save(List<Promotion> listepromotion)
         {
             string del = "DELETE FROM promotions";
 
@@ -77,7 +77,7 @@ namespace TLMP_Paris.classes
                 connexion.Close();
             }
             
-            foreach  (Promotion p in MainWindow.promotions)
+            foreach  (Promotion p in listepromotion)
             {
                 try
                 {

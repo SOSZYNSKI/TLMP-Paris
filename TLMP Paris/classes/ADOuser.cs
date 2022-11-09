@@ -29,7 +29,7 @@ namespace TLMP_Paris.classes
 
             try
             {
-                using (SqlDataAdapter all = new SqlDataAdapter("SELECT * FROM promotions", connexion))
+                using (SqlDataAdapter all = new SqlDataAdapter("SELECT * FROM users", connexion))
                 { 
                     DataSet dsTest = new();
                     all.Fill(dsTest);
