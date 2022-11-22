@@ -30,7 +30,7 @@ namespace TLMP_Paris.classes
             try
             {
                 using (SqlDataAdapter all = new SqlDataAdapter("SELECT * FROM users", connexion))
-                { 
+                {
                     DataSet dsTest = new();
                     all.Fill(dsTest);
                     var firstColumn = dsTest.Tables[0].Rows;
@@ -54,6 +54,27 @@ namespace TLMP_Paris.classes
                 Console.WriteLine(e);
             }
             return listuser;
+        }
+
+        public void delete(List<User> listuser)
+        {
+            string del = "DELETE FROM users";
+
+            SqlCommand delete = new SqlCommand(del, connexion);
+
+            try
+            {
+                connexion.Open();
+                delete.ExecuteNonQuery();
+            }
+            catch (SqlException e)
+            {
+                Console.WriteLine(e);
+            }
+            finally
+            {
+                connexion.Close();
+            }
         }
     }
 }
