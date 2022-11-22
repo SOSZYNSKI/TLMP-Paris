@@ -25,6 +25,7 @@ namespace TLMP_Paris
         public GestionInscription()
         {
             InitializeComponent();
+            tbl_tableau_classement.ItemsSource = MainWindow.Users;
         }
 
         private void btn_importer_Click(object sender, RoutedEventArgs e)

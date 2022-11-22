@@ -66,7 +66,8 @@ namespace TLMP_Paris.classes
             {
                 Console.WriteLine(e);
             }
-            return listSpe listSimple;
+            //return listSpe listSimple;
+            return null;
         }
 
         public void save(List<Pari> listepari)
@@ -93,8 +94,10 @@ namespace TLMP_Paris.classes
             {
                 try
                 {
-                    if(p.)
-                    string save = $"INSERT INTO parimatch (nomPromotion, nombrepersonnesPromotion) VALUES ({p.PromotionName},{p.NombreTotal});";
+                    string save = $"INSERT INTO parimatch (nomPromotion, nombrepersonnesPromotion) VALUES ({p.},{p.NombreTotal});";
+                    SqlCommand saving = new SqlCommand(save, connexion);
+                    connexion.Open();
+                    saving.ExecuteNonQuery();
                 }
                 catch (Exception e)
                 {
