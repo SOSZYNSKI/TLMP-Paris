@@ -32,8 +32,6 @@ namespace TLMP_Paris
 
         public static List<Pari> listeParis = new();
         public ADOparimatch listeparisADO = new ADOparimatch();
-
-        public static List<PariSpe> listeparispe = new();
         public MainWindow()
         {
             InitializeComponent();
