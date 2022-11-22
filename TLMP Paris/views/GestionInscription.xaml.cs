@@ -21,15 +21,63 @@ namespace TLMP_Paris
     /// </summary>
     public partial class GestionInscription : Page
     {
+        List<String> characters = new();
+        List<User> users = new();
 
         public GestionInscription()
         {
             InitializeComponent();
+            characters.AddRange(new string[] {"aucun", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"});
+            cbox_searchby_lastname.ItemsSource = characters;
+            cbox_searchby_firstname.ItemsSource = characters;
+            cbox_searchby_promotion.ItemsSource = characters;
+            users.Add(new User("Paul", "SOLD", 2, "test", "test", 900, 1));
+            users.Add(new User("Vincent", "AZDOD", 2, "test", "test", 900, 1));
+            users.Add(new User("Juliette", "LKAI", 2, "test", "test", 900, 1));
+            users.Add(new User("Alizée", "PAX", 2, "test", "test", 900, 1));
+            users.Add(new User("Jean", "UXN", 2, "test", "test", 900, 1));
+            users.Add(new User("Bastien", "QUIWI", 2, "test", "test", 900, 1));
+            users.Add(new User("Andrea", "MOAD", 2, "test", "test", 900, 1));
+            users.Add(new User("Victor", "TEGI", 2, "test", "test", 900, 1));
+            tbl_tableau_classement.ItemsSource = users;
         }
 
         private void btn_importer_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void btn_search_Click(object sender, RoutedEventArgs e)
+        {
+            tbl_tableau_classement.ItemsSource = users.Where(user => {
+                bool tmpCheck = false;
+                if (txtbox_searchby_lastname.Text.Length > 0) {
+                    if (user.SecondName.ToLower() == txtbox_searchby_lastname.Text.ToLower()) tmpCheck = true;
+                    else tmpCheck = false;
+                } else {
+                    if (cbox_searchby_lastname.SelectedIndex > 0 && user.SecondName.ToLower().StartsWith(characters[cbox_searchby_lastname.SelectedIndex])) tmpCheck = true;
+                    else if (cbox_searchby_lastname.SelectedIndex > 0 && tmpCheck == true) tmpCheck = false;
+                }
+                System.Diagnostics.Trace.WriteLine(tmpCheck);
+                if (txtbox_searchby_firstname.Text.Length > 0) {
+                    if (user.UserName.ToLower() == txtbox_searchby_firstname.Text.ToLower()) tmpCheck = true;
+                    else tmpCheck = false;
+                } else {
+                    if (cbox_searchby_firstname.SelectedIndex > 0 && user.UserName.ToLower().StartsWith(characters[cbox_searchby_firstname.SelectedIndex])) tmpCheck = true;
+                    else if (cbox_searchby_firstname.SelectedIndex > 0 && tmpCheck == true) tmpCheck = false;
+                }
+                System.Diagnostics.Trace.WriteLine(tmpCheck);
+                if (txtbox_searchby_promotion.Text.Length > 0) {
+                    if (user.Promotion.PromotionName.ToLower() == txtbox_searchby_promotion.Text.ToLower()) tmpCheck = true;
+                    else tmpCheck = false;
+                } else {
+                    if (cbox_searchby_promotion.SelectedIndex > 0 && user.Promotion.PromotionName.ToLower().StartsWith(characters[cbox_searchby_promotion.SelectedIndex])) tmpCheck = true;
+                    else if (cbox_searchby_promotion.SelectedIndex > 0 && tmpCheck == true) tmpCheck = false;
+                }
+                System.Diagnostics.Trace.WriteLine(tmpCheck);
+                if (txtbox_searchby_lastname.Text.Length < 1 && txtbox_searchby_firstname.Text.Length < 1 && txtbox_searchby_promotion.Text.Length < 1 && cbox_searchby_firstname.SelectedIndex < 1 && cbox_searchby_lastname.SelectedIndex < 1 && cbox_searchby_promotion.SelectedIndex < 1) return true;
+                return tmpCheck;
+            }).ToList();
         }
     }
 }
