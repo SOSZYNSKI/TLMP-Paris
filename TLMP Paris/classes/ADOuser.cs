@@ -56,7 +56,7 @@ namespace TLMP_Paris.classes
             return listuser;
         }
 
-        public void delete(List<User> listuser)
+        public void save(List<User> listedesuser)
         {
             string del = "DELETE FROM users";
 
@@ -75,6 +75,28 @@ namespace TLMP_Paris.classes
             {
                 connexion.Close();
             }
+
+            foreach (User u in listedesuser)
+            {
+                try
+                {
+                    string save = $"INSERT INTO users (prenomUsers, nomUsers, mdpUsers, loginUsers, totalpointUsers) VALUES ({u.UserName},{u.SecondName},{u.UserPassword}, {u.UserLogin}, {u.TotalPoint});";
+                    SqlCommand saving = new SqlCommand(save, connexion);
+                    connexion.Open();
+                    saving.ExecuteNonQuery();
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                }
+                finally
+                {
+                    connexion.Close();
+                }
+
+            }
+
+
         }
     }
 }

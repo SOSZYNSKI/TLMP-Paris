@@ -82,6 +82,9 @@ namespace TLMP_Paris.classes
                 try
                 {
                     string save = $"INSERT INTO promotions (nomPromotion, nombrepersonnesPromotion) VALUES ({p.PromotionName},{p.NombreTotal});";
+                    SqlCommand saving = new SqlCommand(save, connexion);
+                    connexion.Open();
+                    saving.ExecuteNonQuery();
                 }
                 catch(Exception e)
                 {

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
@@ -32,6 +33,19 @@ namespace TLMP_Paris
 
         public static List<Pari> listeParis = new();
         public ADOparimatch listeparisADO = new ADOparimatch();
+
+        private void OnClosing(object sender, CancelEventArgs e)
+        {
+            var result = MessageBox.Show("Voulez-vous vraiment quitter ? Vos données seront automatiquement enregistrées", "Vous êtes en train de quitter l'application", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (result != MessageBoxResult.Yes)
+            {
+                adopromotions.save(promotions);
+                listeparisADO.save(listeParis);
+                ADOuser.save(Users);
+                e.Cancel = true;
+            }
+        }
+
         public MainWindow()
         {
             InitializeComponent();

@@ -26,9 +26,7 @@ namespace TLMP_Paris.classes
 
         public List<Pari> getall()
         {
-            List<PariSpe> listSpe = new List<PariSpe>();
-            List<PariSimple> listSimple = new List<PariSimple>();
-
+            List<Pari> listdespari = new List<Pari>();
             try
             {
                 using (SqlDataAdapter all = new SqlDataAdapter("SELECT * FROM parimatch", connexion))
@@ -49,15 +47,6 @@ namespace TLMP_Paris.classes
                         int eliminatoirematch = Convert.ToInt16(row["eliminatoireMatch"].ToString());
                         DateTime ecartmatch = Convert.ToDateTime(row["ecartMatch"].ToString());
                         int penalitematch = Convert.ToInt16(row["penaliteMatch"].ToString());
-
-                        if (typepari == "spe")
-                        {
-                            listSpe.Add(new PariSpe(ecartmatch, penalitematch, datemaxparimatch, dateparimatch, libellematch, recompensematch, idpari));
-                        }
-                        else
-                        {
-                            listSimple.Add(new PariSimple(eliminatoirematch, datemaxparimatch, dateparimatch, libellematch, recompensematch, idpari));
-                        }
                     }
                 }
 
@@ -66,8 +55,7 @@ namespace TLMP_Paris.classes
             {
                 Console.WriteLine(e);
             }
-            //return listSpe listSimple;
-            return null;
+            return listdespari;
         }
 
         public void save(List<Pari> listepari)
@@ -94,7 +82,7 @@ namespace TLMP_Paris.classes
             {
                 try
                 {
-                    string save = $"INSERT INTO parimatch (nomPromotion, nombrepersonnesPromotion) VALUES ({p.},{p.NombreTotal});";
+                    string save = $"INSERT INTO parimatch (datemaxpariMatch, datepariMatch, resultatMatch, recompensepariMatch, libelleMatch, typePari, eliminatoireMatch, ecartMatch, penaliteMatch) VALUES ({p.DateMax},{p.DateMatch},{p.ResultMatch},{p.PointsEarn},{p.Libelle});";
                     SqlCommand saving = new SqlCommand(save, connexion);
                     connexion.Open();
                     saving.ExecuteNonQuery();
