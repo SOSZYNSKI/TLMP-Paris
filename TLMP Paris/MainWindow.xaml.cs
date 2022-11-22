@@ -25,14 +25,21 @@ namespace TLMP_Paris
     public partial class MainWindow : MetroWindow
     {
         public static List<Promotion> promotions = new List<Promotion>();
-        public List<User> Users = new List<User>();
         public ADOpromotion adopromotions = new();
+
+        public static List<User> Users = new List<User>();
+        public ADOuser ADOuser = new();
+
+        public static List<Pari> listeParis = new();
+        public ADOparimatch listeparisADO = new ADOparimatch();
         public MainWindow()
         {
             InitializeComponent();
             pageViewer.Content = new Accueil();
             loading.Visibility = Visibility.Hidden;
             promotions = adopromotions.getall();
+            listeParis = listeparisADO.getall();
+            Users = ADOuser.getall();
         }
 
         private void btn_accueil_Click(object sender, RoutedEventArgs e)

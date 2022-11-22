@@ -1,12 +1,15 @@
 using MahApps.Metro.Actions;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Automation;
 using TLMP_Paris.Classe;
 
 namespace TLMP_Paris.classes
@@ -41,8 +44,8 @@ namespace TLMP_Paris.classes
                     foreach(DataRow row in firstColumn)
                     {
                         string promoName = row["nomPromotion"].ToString();
-                        int promoID = Convert.ToInt32(row["idPromotion"].ToString());
-                        list.Add(new Promotion(promoName, promoID));
+                        int nombrepersonnesP = Convert.ToInt32(row["nombrepersonnesPromotion"].ToString());
+                        list.Add(new Promotion(promoName, nombrepersonnesP));
                     }
                 }
 
@@ -54,6 +57,45 @@ namespace TLMP_Paris.classes
             return list;
         }
 
+        public void save(List<Promotion> listepromotion)
+        {
+            string del = "DELETE FROM promotions";
+
+            SqlCommand delete = new SqlCommand(del, connexion);
+
+            try
+            {
+                connexion.Open();
+                delete.ExecuteNonQuery();
+            }
+            catch (SqlException e)
+            {
+                Console.WriteLine(e);
+            }
+            finally
+            {
+                connexion.Close();
+            }
+            
+            foreach  (Promotion p in listepromotion)
+            {
+                try
+                {
+                    string save = $"INSERT INTO promotions (nomPromotion, nombrepersonnesPromotion) VALUES ({p.PromotionName},{p.NombreTotal});";
+                }
+                catch(Exception e)
+                {
+                    Console.WriteLine(e);
+                }
+                finally
+                {
+                    connexion.Close();
+                }
+                
+            }
+            
+
+        }
 
     }
 

@@ -15,7 +15,6 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using TLMP_Paris.Classe;
-using TLMP_Paris.classes;
 
 namespace TLMP_Paris
 {
@@ -24,8 +23,6 @@ namespace TLMP_Paris
     /// </summary>
     public partial class GestionPromotion : Page
     {
-
-
         public GestionPromotion()
         {
 
