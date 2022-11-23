@@ -24,5 +24,11 @@ namespace TLMP_Paris
         {
             InitializeComponent();
         }
+
+        private void btn_validate_pari_Click(object sender, RoutedEventArgs e)
+        {
+            if (chk_simple.IsChecked == true) ((MainWindow)Application.Current.MainWindow).pageViewer.Content = new views.FormSimple();
+            if (chk_special.IsChecked == true) ((MainWindow)Application.Current.MainWindow).pageViewer.Content = new views.FormSpe();
+        }
     }
 }
