@@ -14,14 +14,12 @@ namespace TLMP_Paris.Classe
         int pointsEarn;
         int idPari;
         string libelle;
-        int range;
-        string libellerange;
+        DateTime range;
         int penality;
         int elimination;
 
         public int Elimination { get => elimination; set => elimination = value; }
-        public string Libellerange { get => libellerange; set => libellerange = value; }
-        public int Range { get => range; set => Range = value;}
+        public DateTime Range { get => range; set => Range = value;}
         public int Penality {  get => penality; set => penality = value; }
         public DateTime DateMax { get => dateMax; set => dateMax = value; }
         public DateTime DateMatch { get => dateMatch; set => dateMatch = value; }
@@ -29,6 +27,17 @@ namespace TLMP_Paris.Classe
         public int PointsEarn { get => pointsEarn; set => pointsEarn = value; }
         public int IdPari { get => idPari; set => idPari = value; }
         public string Libelle { get => libelle; set => libelle = value; }
+
+        public Pari(DateTime datemax, DateTime datematch,string libelles, int pointearn,int elimination, DateTime range, int penality)
+        {
+            this.DateMax = datemax;
+            this.DateMatch = datematch;
+            this.PointsEarn = pointearn;
+            this.Libelle = libelles;
+            this.Elimination = elimination;
+            this.Range = range;
+            this.Penality = penality;
+        }
 
         public Pari(DateTime datemax, DateTime datematch,string libelles,int pointearn,int elimination)
         {
@@ -39,7 +48,7 @@ namespace TLMP_Paris.Classe
             this.Elimination = elimination;
         }
 
-        public Pari(DateTime datemax, DateTime datematch, string libelles, int pointearn,int range,string libellerange, int penality)
+        public Pari(DateTime datemax, DateTime datematch, string libelles, int pointearn,DateTime range, int penality)
         {
             this.DateMax = datemax;
             this.Libellerange = libellerange;
