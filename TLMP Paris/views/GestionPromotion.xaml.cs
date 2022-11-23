@@ -15,6 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using TLMP_Paris.Classe;
+using TLMP_Paris.classes;
 
 namespace TLMP_Paris
 {
@@ -47,7 +48,9 @@ namespace TLMP_Paris
             Promotion newProm = new Promotion(txt_Name.Text, Convert.ToInt32(txt_nombre.Text));
             MainWindow.promotions.Add(newProm);
             dgd_view_tabpromotion.Items.Refresh();
-        }
+            ADOmethods.deleteall();
+            MainWindow.adopromotions.save(MainWindow.promotions);
+        }   
 
         private void btn_del_Click(object sender, RoutedEventArgs e)
         {

@@ -26,22 +26,25 @@ namespace TLMP_Paris
     public partial class MainWindow : MetroWindow
     {
         public static List<Promotion> promotions = new List<Promotion>();
-        public ADOpromotion adopromotions = new();
+        public static ADOpromotion adopromotions = new();
 
         public static List<User> Users = new List<User>();
-        public ADOuser ADOuser = new();
+        public static ADOuser ADOuser = new();
 
         public static List<Pari> listeParis = new();
-        public ADOparimatch listeparisADO = new ADOparimatch();
+        public static ADOparimatch listeparisADO = new ADOparimatch();
 
         private void OnClosing(object sender, CancelEventArgs e)
         {
             var result = MessageBox.Show("Voulez-vous vraiment quitter ? Vos données seront automatiquement enregistrées", "Vous êtes en train de quitter l'application", MessageBoxButton.YesNo, MessageBoxImage.Question);
-            if (result != MessageBoxResult.Yes)
+            if (result == MessageBoxResult.Yes)
             {
-                adopromotions.save(promotions);
-                listeparisADO.save(listeParis);
-                ADOuser.save(Users);
+                ADOmethods.deleteall();
+                ADOmethods.saveall(Users, promotions, listeParis);
+                e.Cancel = false;
+            }
+            else
+            {
                 e.Cancel = true;
             }
         }

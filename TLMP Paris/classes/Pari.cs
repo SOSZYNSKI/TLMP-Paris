@@ -14,12 +14,12 @@ namespace TLMP_Paris.Classe
         int pointsEarn;
         int idPari;
         string libelle;
-        DateTime range;
+        int range;
         int penality;
         int elimination;
 
         public int Elimination { get => elimination; set => elimination = value; }
-        public DateTime Range { get => range; set => Range = value;}
+        public int Range { get => range; set => Range = value;}
         public int Penality {  get => penality; set => penality = value; }
         public DateTime DateMax { get => dateMax; set => dateMax = value; }
         public DateTime DateMatch { get => dateMatch; set => dateMatch = value; }
@@ -28,7 +28,7 @@ namespace TLMP_Paris.Classe
         public int IdPari { get => idPari; set => idPari = value; }
         public string Libelle { get => libelle; set => libelle = value; }
 
-        public Pari(DateTime datemax, DateTime datematch,string libelles, int pointearn,int elimination, DateTime range, int penality)
+        public Pari(DateTime datemax, DateTime datematch,string libelles, int pointearn,int elimination, int range, int penality)
         {
             this.DateMax = datemax;
             this.DateMatch = datematch;
@@ -48,7 +48,7 @@ namespace TLMP_Paris.Classe
             this.Elimination = elimination;
         }
 
-        public Pari(DateTime datemax, DateTime datematch, string libelles, int pointearn,DateTime range, int penality)
+        public Pari(DateTime datemax, DateTime datematch, string libelles, int pointearn,int range, int penality)
         {
             this.DateMax = datemax;
             this.DateMatch = datematch;
