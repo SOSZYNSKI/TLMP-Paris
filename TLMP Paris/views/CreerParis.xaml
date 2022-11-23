@@ -8,16 +8,34 @@
       Title="CreerParis" Height="1027">
 
     <Grid>
-        <DataGrid x:Name="tbl_dernier_paris" HorizontalAlignment="Left" Height="243" Margin="56,45,0,0" VerticalAlignment="Top" Width="318" d:ItemsSource="{d:SampleData ItemCount=5}"/>
-        <DataGrid x:Name="tbl_dernier_paris_2" HorizontalAlignment="Left" Height="243" Margin="425,45,0,0" VerticalAlignment="Top" Width="318" d:ItemsSource="{d:SampleData ItemCount=5}"/>
-        <Rectangle x:Name="lbl_result_pari1" HorizontalAlignment="Left" Height="207" Margin="56,350,0,0" Stroke="Black" VerticalAlignment="Top" Width="318"/>
-        <Rectangle x:Name="lbl_result_pari2" HorizontalAlignment="Left" Height="207" Margin="425,350,0,0" Stroke="Black" VerticalAlignment="Top" Width="318"/>
+        <Grid HorizontalAlignment="Left" Margin="56,45,0,0" VerticalAlignment="Top">
+            <Rectangle x:Name="rect_dernier_paris" HorizontalAlignment="Left" Height="243" VerticalAlignment="Top" Width="318" Fill="#FF434343"/>
+            <DataGrid x:Name="tbl_dernier_paris" HorizontalAlignment="Left" Height="232" Margin="7,5,0,0" VerticalAlignment="Top" Width="304" d:ItemsSource="{d:SampleData ItemCount=5}"/>
+        </Grid>
+        <Grid HorizontalAlignment="Left" Height="243" Margin="426,45,0,0" VerticalAlignment="Top" Width="318">
+            <Rectangle x:Name="rect_dernier_paris_2" HorizontalAlignment="Center" Height="243" VerticalAlignment="Center" Width="318" Fill="#FF434343"/>
+            <DataGrid x:Name="tbl_dernier_paris_2" HorizontalAlignment="Center" Height="232" VerticalAlignment="Center" Width="304" d:ItemsSource="{d:SampleData ItemCount=5}"/>
+        </Grid>
+        <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Margin="56,350,0,0">
+            <Rectangle x:Name="lbl_result_pari1" HorizontalAlignment="Left" Height="207" VerticalAlignment="Top" Width="318" Fill="#FF434343"/>
+            <Label x:Name="lbl_last_paris_simple" Content="N/A vs N/A" HorizontalAlignment="Left" Margin="26,37,0,0" VerticalAlignment="Top" Width="266" Height="43" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" FontSize="24" Foreground="White"/>
+            <Label x:Name="lbl_score_last_paris_simple" Content="0 - 0" HorizontalAlignment="Left" Margin="39,64,0,0" VerticalAlignment="Top" Width="240" Height="100" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" Foreground="White" FontSize="60"/>
+        </Grid>
+        <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Margin="426,350,0,0">
+            <Rectangle x:Name="lbl_result_pari2" HorizontalAlignment="Left" Height="207" VerticalAlignment="Top" Width="318" Fill="#FC434343"/>
+            <Label x:Name="lbl_last_paris_special" Content="N/A vs N/A" HorizontalAlignment="Left" Margin="26,37,0,0" VerticalAlignment="Top" Width="266" Height="43" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" FontSize="24" Foreground="White"/>
+            <Label x:Name="lbl_score_last_paris_special" Content="0 - 0" HorizontalAlignment="Left" Margin="39,64,0,0" VerticalAlignment="Top" Width="240" Height="100" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" Foreground="White" FontSize="60"/>
+
+        </Grid>
         <Label x:Name="lbl_creer_paris" Content="Créer un Pari" HorizontalAlignment="Center" Height="61" Margin="0,607,0,0" VerticalAlignment="Top" Width="687" FontSize="36" HorizontalContentAlignment="Center" FontWeight="Bold" BorderBrush="Black" BorderThickness="1,1,1,1"/>
-        <Rectangle x:Name="rectangle_form" HorizontalAlignment="Center" Height="311" Margin="0,706,0,0" Stroke="Black" VerticalAlignment="Top" Width="800"/>
-        <Label x:Name="lbl_formulaire" Content="Formulaire" HorizontalAlignment="Center" Height="61" Margin="0,706,0,0" VerticalAlignment="Top" Width="300" HorizontalContentAlignment="Center" FontSize="36" FontWeight="Bold" VerticalContentAlignment="Center"/>
-        <RadioButton x:Name="chk_simple" GroupName="pariType" Content="Simple ?" HorizontalAlignment="Left" Height="34" Margin="85,844,0,0" VerticalAlignment="Top" Width="130" FontSize="22"/>
-        <RadioButton x:Name="chk_special" GroupName="pariType" Content="Special ?" HorizontalAlignment="Left" Height="34" Margin="584,844,0,0" VerticalAlignment="Top" Width="130" FontSize="22"/>
-        <Button x:Name="btn_validate_pari" Content="Valider" HorizontalAlignment="Center" Height="34" Margin="0,927,0,0" VerticalAlignment="Top" Width="160" Click="btn_validate_pari_Click"/>
+        <Grid HorizontalAlignment="Center" Margin="0,706,0,0" VerticalAlignment="Top">
+            <Rectangle x:Name="rectangle_form" HorizontalAlignment="Center" Height="311" Stroke="Black" VerticalAlignment="Top" Width="800"/>
+            <Label x:Name="lbl_formulaire" Content="Formulaire" HorizontalAlignment="Center" Height="61" VerticalAlignment="Top" Width="300" HorizontalContentAlignment="Center" FontSize="36" FontWeight="Bold" VerticalContentAlignment="Center"/>
+            <RadioButton x:Name="chk_simple" GroupName="pariType" Content="Simple ?" HorizontalAlignment="Left" Height="34" Margin="85,138,0,0" VerticalAlignment="Top" Width="130" FontSize="22"/>
+            <RadioButton x:Name="chk_special" GroupName="pariType" Content="Special ?" HorizontalAlignment="Left" Height="34" Margin="584,138,0,0" VerticalAlignment="Top" Width="130" FontSize="22"/>
+            <Button x:Name="btn_validate_pari" Content="Valider" HorizontalAlignment="Center" Height="34" Margin="0,221,0,0" VerticalAlignment="Top" Width="160" Click="btn_validate_pari_Click"/>
+
+        </Grid>
 
     </Grid>
 </Page>
