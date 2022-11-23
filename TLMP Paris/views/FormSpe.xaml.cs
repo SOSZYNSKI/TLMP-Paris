@@ -24,17 +24,14 @@ namespace TLMP_Paris.views
         List<string> listComboDateDay;
         List<string> listComboDateMonth;
         List<string> listComboDateYear;
-        List<string> listComboDateMinutes;
-        List<string> listComboDateSecondes;
+        List<int> listComboRangePoint;
         public FormSpe()
         {
             InitializeComponent();
+            listComboRangePoint = new List<int>();
             listComboDateDay = new List<string>();
             listComboDateMonth = new List<string>();
             listComboDateYear = new List<string>();
-            listComboDateMinutes = new List<string>();
-            listComboDateSecondes = new List<string>();
-
             listComboDateYear.AddRange(new string[]
             {
                 "2022", "2023"
@@ -49,16 +46,11 @@ namespace TLMP_Paris.views
             combo_months_match.ItemsSource = listComboDateMonth;
             combo_months_pari.ItemsSource = listComboDateMonth;
 
-            for(int i = 0; i<59 ;i++)
+            for(int i = 0; i < 100; i++)
             {
-                listComboDateMinutes.Add(Convert.ToString(i));
+                listComboRangePoint.Add(i);
             }
-            combo_minute.ItemsSource = listComboDateMinutes;
-            for(int i = 0; i < 60; i++)
-            {
-                listComboDateSecondes.Add(Convert.ToString(i));
-            }
-            combo_second.ItemsSource = listComboDateSecondes;
+            combo_ecart_point.ItemsSource = listComboRangePoint;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -70,7 +62,7 @@ namespace TLMP_Paris.views
             string libelleForm = txt_libelle.Text.ToString();
             int recompenseForm = Convert.ToInt16(txt_recompense.Text);
             int pointPenaliteForm = Convert.ToInt16(txt_penalitepoints.Text);
-            Pari pari = new Pari(DateMaxPariForm, dateMatchForm, libelleForm, recompenseForm, range, pointPenaliteForm);
+            Pari pari = new Pari(DateMaxPariForm, dateMatchForm, libelleForm, recompenseForm, range,libellerange, pointPenaliteForm);
             MainWindow.listeParis.Add(pari);
         }
 

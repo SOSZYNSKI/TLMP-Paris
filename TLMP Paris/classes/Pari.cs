@@ -21,7 +21,7 @@ namespace TLMP_Paris.Classe
 
         public int Elimination { get => elimination; set => elimination = value; }
         public string Rangelibelle { get => rangelibelle; set => rangelibelle = value; }
-        public int Range { get => range; set => Range = value;}
+        public int Range { get => range; set => range = value;}
         public int Penality {  get => penality; set => penality = value; }
         public DateTime DateMax { get => dateMax; set => dateMax = value; }
         public DateTime DateMatch { get => dateMatch; set => dateMatch = value; }
