@@ -9,6 +9,7 @@ using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Automation;
 using TLMP_Paris.Classe;
 
@@ -59,18 +60,20 @@ namespace TLMP_Paris.classes
 
         public void save(List<Promotion> listepromotion)
         {
-            string del = "DELETE FROM promotions";
-
-            SqlCommand delete = new SqlCommand(del, connexion);
-
             try
             {
                 connexion.Open();
-                delete.ExecuteNonQuery();
+
+                string delu = "DELETE FROM users";
+                string delp = "DELETE FROM promotions";
+                SqlCommand deleteu = new SqlCommand(delu, connexion);
+                deleteu.ExecuteNonQuery();
+                SqlCommand deletep = new SqlCommand(delp, connexion);
+                deletep.ExecuteNonQuery();
             }
             catch (SqlException e)
             {
-                Console.WriteLine(e);
+                MessageBox.Show("Une erreur c'est produite" + e, "Erreur SQL", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             finally
             {
@@ -81,9 +84,9 @@ namespace TLMP_Paris.classes
             {
                 try
                 {
-                    string save = $"INSERT INTO promotions (nomPromotion, nombrepersonnesPromotion) VALUES ({p.PromotionName},{p.NombreTotal});";
-                    SqlCommand saving = new SqlCommand(save, connexion);
                     connexion.Open();
+                    string save = $"INSERT INTO dbo.promotions (nomPromotion, nombrepersonnesPromotion) VALUES ({p.PromotionName},{p.NombreTotal});";
+                    SqlCommand saving = new SqlCommand(save, connexion);
                     saving.ExecuteNonQuery();
                 }
                 catch(Exception e)
