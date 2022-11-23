@@ -25,6 +25,8 @@ namespace TLMP_Paris
     /// </summary>
     public partial class MainWindow : MetroWindow
     {
+        public List<object> pageHistory = new();
+
         public static List<Promotion> promotions = new List<Promotion>();
         public static ADOpromotion adopromotions = new();
 
@@ -59,32 +61,48 @@ namespace TLMP_Paris
             Users = ADOuser.getall();
         }
 
+        private void returnButton(object sender, RoutedEventArgs e)
+        {
+            if (pageHistory.Count < 1) return;
+            object lastHistoryItem = pageHistory[pageHistory.Count-1];
+            pageViewer.Content = lastHistoryItem;
+            pageHistory.Remove(lastHistoryItem);
+        }
+        private void refresh(object sender, RoutedEventArgs e)
+        {
+            pageViewer.Refresh();
+        }
+
         private void btn_accueil_Click(object sender, RoutedEventArgs e)
         {
             loading.Visibility = Visibility.Visible;
+            pageHistory.Add(pageViewer.Content);
             pageViewer.Content = new Accueil();
-            loadingDelay(1000);
+            loadingDelay(200);
         }
 
         private void btn_gestion_inscription_Click(object sender, RoutedEventArgs e)
         {
             loading.Visibility = Visibility.Visible;
+            pageHistory.Add(pageViewer.Content);
             pageViewer.Content = new GestionInscription();
-            loadingDelay(1000);
+            loadingDelay(200);
         }
 
         private void btn_creer_paris_Click(object sender, RoutedEventArgs e)
         {
             loading.Visibility = Visibility.Visible;
+            pageHistory.Add(pageViewer.Content);
             pageViewer.Content = new CreerParis();
-            loadingDelay(1000);
+            loadingDelay(200);
         }
 
         private void btn_gestion_promotion_Click(object sender, RoutedEventArgs e)
         {
             loading.Visibility = Visibility.Visible;
+            pageHistory.Add(pageViewer.Content);
             pageViewer.Content = new GestionPromotion();
-            loadingDelay(1000);
+            loadingDelay(200);
         }
 
         async private void loadingDelay(int time)

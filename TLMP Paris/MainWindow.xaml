@@ -14,6 +14,20 @@
                  ResizeMode="NoResize"
                  Background="White"
                  Closing="OnClosing">
+    <mah:MetroWindow.LeftWindowCommands>
+        <mah:WindowCommands>
+            <Button Click="returnButton" ToolTip="test">
+                <iconPacks:PackIconModern Width="22"
+                                  Height="22"
+                                  Kind="NavigatePrevious" />
+            </Button>
+            <Button Click="refresh" ToolTip="test">
+                <iconPacks:PackIconModern Width="22"
+                                  Height="22"
+                                  Kind="Refresh" />
+            </Button>
+        </mah:WindowCommands>
+    </mah:MetroWindow.LeftWindowCommands>
     <Grid>
         <Grid HorizontalAlignment="Center" Height="125" Margin="0,10,0,0" VerticalAlignment="Top" Width="694">
             <Image x:Name="img_logo" Height="120" VerticalAlignment="Center" Source="/assets/logo.png" Margin="19,0,555,0"/>
