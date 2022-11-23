@@ -10,11 +10,21 @@
     <Grid>
         <Grid HorizontalAlignment="Left" Margin="56,45,0,0" VerticalAlignment="Top">
             <Rectangle x:Name="rect_dernier_paris" HorizontalAlignment="Left" Height="243" VerticalAlignment="Top" Width="318" Fill="#FF434343"/>
-            <DataGrid x:Name="tbl_dernier_paris" HorizontalAlignment="Left" Height="232" Margin="7,5,0,0" VerticalAlignment="Top" Width="304" d:ItemsSource="{d:SampleData ItemCount=5}"/>
+            <DataGrid x:Name="tbl_dernier_paris" HorizontalAlignment="Left" Height="232" Margin="7,5,0,0" VerticalAlignment="Top" Width="304">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Width="2*" Header="Nom Parieurs" Binding="{Binding UserName}" />
+                    <DataGridTextColumn Width="2*" Header="Points" Binding="{Binding TotalPoints}"/>
+                </DataGrid.Columns>
+            </DataGrid>
         </Grid>
         <Grid HorizontalAlignment="Left" Height="243" Margin="426,45,0,0" VerticalAlignment="Top" Width="318">
             <Rectangle x:Name="rect_dernier_paris_2" HorizontalAlignment="Center" Height="243" VerticalAlignment="Center" Width="318" Fill="#FF434343"/>
-            <DataGrid x:Name="tbl_dernier_paris_2" HorizontalAlignment="Center" Height="232" VerticalAlignment="Center" Width="304" d:ItemsSource="{d:SampleData ItemCount=5}"/>
+            <DataGrid x:Name="tbl_dernier_paris_2" HorizontalAlignment="Center" Height="232" VerticalAlignment="Center" Width="304">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Width="2*" Header="Nom Parieurs" Binding="{Binding UserName}" />
+                    <DataGridTextColumn Width="2*" Header="Points" Binding="{Binding TotalPoints}"/>
+                </DataGrid.Columns>
+            </DataGrid>
         </Grid>
         <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Margin="56,350,0,0">
             <Rectangle x:Name="lbl_result_pari1" HorizontalAlignment="Left" Height="207" VerticalAlignment="Top" Width="318" Fill="#FF434343"/>
