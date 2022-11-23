@@ -26,18 +26,20 @@ namespace TLMP_Paris
         public Accueil()
         {
 
-
+            List<Pari> listpariaccueil = new();
 
             InitializeComponent();
             tbl_topUsers.ItemsSource = MainWindow.Users;
-            User u = new User("nom", "unnom", 10, "passeport", "userlogin", 40, 2);
-            User u1 = new User("lenom", "deuxnoms", 27, "lespasseports", "lesuserlogin", 90, 99);
-            MainWindow.Users.Add(u);
-            MainWindow.Users.Add(u1);
+            tbl_topUsers.Items.Refresh();
 
-            libelle_match_1.Content = "Hello 1";
-            libelle_match_2.Content = "Hello 2";
-            libelle_match_3.Content = "Hello 3";
+            /*for (int i = 0; i<=2; i++)
+            {
+                listpariaccueil.Add(MainWindow.listeParis[i]);
+            }*/
+
+            libelle_match_1.Content = MainWindow.listeParis[0].Libelle;
+            /*libelle_match_2.Content = listpariaccueil[1].Libelle;
+            libelle_match_3.Content = listpariaccueil[2].Libelle;*/
 
             paris_simple_1.Content = "Pari simple 1";
             paris_simple_2.Content = "Pari simple 2";
@@ -56,5 +58,6 @@ namespace TLMP_Paris
 
 
     }
+
     }
 }

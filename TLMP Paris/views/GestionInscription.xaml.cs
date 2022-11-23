@@ -31,15 +31,7 @@ namespace TLMP_Paris
             cbox_searchby_lastname.ItemsSource = characters;
             cbox_searchby_firstname.ItemsSource = characters;
             cbox_searchby_promotion.ItemsSource = characters;
-            users.Add(new User("Paul", "SOLD", 2, "test", "test", 900, 1));
-            users.Add(new User("Vincent", "AZDOD", 2, "test", "test", 900, 1));
-            users.Add(new User("Juliette", "LKAI", 2, "test", "test", 900, 1));
-            users.Add(new User("Alizée", "PAX", 2, "test", "test", 900, 1));
-            users.Add(new User("Jean", "UXN", 2, "test", "test", 900, 1));
-            users.Add(new User("Bastien", "QUIWI", 2, "test", "test", 900, 1));
-            users.Add(new User("Andrea", "MOAD", 2, "test", "test", 900, 1));
-            users.Add(new User("Victor", "TEGI", 2, "test", "test", 900, 1));
-            tbl_tableau_classement.ItemsSource = users;
+            tbl_tableau_classement.ItemsSource = MainWindow.Users;
         }
 
         private void btn_importer_Click(object sender, RoutedEventArgs e)
