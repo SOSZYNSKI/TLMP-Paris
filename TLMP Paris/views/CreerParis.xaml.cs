@@ -23,12 +23,25 @@ namespace TLMP_Paris
         public CreerParis()
         {
             InitializeComponent();
+            if(MainWindow.listeParis.Count > 0)
+            {
+                Classe.Pari dernierPari = MainWindow.listeParis[MainWindow.listeParis.Count - 1];
+                lbl_last_paris_simple.Content = $"{dernierPari.Libelle}";
+                lbl_score_last_paris_simple.Content = $"{dernierPari.ResultMatch}";
+            }
         }
 
         private void btn_validate_pari_Click(object sender, RoutedEventArgs e)
         {
-            if (chk_simple.IsChecked == true) ((MainWindow)Application.Current.MainWindow).pageViewer.Content = new views.FormSimple();
-            if (chk_special.IsChecked == true) ((MainWindow)Application.Current.MainWindow).pageViewer.Content = new views.FormSpe();
+            MainWindow windowMain = ((MainWindow)Application.Current.MainWindow);
+            if (chk_simple.IsChecked == true) {
+                windowMain.pageHistory.Add(windowMain.pageViewer.Content);
+                windowMain.pageViewer.Content = new views.FormSimple();
+            }
+            if (chk_special.IsChecked == true) {
+                windowMain.pageHistory.Add(windowMain.pageViewer.Content);
+                windowMain.pageViewer.Content = new views.FormSpe();
+            }
         }
     }
 }

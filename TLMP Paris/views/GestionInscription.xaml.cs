@@ -74,7 +74,6 @@ namespace TLMP_Paris
                     if (cbox_searchby_promotion.SelectedIndex > 0 && user.Promotion.PromotionName.ToLower().StartsWith(characters[cbox_searchby_promotion.SelectedIndex])) tmpCheck = true;
                     else if (cbox_searchby_promotion.SelectedIndex > 0 && tmpCheck == true) tmpCheck = false;
                 }
-                System.Diagnostics.Trace.WriteLine(tmpCheck);
                 if (txtbox_searchby_lastname.Text.Length < 1 && txtbox_searchby_firstname.Text.Length < 1 && txtbox_searchby_promotion.Text.Length < 1 && cbox_searchby_firstname.SelectedIndex < 1 && cbox_searchby_lastname.SelectedIndex < 1 && cbox_searchby_promotion.SelectedIndex < 1) return true;
                 return tmpCheck;
             }).ToList();
