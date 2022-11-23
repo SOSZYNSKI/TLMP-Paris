@@ -18,18 +18,18 @@
         <Label x:Name="lbl_recompense" Content="Récompense :" HorizontalAlignment="Left" Margin="444,291,0,0" VerticalAlignment="Top" Width="182" Height="36" FontSize="16"/>
         <Label x:Name="lbl_penalitepoints" Content="Penalité Points:" HorizontalAlignment="Left" Margin="444,361,0,0" VerticalAlignment="Top" Width="182" Height="36" FontSize="16"/>
         <Label x:Name="lbl_ecart" Content="Ecart :" HorizontalAlignment="Left" Margin="57,361,0,0" VerticalAlignment="Top" Width="144" Height="36" FontSize="16"/>
-        <CheckBox x:Name="check_yes" Content="oui" HorizontalAlignment="Left" Margin="228,369,0,0" VerticalAlignment="Top" Height="18" Width="50" FontSize="14"/>
-        <CheckBox x:Name="check_no" Content="non" HorizontalAlignment="Left" Margin="334,370,0,0" VerticalAlignment="Top" Height="18" Width="47" FontSize="14"/>
         <TextBox x:Name="txt_libelle" HorizontalAlignment="Left" Height="36" Margin="228,291,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="157" FontSize="14"/>
-        <ComboBox x:Name="combo_day_match1" HorizontalAlignment="Left" Margin="228,232,0,0" VerticalAlignment="Top" Width="41"/>
-        <ComboBox x:Name="combo_months_match1" HorizontalAlignment="Left" Margin="274,232,0,0" VerticalAlignment="Top" Width="42"/>
-        <ComboBox x:Name="combo_years" HorizontalAlignment="Left" Margin="334,232,0,0" VerticalAlignment="Top" Width="51"/>
+        <ComboBox x:Name="combo_minute" HorizontalAlignment="Left" Margin="227,363,0,65" Width="41"/>
+        <ComboBox x:Name="combo_months_match" HorizontalAlignment="Left" Margin="274,232,0,0" VerticalAlignment="Top" Width="42" SelectionChanged="combo_months_match_SelectionChanged"/>
+        <ComboBox x:Name="combo_years_match" HorizontalAlignment="Left" Margin="334,232,0,0" VerticalAlignment="Top" Width="51"/>
         <ComboBox x:Name="combo_day_pari" HorizontalAlignment="Left" Margin="621,231,0,0" VerticalAlignment="Top" Width="41"/>
         <ComboBox x:Name="combo_months_pari" HorizontalAlignment="Left" Margin="667,231,0,0" VerticalAlignment="Top" Width="42"/>
         <ComboBox x:Name="combo_years_pari" HorizontalAlignment="Left" Margin="727,231,0,0" VerticalAlignment="Top" Width="51"/>
         <TextBox x:Name="txt_recompense" HorizontalAlignment="Left" Height="36" Margin="621,291,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="157" FontSize="14"/>
         <TextBox x:Name="txt_penalitepoints" HorizontalAlignment="Left" Height="36" Margin="621,360,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="157" FontSize="14"/>
-        <Button Content="Creer" HorizontalAlignment="Center" Margin="0,414,0,0" VerticalAlignment="Top" Height="32" Width="102"/>
+        <Button Content="Creer" HorizontalAlignment="Center" Margin="0,414,0,0" VerticalAlignment="Top" Height="32" Width="102" Click="Button_Click"/>
+        <ComboBox x:Name="combo_day_match" HorizontalAlignment="Left" Margin="227,232,0,0" VerticalAlignment="Top" Width="41"/>
+        <ComboBox x:Name="combo_second" HorizontalAlignment="Left" Margin="334,362,0,0" VerticalAlignment="Top" Width="51"/>
 
     </Grid>
 </Page>
