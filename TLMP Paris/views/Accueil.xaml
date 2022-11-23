@@ -8,7 +8,7 @@
       Title="Accueil" Height="1041" Width="785">
 
     <Grid>
-        <Rectangle HorizontalAlignment="Center" Height="104" Margin="0,90,0,0" Stroke="Black" VerticalAlignment="Top" Width="658"/>
+        <Rectangle HorizontalAlignment="Center" Height="104" Margin="0,90,0,0" Stroke="Black" VerticalAlignment="Top" Width="658" />
         <Rectangle HorizontalAlignment="Center" Height="100" Margin="0,240,0,0" Stroke="Black" VerticalAlignment="Top" Width="658"/>
         <Rectangle HorizontalAlignment="Center" Height="86" Margin="0,382,0,0" Stroke="Black" VerticalAlignment="Top" Width="658"/>
         <Grid HorizontalAlignment="Center" Height="278" Margin="0,734,0,0" VerticalAlignment="Top">
@@ -22,11 +22,23 @@
             <Rectangle HorizontalAlignment="Center" Height="29" VerticalAlignment="Top" Width="658" Fill="#FF434343"/>
             <Label x:Name="lbl_topUsers" Content="Classement des utilisateurs" HorizontalAlignment="Center" VerticalAlignment="Top" Width="588" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="16" Height="29"/>
         </Grid>
-        <Rectangle HorizontalAlignment="Left" Height="78" Margin="64,520,0,0" Stroke="Black" VerticalAlignment="Top" Width="317"/>
+        <Rectangle HorizontalAlignment="Left" Height="78" Margin="64,520,0,0" Stroke="Black" VerticalAlignment="Top" Width="317" />
         <Rectangle HorizontalAlignment="Left" Height="78" Margin="64,626,0,0" Stroke="Black" VerticalAlignment="Top" Width="317"/>
         <Rectangle HorizontalAlignment="Left" Height="78" Margin="421,626,0,0" Stroke="Black" VerticalAlignment="Top" Width="308"/>
         <Rectangle HorizontalAlignment="Left" Height="78" Margin="421,520,0,0" Stroke="Black" VerticalAlignment="Top" Width="308"/>
         <TextBlock x:Name="txt_welcome_message" HorizontalAlignment="Center" Height="39" Margin="0,25,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="658" Text="Bonjour x vous êtes actuellement sur la page d'accueil" TextAlignment="Center" FontSize="24"/>
+        <Label Content="TLMP Paris" HorizontalAlignment="Center" Height="24" Margin="0,99,0,0" VerticalAlignment="Top" Width="174" RenderTransformOrigin="0.859,0.848"/>
+        <Label Content="TLMP Paris" HorizontalAlignment="Center" Height="23" Margin="0,249,0,0" VerticalAlignment="Top" Width="174"/>
+        <Label Content="TLMP Paris" HorizontalAlignment="Center" Height="23" Margin="0,390,0,0" VerticalAlignment="Top" Width="174"/>
+        <Label x:Name="libelle_match_1" Content="Label libelle match" HorizontalAlignment="Left" Margin="271,123,0,0" VerticalAlignment="Top" Width="157" Height="30"/>
+        <Label x:Name="libelle_match_2" Content="Label libelle match" HorizontalAlignment="Left" Margin="271,277,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.663,-0.478" Width="121" Height="24"/>
+        <Label x:Name="libelle_match_3" Content="Label libelle match" HorizontalAlignment="Left" Margin="271,418,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.463,-0.193" Width="121" Height="25"/>
+        <Label x:Name="paris_simple_1" Content="Label libelle paris simple" HorizontalAlignment="Left" Margin="74,155,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.969,0.516"/>
+        <Label x:Name="paris_special_1" Content="Label libelle paris special" HorizontalAlignment="Left" Margin="557,155,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.49,-0.401" Width="155"/>
+        <Label x:Name="paris_simple_2" Content="Label libelle paris simple" HorizontalAlignment="Left" Margin="74,304,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.595,-1.263"/>
+        <Label x:Name="paris_special_2" Content="Label libelle paris special" HorizontalAlignment="Left" Margin="557,304,0,0" VerticalAlignment="Top" Width="155"/>
+        <Label x:Name="paris_simple_3" Content="Label libelle paris simple" HorizontalAlignment="Left" Margin="74,425,0,0" VerticalAlignment="Top" RenderTransformOrigin="-2.179,0.2" Width="139"/>
+        <Label x:Name="paris_special_3" Content="Label libelle paris special" HorizontalAlignment="Left" Margin="557,430,0,0" VerticalAlignment="Top" Width="155"/>
 
     </Grid>
 </Page>
