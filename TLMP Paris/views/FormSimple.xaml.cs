@@ -29,6 +29,7 @@ namespace TLMP_Paris.views
         public FormSimple()
         {
             InitializeComponent();
+            listNombrejourPari = new();
             listComboMonthPari = new();
             listNombreJour = new();
             listComboYear = new();
@@ -73,30 +74,30 @@ namespace TLMP_Paris.views
             listNombreJour.Clear();
             if (Convert.ToInt16(combo_months_match1.SelectedItem.ToString()) == 2)
             {
-                for (int i = 0; i < 28; i++)
+                for (int i = 0; i <= 28; i++)
                 {
                     listNombreJour.Add(i);
                 }
                 combo_day_match1.ItemsSource = listNombreJour;
-                combo_day_pari.Items.Refresh();
+                combo_day_match1.Items.Refresh();
             }
             else if(Convert.ToInt16(combo_months_match1.SelectedItem.ToString())%2 == 1)
             {
-                for(int i = 0; i <31; i++)
+                for(int i = 0; i <= 31; i++)
                 {
                     listNombreJour.Add(i);
                 }
                 combo_day_match1.ItemsSource = listNombreJour;
-                combo_day_pari.Items.Refresh();
+                combo_day_match1.Items.Refresh();
             }
             else
             {
-                for(int i = 0; i < 30; i++)
+                for(int i = 0; i <= 30; i++)
                 {
                     listNombreJour.Add(i);
                 }
                 combo_day_match1.ItemsSource = listNombreJour;
-                combo_day_pari.Items.Refresh();
+                combo_day_match1.Items.Refresh();
             }
         }
 
@@ -105,7 +106,7 @@ namespace TLMP_Paris.views
             listNombrejourPari.Clear();
             if(Convert.ToInt16(combo_months_pari.SelectedItem.ToString()) == 2)
             {
-                for(int i = 0; i < 28; i ++)
+                for(int i = 0; i <= 28; i ++)
                 {
                     listNombrejourPari.Add(i);
                 }
