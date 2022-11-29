@@ -21,7 +21,7 @@ namespace TLMP_Paris
     /// </summary>
     public partial class GestionInscription : Page
     {
-        List<String> characters = new();
+        readonly List<String> characters = new();
 
         public GestionInscription()
         {

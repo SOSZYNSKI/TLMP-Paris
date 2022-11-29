@@ -27,14 +27,14 @@ namespace TLMP_Paris
     {
         public List<object> pageHistory = new();
 
-        public static List<Promotion> promotions = new List<Promotion>();
+        public static List<Promotion> promotions = new();
         public static ADOpromotion adopromotions = new();
 
-        public static List<User> Users = new List<User>();
+        public static List<User> Users = new();
         public static ADOuser ADOuser = new();
 
         public static List<Pari> listeParis = new();
-        public static ADOparimatch listeparisADO = new ADOparimatch();
+        public static ADOparimatch listeparisADO = new();
 
         private void OnClosing(object sender, CancelEventArgs e)
         {
@@ -64,7 +64,7 @@ namespace TLMP_Paris
         private void returnButton(object sender, RoutedEventArgs e)
         {
             if (pageHistory.Count < 1) return;
-            object lastHistoryItem = pageHistory[pageHistory.Count-1];
+            object lastHistoryItem = pageHistory[^1];
             pageViewer.Content = lastHistoryItem;
             pageHistory.Remove(lastHistoryItem);
         }
