@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TLMP_Paris.Classe;
 using System.Windows;
+using System.Diagnostics;
 
 namespace TLMP_Paris.classes
 {
@@ -56,29 +57,41 @@ namespace TLMP_Paris.classes
         {
             try
             {
-                connexion.Open();
 
                 foreach (User u in lalisteuser)
                 {
+                    connexion.Open();
+                    string resetautoincrementus = "ALTER TABLE users AUTO_INCREMENT=0";
                     string saveu = $"INSERT INTO users (prenomUsers, nomUsers, mdpUsers, loginUsers, totalpointUsers) VALUES ({u.UserName},{u.SecondName},{u.UserPassword}, {u.UserLogin}, {u.TotalPoint});";
                     SqlCommand savinguser = new SqlCommand(saveu, connexion);
+                    SqlCommand resetincrementu = new SqlCommand(resetautoincrementus, connexion);
+                    resetincrementu.ExecuteNonQuery();
                     savinguser.ExecuteNonQuery();
+                    connexion.Close();
                 }
 
                 foreach (Promotion pro in lalistepromo)
                 {
+                    connexion.Open();
+                    string resetautoincrementpr = "ALTER TABLE users AUTO_INCREMENT=0";
                     string savep = $"INSERT INTO promotions (nomPromotion, nombrepersonnesPromotion) VALUES ('{pro.PromotionName}',{pro.NombreTotal});";
+                    SqlCommand resetincrementp = new SqlCommand(resetautoincrementpr, connexion);
                     SqlCommand savingpromo = new SqlCommand(savep, connexion);
+                    resetincrementp.ExecuteNonQuery();
                     savingpromo.ExecuteNonQuery();
+                    connexion.Close();
                 }
 
                 foreach (Pari pa in listpromo)
                 {
-                    string savepa = $"INSERT INTO parimatch (datemaxpariMatch, datepariMatch, resultatMatch, recompensepariMatch, libelleMatch, typePari, eliminatoireMatch, ecartMatch, libelleecartMatch, penaliteMatch) VALUES ({pa.DateMax},{pa.DateMatch},{pa.ResultMatch},{pa.PointsEarn},{pa.Libelle},);";
-                    SqlCommand savingparimatch = new SqlCommand(savepa, connexion);
                     connexion.Open();
+                    string resetautoincrementpa = "ALTER TABLE users AUTO_INCREMENT=0";
+                    string savepa = $"INSERT INTO parimatch (datemaxpariMatch, datepariMatch, resultatMatch, recompensepariMatch, libelleMatch, typePari, eliminatoireMatch, ecartMatch, libelleecartMatch, penaliteMatch) VALUES ({pa.DateMax},{pa.DateMatch},{pa.ResultMatch},{pa.PointsEarn},{pa.Libelle},);";
+                    SqlCommand resetincrementpar = new SqlCommand(resetautoincrementpa, connexion);
+                    SqlCommand savingparimatch = new SqlCommand(savepa, connexion);
+                    resetincrementpar.ExecuteNonQuery();
                     savingparimatch.ExecuteNonQuery();
-
+                    connexion.Close();
                 }
             }
             catch (Exception ex)
