@@ -26,35 +26,146 @@ namespace TLMP_Paris
         public Accueil()
         {
 
-
+            List<Pari> listpariaccueil = new();
 
             InitializeComponent();
             tbl_topUsers.ItemsSource = MainWindow.Users;
-            User u = new User("nom", "unnom", 10, "passeport", "userlogin", 40, 2);
-            User u1 = new User("lenom", "deuxnoms", 27, "lespasseports", "lesuserlogin", 90, 99);
-            MainWindow.Users.Add(u);
-            MainWindow.Users.Add(u1);
+            tbl_topUsers.Items.Refresh();
 
-            libelle_match_1.Content = "Hello 1";
-            libelle_match_2.Content = "Hello 2";
-            libelle_match_3.Content = "Hello 3";
+            if(MainWindow.listeParis.Count() >= 3)
+            {
+                for(int i = 0; i < 3;i++)
+                {
+                    listpariaccueil.Add(MainWindow.listeParis[i]);
+                }
+                labelle_date_match_1.Content = listpariaccueil[0].DateMatch;
+                labelle_date_pari_1.Content = listpariaccueil[0].DateMax;
+                labelle_recompense_1.Content = listpariaccueil[0].PointsEarn;
+                libelle_match_1.Content = listpariaccueil[0].Libelle; ;
 
-            paris_simple_1.Content = "Pari simple 1";
-            paris_simple_2.Content = "Pari simple 2";
-            paris_simple_3.Content = "Pari simple 3";
+                if (listpariaccueil[0].Elimination == 1)
+                {
+                    labelle_spe_1.Content = "Pari simple";
+                    labelle_range_1.Visibility = Visibility.Hidden;
+                }
+                else
+                {
+                    labelle_spe_1.Content = "Pari Spé";
+                    labelle_range_1.Content = " - " + listpariaccueil[0].Penality + " points par " + listpariaccueil[0].Range + " " + listpariaccueil[0].Rangelibelle + " d'écart ";
+                }
 
-            paris_special_1.Content = "Pari special 1";
-            paris_special_2.Content = "Pari special 2";
-            paris_special_3.Content = "Pari special 3";
+                labelle_date_match_2.Content = listpariaccueil[1].DateMatch;
+                labelle_date_pari_2.Content = listpariaccueil[1].DateMax;
+                labelle_recompense_2.Content = listpariaccueil[1].PointsEarn;
+                libelle_match_2.Content = listpariaccueil[1].Libelle; ;
 
+                if (listpariaccueil[1].Elimination == 1)
+                {
+                    labelle_spe_2.Content = "Pari simple";
+                    labelle_range_2.Visibility = Visibility.Hidden;
+                }
+                else
+                {
+                    labelle_spe_2.Content = "Pari Spé";
+                    labelle_range_2.Content = " - " + listpariaccueil[1].Penality + " points par " + listpariaccueil[1].Range + " " + listpariaccueil[1].Rangelibelle + " d'écart ";
+                }
 
+                labelle_date_match_3.Content = listpariaccueil[2].DateMatch;
+                labelle_date_pari_3.Content = listpariaccueil[2].DateMax;
+                labelle_recompense_3.Content = listpariaccueil[2].PointsEarn;
+                libelle_match_3.Content = listpariaccueil[2].Libelle; ;
 
+                if (listpariaccueil[2].Elimination == 1)
+                {
+                    labelle_spe_3.Content = "Pari simple";
+                    labelle_range_3.Visibility = Visibility.Hidden;
+                }
+                else
+                {
+                    labelle_spe_3.Content = "Pari Spé";
+                    labelle_range_3.Content = " - " + listpariaccueil[2].Penality + " points par " + listpariaccueil[2].Range + " " + listpariaccueil[2].Rangelibelle + " d'écart ";
+                }
+            }
+            else if(MainWindow.listeParis.Count() == 2)
+            {
+                for (int i = 0; i < 2; i++)
+                {
+                    listpariaccueil.Add(MainWindow.listeParis[i]);
+                }
+                labelle_date_match_1.Content = listpariaccueil[0].DateMatch;
+                labelle_date_pari_1.Content = listpariaccueil[0].DateMax;
+                labelle_recompense_1.Content = listpariaccueil[0].PointsEarn;
+                libelle_match_1.Content = listpariaccueil[0].Libelle; ;
 
+                if (listpariaccueil[0].Elimination == 1)
+                {
+                    labelle_spe_1.Content = "Pari simple";
+                    labelle_range_1.Visibility = Visibility.Hidden;
+                }
+                else
+                {
+                    labelle_spe_1.Content = "Pari Spé";
+                    labelle_range_1.Content = " - " + listpariaccueil[0].Penality + " points par " + listpariaccueil[0].Range + " " + listpariaccueil[0].Rangelibelle + " d'écart ";
+                }
 
+                labelle_date_match_2.Content = listpariaccueil[1].DateMatch;
+                labelle_date_pari_2.Content = listpariaccueil[1].DateMax;
+                labelle_recompense_2.Content = listpariaccueil[1].PointsEarn;
+                libelle_match_2.Content = listpariaccueil[1].Libelle; ;
 
+                if (listpariaccueil[1].Elimination == 1)
+                {
+                    labelle_spe_2.Content = "Pari simple";
+                    labelle_range_2.Visibility = Visibility.Hidden;
+                }
+                else
+                {
+                    labelle_spe_2.Content = "Pari Spé";
+                    labelle_range_2.Content = " - " + listpariaccueil[1].Penality + " points par " +  listpariaccueil[1].Range + " " + listpariaccueil[1].Rangelibelle + " d'écart ";
+                }
+            }
+            else if(MainWindow.listeParis.Count() == 1)
+            {
+                listpariaccueil.Add(MainWindow.listeParis[0]);
 
+                labelle_date_match_1.Content = listpariaccueil[0].DateMatch;
+                labelle_date_pari_1.Content = listpariaccueil[0].DateMax;
+                labelle_recompense_1.Content = listpariaccueil[0].PointsEarn;
+                libelle_match_1.Content = listpariaccueil[0].Libelle;
 
+                if (listpariaccueil[0].Elimination == 1)
+                {
+                    labelle_spe_1.Content = "Pari simple";
+                    labelle_range_1.Visibility = Visibility.Hidden;
+                }
+                else
+                {
+                    labelle_spe_1.Content = "Pari Spé";
+                    labelle_range_1.Content = " - " + listpariaccueil[0].Penality + " points par " + listpariaccueil[0].Range + " "  + listpariaccueil[0].Rangelibelle + " d'écart ";
+                }
+            }
+            else
+            {
+                libelle_match_1.Content = "Aucun match de prévue pour le moment.";
+                libelle_match_2.Content = "Aucun match de prévue pour le moment.";
+                libelle_match_3.Content = "Aucun match de prévue pour le moment.";
+                labelle_date_pari_1.Visibility = Visibility.Hidden;
+                labelle_date_pari_2.Visibility = Visibility.Hidden;
+                labelle_date_pari_3.Visibility = Visibility.Hidden;
+                labelle_recompense_1.Visibility = Visibility.Hidden;
+                labelle_recompense_2.Visibility = Visibility.Hidden;
+                labelle_recompense_3.Visibility = Visibility.Hidden;
+                labelle_spe_1.Visibility = Visibility.Hidden;
+                labelle_spe_2.Visibility = Visibility.Hidden;
+                labelle_spe_3.Visibility = Visibility.Hidden;
+                labelle_date_match_1.Visibility = Visibility.Hidden;
+                labelle_date_match_2.Visibility = Visibility.Hidden;
+                labelle_date_match_3.Visibility = Visibility.Hidden;
+                labelle_range_1.Visibility = Visibility.Hidden;
+                labelle_range_2.Visibility = Visibility.Hidden;
+                labelle_range_3.Visibility = Visibility.Hidden;
+            }
+        }
 
-    }
     }
 }

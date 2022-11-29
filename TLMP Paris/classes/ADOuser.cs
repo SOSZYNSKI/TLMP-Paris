@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using TLMP_Paris.Classe;
 
 namespace TLMP_Paris.classes
@@ -51,7 +52,7 @@ namespace TLMP_Paris.classes
             }
             catch (Exception e)
             {
-                Console.WriteLine(e);
+                MessageBox.Show("Une erreur c'est produite" + e, "Erreur SQL", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             return listuser;
         }

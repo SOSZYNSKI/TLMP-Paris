@@ -21,9 +21,30 @@ namespace TLMP_Paris.views
     /// </summary>
     public partial class FormSimple : Page
     {
+        List<int> listComboMonthPari;
+        List<int> listComboYear;
+        List<int> listNombreJour;
+        List<int> listNombrejourPari;
+
         public FormSimple()
         {
             InitializeComponent();
+            listNombrejourPari = new();
+            listComboMonthPari = new();
+            listNombreJour = new();
+            listComboYear = new();
+            listComboYear.Add(2022);
+            listComboYear.Add(2023);
+
+            combo_years.ItemsSource = listComboYear;
+            combo_years_pari.ItemsSource = listComboYear;
+
+            for(int i = 0; i <= 12; i ++)
+            {
+                listComboMonthPari.Add(i);
+            }
+            combo_months_match1.ItemsSource = listComboMonthPari;
+            combo_months_pari.ItemsSource = listComboMonthPari;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -46,6 +67,71 @@ namespace TLMP_Paris.views
             MainWindow.listeParis.Add(pari);
 
 
+        }
+
+        private void combo_months_match1_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            listNombreJour.Clear();
+            if (Convert.ToInt16(combo_months_match1.SelectedItem.ToString()) == 2)
+            {
+                for (int i = 0; i <= 28; i++)
+                {
+                    listNombreJour.Add(i);
+                }
+                combo_day_match1.ItemsSource = listNombreJour;
+                combo_day_match1.Items.Refresh();
+            }
+            else if(Convert.ToInt16(combo_months_match1.SelectedItem.ToString())%2 == 1)
+            {
+                for(int i = 0; i <= 31; i++)
+                {
+                    listNombreJour.Add(i);
+                }
+                combo_day_match1.ItemsSource = listNombreJour;
+                combo_day_match1.Items.Refresh();
+            }
+            else
+            {
+                for(int i = 0; i <= 30; i++)
+                {
+                    listNombreJour.Add(i);
+                }
+                combo_day_match1.ItemsSource = listNombreJour;
+                combo_day_match1.Items.Refresh();
+            }
+        }
+
+        private void combo_months_pari_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            listNombrejourPari.Clear();
+            if(Convert.ToInt16(combo_months_pari.SelectedItem.ToString()) == 2)
+            {
+                for(int i = 0; i <= 28; i ++)
+                {
+                    listNombrejourPari.Add(i);
+                }
+                combo_day_pari.ItemsSource = listNombrejourPari;
+                combo_day_pari.Items.Refresh();
+            }
+            else if(Convert.ToInt16(combo_months_pari.SelectedItem.ToString())%2 == 1)
+            {
+                for(int i = 0; i <= 31;i++)
+                {
+                    listNombrejourPari.Add(i);
+                }
+                combo_day_pari.ItemsSource = listNombrejourPari;
+                combo_day_pari.Items.Refresh();
+            }
+            else
+            {
+                for(int i  = 0; i <= 30; i++)
+                {
+                    listNombrejourPari.Add(i);
+
+                }
+                combo_day_pari.ItemsSource = listNombrejourPari;
+                combo_day_pari.Items.Refresh();
+            }
         }
     }
 }
