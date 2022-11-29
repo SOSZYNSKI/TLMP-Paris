@@ -25,6 +25,7 @@ namespace TLMP_Paris.Classe
         public void AddUser(User u)
         {
             this.listUser.Add(u);
+            NombreTotal = ListUser.Count();
         }
     }
 }

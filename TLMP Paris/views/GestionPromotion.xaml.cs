@@ -30,7 +30,18 @@ namespace TLMP_Paris
             InitializeComponent();
             dgd_view_tabpromotion.ItemsSource = MainWindow.promotions;
             txt_Name.Text = "Name";
-            txt_nombre.Text = "Nombre";
+            List<User> ListComboUserPromotion = new();
+            User test1 = new User("Login", "Login", 100, "553", "Login", 2,1);
+            ListComboUserPromotion.Add(test1);
+            foreach (User u in MainWindow.Users)
+            {
+                if(u.Promotion == null)
+                {
+                    ListComboUserPromotion.Add(u);
+                }
+            }
+            ComboListUser.ItemsSource = ListComboUserPromotion;
+            ComboListUser.Items.Refresh();
         }
 
         private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -45,9 +56,24 @@ namespace TLMP_Paris
 
         private void btn_add_Click(object sender, RoutedEventArgs e)
         {
-            Promotion newProm = new Promotion(txt_Name.Text, Convert.ToInt32(txt_nombre.Text));
-            MainWindow.promotions.Add(newProm);
-            dgd_view_tabpromotion.Items.Refresh();
+
+            if (txt_Name.Text != null)
+            {
+                Promotion newProm = new Promotion(txt_Name.Text, 0);
+                MainWindow.promotions.Add(newProm);
+                dgd_view_tabpromotion.Items.Refresh();
+                txt_Name.Text = null;
+            }
+            else if (txt_Name.Text == null && ComboListUser.SelectedItem != null)
+            {
+                object objet = dgd_view_tabpromotion.SelectedItem;
+                Promotion promo = objet as Promotion;
+                object user = ComboListUser.SelectedItem;
+                User userChoose = user as User;
+                promo.AddUser(userChoose);
+                dgd_view_tabpromotion.Items.Refresh();
+                ComboListUser.Items.Refresh();
+            }
         }   
 
         private void btn_del_Click(object sender, RoutedEventArgs e)

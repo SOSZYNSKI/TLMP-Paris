@@ -49,5 +49,9 @@ namespace TLMP_Paris.Classe
         {
             this.Promotion = p;
         }
+        public override string ToString()
+        {
+            return SecondName;
+        }
     }
 }
