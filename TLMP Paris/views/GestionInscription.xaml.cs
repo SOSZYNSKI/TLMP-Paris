@@ -21,8 +21,7 @@ namespace TLMP_Paris
     /// </summary>
     public partial class GestionInscription : Page
     {
-        List<String> characters = new();
-        List<User> users = new();
+        readonly List<String> characters = new();
 
         public GestionInscription()
         {
@@ -41,7 +40,7 @@ namespace TLMP_Paris
 
         private void btn_search_Click(object sender, RoutedEventArgs e)
         {
-            tbl_tableau_classement.ItemsSource = users.Where(user => {
+            tbl_tableau_classement.ItemsSource = MainWindow.Users.Where(user => {
                 bool tmpCheck = false;
                 if (txtbox_searchby_lastname.Text.Length > 0) {
                     if (user.SecondName.ToLower() == txtbox_searchby_lastname.Text.ToLower()) tmpCheck = true;
@@ -50,7 +49,6 @@ namespace TLMP_Paris
                     if (cbox_searchby_lastname.SelectedIndex > 0 && user.SecondName.ToLower().StartsWith(characters[cbox_searchby_lastname.SelectedIndex])) tmpCheck = true;
                     else if (cbox_searchby_lastname.SelectedIndex > 0 && tmpCheck == true) tmpCheck = false;
                 }
-                System.Diagnostics.Trace.WriteLine(tmpCheck);
                 if (txtbox_searchby_firstname.Text.Length > 0) {
                     if (user.UserName.ToLower() == txtbox_searchby_firstname.Text.ToLower()) tmpCheck = true;
                     else tmpCheck = false;
@@ -58,7 +56,6 @@ namespace TLMP_Paris
                     if (cbox_searchby_firstname.SelectedIndex > 0 && user.UserName.ToLower().StartsWith(characters[cbox_searchby_firstname.SelectedIndex])) tmpCheck = true;
                     else if (cbox_searchby_firstname.SelectedIndex > 0 && tmpCheck == true) tmpCheck = false;
                 }
-                System.Diagnostics.Trace.WriteLine(tmpCheck);
                 if (txtbox_searchby_promotion.Text.Length > 0) {
                     if (user.Promotion.PromotionName.ToLower() == txtbox_searchby_promotion.Text.ToLower()) tmpCheck = true;
                     else tmpCheck = false;
