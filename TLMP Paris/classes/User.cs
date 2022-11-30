@@ -30,7 +30,7 @@ namespace TLMP_Paris.Classe
         Promotion promotion;
 
 
-        public User(string username, string secondname, int numberwinparis, string userpassword, string userlogin, int totalpoint, int iduser)
+        public User(string username, string secondname, int numberwinparis, string userpassword, string userlogin, int totalpoint, int iduser,int idPRomotion)
         {
             this.UserName = username;
             this.SecondName = secondname;
@@ -39,6 +39,7 @@ namespace TLMP_Paris.Classe
             this.UserLogin = userlogin;
             this.TotalPoint = totalpoint;
             this.IdUser = iduser;
+            this.idPromotion = idPRomotion;
             this.Paris = new Dictionary<Pari, int>();
         }
 
