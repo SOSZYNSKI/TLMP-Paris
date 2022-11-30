@@ -12,9 +12,9 @@ namespace TLMP_Paris.classes
         int idpromotion;
         string promotionName;
         int nombreTotal;
-        List<User> listUser;
+        List<User> listUserpromotionprof;
         public int IdPromotion { get => idpromotion; set => idpromotion = value; }
-        public List<User> ListUser { get => listUser; set => listUser = value; }
+        public List<User> ListUserPromotionProf { get => listUserpromotionprof; set => listUserpromotionprof = value; }
         public string PromotionName { get => promotionName; set => promotionName = value; }
         public int NombreTotal { get => nombreTotal; set => nombreTotal = value; }
 
@@ -22,13 +22,13 @@ namespace TLMP_Paris.classes
         {
             PromotionName = promotionname;
             NombreTotal = nombreTotal;
-            ListUser = new List<User>();
+            ListUserPromotionProf = new List<User>();
             this.idpromotion = idPRomotion;
         }
         public void AddUser(User u)
         {
-            this.listUser.Add(u);
-            NombreTotal = ListUser.Count();
+            this.listUserpromotionprof.Add(u);
+            NombreTotal = listUserpromotionprof.Count();
         }
     }
 }

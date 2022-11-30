@@ -23,13 +23,13 @@ namespace TLMP_Paris.classes
             connexion.Open();
         }
 
-        public List<Promotion> getall()
+        public List<PromotionProf> getall()
         {
-            List<Promotion> list = new List<Promotion>();
+            List<PromotionProf> list = new List<PromotionProf>();
 
             try
             {
-                using (SqlDataAdapter all = new SqlDataAdapter("SELECT * FROM promotions", connexion))
+                using (SqlDataAdapter all = new SqlDataAdapter("SELECT * FROM promotionsprofesseurs", connexion))
                 {
                     DataTable dtTest = new();
                     DataSet dsTest = new();
@@ -41,7 +41,7 @@ namespace TLMP_Paris.classes
                         string promoName = row["nomPromotion"].ToString();
                         int nombrepersonnesP = Convert.ToInt32(row["nombrepersonnesPromotion"].ToString());
                         int idpromotion = Convert.ToInt32(row["idPromotion"].ToString());
-                        list.Add(new Promotion(promoName, nombrepersonnesP, idpromotion));
+                        list.Add(new PromotionProf(promoName, nombrepersonnesP, idpromotion));
                     }
                 }
 
@@ -53,7 +53,7 @@ namespace TLMP_Paris.classes
             return list;
         }
 
-        public void save(List<Promotion> listepromotion)
+        public void save(List<PromotionProf> listepromotion)
         {
             try
             {
@@ -75,7 +75,7 @@ namespace TLMP_Paris.classes
                 connexion.Close();
             }
 
-            foreach (Promotion p in listepromotion)
+            foreach (PromotionProf p in listepromotion)
             {
                 try
                 {
