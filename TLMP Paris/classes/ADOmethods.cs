@@ -53,7 +53,7 @@ namespace TLMP_Paris.classes
             }
         }
 
-        public static void saveall(List<User> lalisteuser, List<Promotion> lalistepromo, List<Pari> listpromo)
+        public static void saveall(List<User> lalisteuser, List<Promotion> lalistepromo,List<PromotionProf> listepromoprof, List<Pari> listpromo)
         {
             try
             {
@@ -70,6 +70,15 @@ namespace TLMP_Paris.classes
                     SqlCommand savingpromo = new SqlCommand(savep, connexion);
                     Int32 idrecup = Convert.ToInt32(savingpromo.ExecuteScalar());
                     pro.IdPromotion = idrecup;
+                }
+                connexion.Close();
+
+                foreach (PromotionProf professeur in listepromoprof)
+                {
+                    string savep = $"INSERT INTO promotionsprofesseurs (nomProfesseurpromotion, nombrepersonnepromotionProfesseur) VALUES ('{professeur.PromotionName}',{professeur.NombreTotal});SELECT @@IDENTITY";
+                    SqlCommand savingpromo = new SqlCommand(savep, connexion);
+                    Int32 idrecup = Convert.ToInt32(savingpromo.ExecuteScalar());
+                    professeur.IdPromotion = idrecup;
                 }
                 connexion.Close();
                 foreach (User u in lalisteuser)
