@@ -8,13 +8,14 @@ namespace TLMP_Paris.Classe
 {
     public class Promotion
     {
+        int idpromotion;
         string promotionName;
         int nombreTotal;
-        internal List<User> ListUser { get => listUser; set => listUser = value; }
+        List<User> listUser;
+        public int IdPromotion { get => idpromotion; set => idpromotion = value; }
+        public List<User> ListUser { get => listUser; set => listUser = value; }
         public string PromotionName { get => promotionName; set => promotionName = value; }
         public int NombreTotal { get => nombreTotal; set => nombreTotal = value; }
-
-        List<User> listUser;
 
         public Promotion(string promotionname, int nombreTotal)
         {

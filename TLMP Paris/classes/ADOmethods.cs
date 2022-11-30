@@ -57,35 +57,38 @@ namespace TLMP_Paris.classes
         {
             try
             {
-
+                connexion.Open();
+                SqlCommand cmdId = new SqlCommand();
+                cmdId.CommandText = "resetId";
+                cmdId.CommandType = CommandType.StoredProcedure;
+                cmdId.Connection = connexion;
+                cmdId.ExecuteNonQuery();
+               
+                foreach (Promotion pro in lalistepromo)
+                {
+                    string savep = $"INSERT INTO promotions (nomPromotion, nombrepersonnesPromotion) VALUES ('{pro.PromotionName}',{pro.NombreTotal});SELECT @@IDENTITY";
+                    SqlCommand savingpromo = new SqlCommand(savep, connexion);
+                    savingpromo.ExecuteNonQuery();
+                    Int32 idrecup = Convert.ToInt32(savingpromo.ExecuteScalar());
+                    pro.IdPromotion = idrecup;
+                    foreach (User u in pro.ListUser)
+                    {
+                        u.IdPromotion=idrecup;
+                    }
+                }
+                connexion.Close();
                 foreach (User u in lalisteuser)
                 {
                     connexion.Open();
-                    string resetautoincrementus = "ALTER TABLE users AUTO_INCREMENT=0";
                     string saveu = $"INSERT INTO users (prenomUsers, nomUsers, mdpUsers, loginUsers, totalpointUsers) VALUES ({u.UserName},{u.SecondName},{u.UserPassword}, {u.UserLogin}, {u.TotalPoint});";
                     SqlCommand savinguser = new SqlCommand(saveu, connexion);
-                    SqlCommand resetincrementu = new SqlCommand(resetautoincrementus, connexion);
-                    resetincrementu.ExecuteNonQuery();
                     savinguser.ExecuteNonQuery();
                     connexion.Close();
                 }
-
-                foreach (Promotion pro in lalistepromo)
-                {
-                    connexion.Open();
-                    string resetautoincrementpr = "ALTER TABLE users AUTO_INCREMENT=0";
-                    string savep = $"INSERT INTO promotions (nomPromotion, nombrepersonnesPromotion) VALUES ('{pro.PromotionName}',{pro.NombreTotal});";
-                    SqlCommand resetincrementp = new SqlCommand(resetautoincrementpr, connexion);
-                    SqlCommand savingpromo = new SqlCommand(savep, connexion);
-                    resetincrementp.ExecuteNonQuery();
-                    savingpromo.ExecuteNonQuery();
-                    connexion.Close();
-                }
-
                 foreach (Pari pa in listpromo)
                 {
                     connexion.Open();
-                    string resetautoincrementpa = "ALTER TABLE users AUTO_INCREMENT=0";
+                    string resetautoincrementpa = "DBCC CHECKIDENT('parimatch', RESEED, 0, 1)";
                     string savepa = $"INSERT INTO parimatch (datemaxpariMatch, datepariMatch, resultatMatch, recompensepariMatch, libelleMatch, typePari, eliminatoireMatch, ecartMatch, libelleecartMatch, penaliteMatch) VALUES ({pa.DateMax},{pa.DateMatch},{pa.ResultMatch},{pa.PointsEarn},{pa.Libelle},);";
                     SqlCommand resetincrementpar = new SqlCommand(resetautoincrementpa, connexion);
                     SqlCommand savingparimatch = new SqlCommand(savepa, connexion);

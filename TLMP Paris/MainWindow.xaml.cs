@@ -41,6 +41,7 @@ namespace TLMP_Paris
             var result = MessageBox.Show("Voulez-vous vraiment quitter ? Vos données seront automatiquement enregistrées", "Vous êtes en train de quitter l'application", MessageBoxButton.YesNo, MessageBoxImage.Question);
             if (result == MessageBoxResult.Yes)
             {
+                ADOmethods.deleteall();
                 ADOmethods.saveall(Users, promotions, listeParis);
                 e.Cancel = false;
             }

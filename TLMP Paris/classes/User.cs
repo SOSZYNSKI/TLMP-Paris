@@ -15,6 +15,7 @@ namespace TLMP_Paris.Classe
         string userLogin;
         int totalPoint;
         int idUser;
+        int idPromotion;
         public Dictionary<Pari, int> Paris { get => paris; set => paris = value; }
         public int IdUser { get => idUser; set => idUser = value; }
         public string UserName { get => userName; set => userName = value; }
@@ -24,9 +25,10 @@ namespace TLMP_Paris.Classe
         public string UserLogin { get => userLogin; set => userLogin = value; }
         public int TotalPoint { get => totalPoint; set => totalPoint = value; }
         public Promotion Promotion { get => promotion; set => promotion = value; }
-
+        public int IdPromotion { get => idPromotion; set => idPromotion = value; }
         Dictionary<Pari, int> paris;
         Promotion promotion;
+
 
         public User(string username, string secondname, int numberwinparis, string userpassword, string userlogin, int totalpoint, int iduser)
         {
