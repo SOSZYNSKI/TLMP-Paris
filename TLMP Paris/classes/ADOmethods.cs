@@ -70,7 +70,6 @@ namespace TLMP_Paris.classes
                     SqlCommand savingpromo = new SqlCommand(savep, connexion);
                     Int32 idrecup = Convert.ToInt32(savingpromo.ExecuteScalar());
                     pro.IdPromotion = idrecup;
-
                 }
                 connexion.Close();
                 foreach (User u in lalisteuser)

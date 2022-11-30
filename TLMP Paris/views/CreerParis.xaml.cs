@@ -27,11 +27,11 @@ namespace TLMP_Paris
             {
                 if(MainWindow.listeParis.Count > 1)
                 {
-                    Classe.Pari avantDernierPari = MainWindow.listeParis[MainWindow.listeParis.Count - 2];
+                    Classe.Pari avantDernierPari = MainWindow.listeParis[^2];
                     lbl_last_paris_special.Content = $"{avantDernierPari.Libelle}";
                     lbl_score_last_paris_special.Content = $"{avantDernierPari.ResultMatch}";
                 }
-                Classe.Pari dernierPari = MainWindow.listeParis[MainWindow.listeParis.Count - 1];
+                Classe.Pari dernierPari = MainWindow.listeParis[^1];
                 lbl_last_paris_simple.Content = $"{dernierPari.Libelle}";
                 lbl_score_last_paris_simple.Content = $"{dernierPari.ResultMatch}";
             }

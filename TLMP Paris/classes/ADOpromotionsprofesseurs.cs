@@ -1,24 +1,18 @@
-using MahApps.Metro.Actions;
-using Microsoft.Win32;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Diagnostics;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Automation;
 using TLMP_Paris.Classe;
 
 namespace TLMP_Paris.classes
 {
-    public class ADOpromotion
+    public class ADOpromotionsprofesseurs
     {
-        public static SqlConnection connexion = new("Data Source=sql.reseau-labo.fr;User ID=admin_ltmp_db;Password=ltmp_admin_553;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
-
+        public static SqlConnection connexion = new SqlConnection("Data Source=sql.reseau-labo.fr;User ID=admin_ltmp_db;Password=ltmp_admin_553;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
         public static void Close()
         {
             connexion.Close();
@@ -29,25 +23,25 @@ namespace TLMP_Paris.classes
             connexion.Open();
         }
 
-        public List<Promotion> getall()
+        public List<PromotionProf> getall()
         {
-            List<Promotion> list = new();
+            List<PromotionProf> list = new List<PromotionProf>();
 
             try
             {
-                using (SqlDataAdapter all = new("SELECT * FROM promotions", connexion))
+                using (SqlDataAdapter all = new SqlDataAdapter("SELECT * FROM promotionsprofesseurs", connexion))
                 {
                     DataTable dtTest = new();
                     DataSet dsTest = new();
                     all.Fill(dtTest);
                     all.Fill(dsTest);
                     var firstColumn = dsTest.Tables[0].Rows;
-                    foreach(DataRow row in firstColumn)
+                    foreach (DataRow row in firstColumn)
                     {
-                        string promoName = row["nomPromotion"].ToString();
-                        int nombrepersonnesP = Convert.ToInt32(row["nombrepersonnesPromotion"].ToString());
-                        int idpromotion = Convert.ToInt32(row["idPromotion"].ToString());
-                        list.Add(new Promotion(promoName, nombrepersonnesP, idpromotion));
+                        string promoName = row["nomProfesseurpromotion"].ToString();
+                        int nombrepersonnesP = Convert.ToInt32(row["nombrepersonnepromotionProfesseur"].ToString());
+                        int idpromotion = Convert.ToInt32(row["idPromotionprofesseur"].ToString());
+                        list.Add(new PromotionProf(promoName, nombrepersonnesP, idpromotion));
                     }
                 }
 
@@ -59,17 +53,17 @@ namespace TLMP_Paris.classes
             return list;
         }
 
-        public void save(List<Promotion> listepromotion)
+        public void save(List<PromotionProf> listepromotion)
         {
             try
             {
                 connexion.Open();
 
                 string delu = "DELETE FROM users";
-                string delp = "DELETE FROM promotions";
-                SqlCommand deleteu = new(delu, connexion);
+                string delp = "DELETE FROM promotionsprofesseurs";
+                SqlCommand deleteu = new SqlCommand(delu, connexion);
                 deleteu.ExecuteNonQuery();
-                SqlCommand deletep = new(delp, connexion);
+                SqlCommand deletep = new SqlCommand(delp, connexion);
                 deletep.ExecuteNonQuery();
             }
             catch (SqlException e)
@@ -80,17 +74,17 @@ namespace TLMP_Paris.classes
             {
                 connexion.Close();
             }
-            
-            foreach  (Promotion p in listepromotion)
+
+            foreach (PromotionProf p in listepromotion)
             {
                 try
                 {
                     connexion.Open();
-                    string save = $"INSERT INTO dbo.promotions (nomPromotion, nombrepersonnesPromotion) VALUES ({p.PromotionName},{p.NombreTotal});";
-                    SqlCommand saving = new(save, connexion);
+                    string save = $"INSERT INTO dbo.promotionsprofesseurs (nomPromotionprofesseur, nombrepersonnepromotionProfesseur) VALUES ({p.PromotionName},{p.NombreTotal});";
+                    SqlCommand saving = new SqlCommand(save, connexion);
                     saving.ExecuteNonQuery();
                 }
-                catch(Exception e)
+                catch (Exception e)
                 {
                     Console.WriteLine(e);
                 }
@@ -98,13 +92,12 @@ namespace TLMP_Paris.classes
                 {
                     connexion.Close();
                 }
-                
+
             }
-            
+
 
         }
 
     }
-
-
 }
+
