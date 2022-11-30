@@ -30,6 +30,7 @@ namespace TLMP_Paris
             InitializeComponent();
             dgd_view_tabpromotion.ItemsSource = MainWindow.promotions;
             txt_Name.Text = "Name";
+            txt_diminutif.Text = "Diminutif";
             List<User> ListComboUserPromotion = new();
             foreach (User u in MainWindow.Users)
             {
@@ -55,14 +56,14 @@ namespace TLMP_Paris
         private void btn_add_Click(object sender, RoutedEventArgs e)
         {
 
-            if (txt_Name.Text != null)
+            if (txt_Name.Text != null && txt_diminutif.Text != null)
             {
-                Promotion newProm = new Promotion(txt_Name.Text, 0,Convert.ToInt32(null));
+                Promotion newProm = new Promotion(txt_Name.Text,txt_diminutif.Text, 0,Convert.ToInt32(null));
                 MainWindow.promotions.Add(newProm);
                 dgd_view_tabpromotion.Items.Refresh();
                 txt_Name.Text = null;
             }
-            else if (txt_Name.Text == null && ComboListUser.SelectedItem != null)
+            else if (txt_Name.Text == null && ComboListUser.SelectedItem != null && txt_diminutif.Text == null)
             {
                 object objet = dgd_view_tabpromotion.SelectedItem;
                 Promotion promo = objet as Promotion;
