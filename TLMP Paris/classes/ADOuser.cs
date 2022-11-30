@@ -44,8 +44,8 @@ namespace TLMP_Paris.classes
                         string userlogin = row["loginUsers"].ToString();
                         int totalpoint = Convert.ToInt32(row["totalpointUsers"].ToString());
                         int iduser = Convert.ToInt32(row["idUsers"].ToString());
-
-                        listuser.Add(new User(username, secondname, numberwinpari, userpassword, userlogin, totalpoint, iduser));
+                        int idpromotion = Convert.ToInt32(row["FK_users_promotions"].ToString());
+                        listuser.Add(new User(username, secondname, numberwinpari, userpassword, userlogin, totalpoint, iduser, idpromotion));
                     }
                 }
 
@@ -81,7 +81,7 @@ namespace TLMP_Paris.classes
             {
                 try
                 {
-                    string save = $"INSERT INTO users (prenomUsers, nomUsers, mdpUsers, loginUsers, totalpointUsers) VALUES ({u.UserName},{u.SecondName},{u.UserPassword}, {u.UserLogin}, {u.TotalPoint});";
+                    string save = $"INSERT INTO users (prenomUsers, nomUsers, mdpUsers, loginUsers, totalpointUsers, FK_users_promotions) VALUES ({u.UserName},{u.SecondName},{u.UserPassword}, {u.UserLogin}, {u.TotalPoint}, {u.IdPromotion});";
                     SqlCommand saving = new SqlCommand(save, connexion);
                     connexion.Open();
                     saving.ExecuteNonQuery();
