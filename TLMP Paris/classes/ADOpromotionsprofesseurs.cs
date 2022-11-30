@@ -38,9 +38,9 @@ namespace TLMP_Paris.classes
                     var firstColumn = dsTest.Tables[0].Rows;
                     foreach (DataRow row in firstColumn)
                     {
-                        string promoName = row["nomPromotion"].ToString();
-                        int nombrepersonnesP = Convert.ToInt32(row["nombrepersonnesPromotion"].ToString());
-                        int idpromotion = Convert.ToInt32(row["idPromotion"].ToString());
+                        string promoName = row["nomProfesseurpromotion"].ToString();
+                        int nombrepersonnesP = Convert.ToInt32(row["nombrepersonnepromotionProfesseur"].ToString());
+                        int idpromotion = Convert.ToInt32(row["idPromotionprofesseur"].ToString());
                         list.Add(new PromotionProf(promoName, nombrepersonnesP, idpromotion));
                     }
                 }
@@ -60,7 +60,7 @@ namespace TLMP_Paris.classes
                 connexion.Open();
 
                 string delu = "DELETE FROM users";
-                string delp = "DELETE FROM promotions";
+                string delp = "DELETE FROM promotionsprofesseurs";
                 SqlCommand deleteu = new SqlCommand(delu, connexion);
                 deleteu.ExecuteNonQuery();
                 SqlCommand deletep = new SqlCommand(delp, connexion);
@@ -80,7 +80,7 @@ namespace TLMP_Paris.classes
                 try
                 {
                     connexion.Open();
-                    string save = $"INSERT INTO dbo.promotions (nomPromotion, nombrepersonnesPromotion) VALUES ({p.PromotionName},{p.NombreTotal});";
+                    string save = $"INSERT INTO dbo.promotionsprofesseurs (nomPromotionprofesseur, nombrepersonnepromotionProfesseur) VALUES ({p.PromotionName},{p.NombreTotal});";
                     SqlCommand saving = new SqlCommand(save, connexion);
                     saving.ExecuteNonQuery();
                 }
