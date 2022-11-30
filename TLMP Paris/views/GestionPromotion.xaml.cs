@@ -31,8 +31,7 @@ namespace TLMP_Paris
             dgd_view_tabpromotion.ItemsSource = MainWindow.promotions;
             txt_Name.Text = "Name";
             List<User> ListComboUserPromotion = new();
-            User test1 = new User("Login", "Login", 100, "553", "Login", 2,1);
-            ListComboUserPromotion.Add(test1);
+
             foreach (User u in MainWindow.Users)
             {
                 if(u.Promotion == null)
