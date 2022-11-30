@@ -17,7 +17,7 @@ namespace TLMP_Paris.classes
 {
     public class ADOpromotion
     {
-        public static SqlConnection connexion = new SqlConnection("Data Source=sql.reseau-labo.fr;User ID=admin_ltmp_db;Password=ltmp_admin_553;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+        public static SqlConnection connexion = new("Data Source=sql.reseau-labo.fr;User ID=admin_ltmp_db;Password=ltmp_admin_553;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
 
         public static void Close()
         {
@@ -31,11 +31,11 @@ namespace TLMP_Paris.classes
 
         public List<Promotion> getall()
         {
-            List<Promotion> list = new List<Promotion>();
+            List<Promotion> list = new();
 
             try
             {
-                using (SqlDataAdapter all = new SqlDataAdapter("SELECT * FROM promotions", connexion))
+                using (SqlDataAdapter all = new("SELECT * FROM promotions", connexion))
                 {
                     DataTable dtTest = new();
                     DataSet dsTest = new();
@@ -67,9 +67,9 @@ namespace TLMP_Paris.classes
 
                 string delu = "DELETE FROM users";
                 string delp = "DELETE FROM promotions";
-                SqlCommand deleteu = new SqlCommand(delu, connexion);
+                SqlCommand deleteu = new(delu, connexion);
                 deleteu.ExecuteNonQuery();
-                SqlCommand deletep = new SqlCommand(delp, connexion);
+                SqlCommand deletep = new(delp, connexion);
                 deletep.ExecuteNonQuery();
             }
             catch (SqlException e)
@@ -87,7 +87,7 @@ namespace TLMP_Paris.classes
                 {
                     connexion.Open();
                     string save = $"INSERT INTO dbo.promotions (nomPromotion, nombrepersonnesPromotion) VALUES ({p.PromotionName},{p.NombreTotal});";
-                    SqlCommand saving = new SqlCommand(save, connexion);
+                    SqlCommand saving = new(save, connexion);
                     saving.ExecuteNonQuery();
                 }
                 catch(Exception e)
