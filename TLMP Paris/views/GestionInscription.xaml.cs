@@ -35,7 +35,9 @@ namespace TLMP_Paris
 
         private void btn_importer_Click(object sender, RoutedEventArgs e)
         {
-
+            MainWindow windowMain = ((MainWindow)Application.Current.MainWindow);
+            windowMain.pageHistory.Add(windowMain.pageViewer.Content);
+            windowMain.pageViewer.Content = new views.CreerUser();
         }
 
         private void btn_search_Click(object sender, RoutedEventArgs e)

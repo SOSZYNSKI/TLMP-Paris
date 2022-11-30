@@ -32,6 +32,7 @@ namespace TLMP_Paris
             txt_Name.Text = "Name";
             txt_diminutif.Text = "Diminutif";
             List<User> ListComboUserPromotion = new();
+
             foreach (User u in MainWindow.Users)
             {
                 if(u.Promotion == null)
