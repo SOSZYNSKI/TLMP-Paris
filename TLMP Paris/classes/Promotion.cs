@@ -17,11 +17,12 @@ namespace TLMP_Paris.Classe
         public string PromotionName { get => promotionName; set => promotionName = value; }
         public int NombreTotal { get => nombreTotal; set => nombreTotal = value; }
 
-        public Promotion(string promotionname, int nombreTotal)
+        public Promotion(string promotionname, int nombreTotal,int idPRomotion)
         {
             PromotionName = promotionname;
             NombreTotal = nombreTotal;
             ListUser = new List<User>();
+            this.idpromotion = idPRomotion;
         }
         public void AddUser(User u)
         {

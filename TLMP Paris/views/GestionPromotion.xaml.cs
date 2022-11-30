@@ -59,7 +59,7 @@ namespace TLMP_Paris
 
             if (txt_Name.Text != null)
             {
-                Promotion newProm = new Promotion(txt_Name.Text, 0);
+                Promotion newProm = new Promotion(txt_Name.Text, 0,Convert.ToInt32(null));
                 MainWindow.promotions.Add(newProm);
                 dgd_view_tabpromotion.Items.Refresh();
                 txt_Name.Text = null;
