@@ -30,6 +30,9 @@ namespace TLMP_Paris
         public static List<Promotion> promotions = new();
         public static ADOpromotion adopromotions = new();
 
+        public static List<PromotionProf> promotionsProf = new();
+        public static ADOpromotionsprofesseurs adopromotionsprof = new();
+
         public static List<User> Users = new();
         public static ADOuser ADOuser = new();
 
