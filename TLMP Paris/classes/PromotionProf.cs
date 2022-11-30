@@ -13,14 +13,18 @@ namespace TLMP_Paris.classes
         string promotionName;
         int nombreTotal;
         List<User> listUserpromotionprof;
+        string diminutifPromProf;
+
+        public string DiminutifPromProf { get => diminutifPromProf; set => diminutifPromProf = value; }
         public int IdPromotion { get => idpromotion; set => idpromotion = value; }
         public List<User> ListUserPromotionProf { get => listUserpromotionprof; set => listUserpromotionprof = value; }
         public string PromotionName { get => promotionName; set => promotionName = value; }
         public int NombreTotal { get => nombreTotal; set => nombreTotal = value; }
 
-        public PromotionProf(string promotionname, int nombreTotal, int idPRomotion)
+        public PromotionProf(string promotionname, string diminutifprof, int nombreTotal, int idPRomotion)
         {
             PromotionName = promotionname;
+            this.diminutifPromProf = diminutifprof;
             NombreTotal = nombreTotal;
             ListUserPromotionProf = new List<User>();
             this.idpromotion = idPRomotion;
