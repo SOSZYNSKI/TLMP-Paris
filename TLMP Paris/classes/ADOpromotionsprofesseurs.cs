@@ -41,7 +41,8 @@ namespace TLMP_Paris.classes
                         string promoName = row["nomProfesseurpromotion"].ToString();
                         int nombrepersonnesP = Convert.ToInt32(row["nombrepersonnepromotionProfesseur"].ToString());
                         int idpromotion = Convert.ToInt32(row["idPromotionprofesseur"].ToString());
-                        list.Add(new PromotionProf(promoName, nombrepersonnesP, idpromotion));
+                        string diminutifprof = row["diminutifsProfesseur"].ToString();
+                        list.Add(new PromotionProf(promoName, diminutifprof, nombrepersonnesP,  idpromotion));
                     }
                 }
 

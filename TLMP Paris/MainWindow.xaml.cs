@@ -45,7 +45,7 @@ namespace TLMP_Paris
             if (result == MessageBoxResult.Yes)
             {
                 ADOmethods.deleteall();
-                ADOmethods.saveall(Users, promotions, listeParis);
+                ADOmethods.saveall(Users, promotions, promotionsProf, listeParis);
                 e.Cancel = false;
             }
             else
