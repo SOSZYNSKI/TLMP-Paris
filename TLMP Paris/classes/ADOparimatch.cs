@@ -27,6 +27,7 @@ namespace TLMP_Paris.classes
         public List<Pari> getall()
         {
             List<Pari> listdespari = new List<Pari>();
+
             try
             {
                 using (SqlDataAdapter all = new SqlDataAdapter("SELECT * FROM parimatch", connexion))
@@ -95,10 +96,7 @@ namespace TLMP_Paris.classes
                 {
                     connexion.Close();
                 }
-
             }
-
-
         }
     }
 }

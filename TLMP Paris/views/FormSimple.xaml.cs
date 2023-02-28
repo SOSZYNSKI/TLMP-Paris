@@ -65,8 +65,6 @@ namespace TLMP_Paris.views
 
             Pari pari = new Pari(datePariMaxForm, DateMatchForm, libelleForm, Convert.ToInt16(txt_earn.Text),eliminationForm);
             MainWindow.listeParis.Add(pari);
-
-
         }
 
         private void combo_months_match1_SelectionChanged(object sender, SelectionChangedEventArgs e)
