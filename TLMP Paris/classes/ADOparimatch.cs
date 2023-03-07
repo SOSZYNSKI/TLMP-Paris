@@ -12,6 +12,8 @@ namespace TLMP_Paris.classes
 {
     public class ADOparimatch
     {
+        List<Pari> listdespari = new List<Pari>();
+
         public static SqlConnection connexion = new SqlConnection("Data Source=sql.reseau-labo.fr;User ID=admin_ltmp_db;Password=ltmp_admin_553;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
 
         public static void Close()
@@ -26,12 +28,12 @@ namespace TLMP_Paris.classes
 
         public List<Pari> getall()
         {
-            List<Pari> listdespari = new List<Pari>();
 
             try
             {
                 using (SqlDataAdapter all = new SqlDataAdapter("SELECT * FROM parimatch", connexion))
                 {
+
                     DataTable dtTest = new();
                     DataSet dsTest = new();
                     all.Fill(dtTest);
@@ -39,16 +41,19 @@ namespace TLMP_Paris.classes
                     var firstColumn = dsTest.Tables[0].Rows;
                     foreach (DataRow row in firstColumn)
                     {
-                        int idpari = Convert.ToInt16(row["idpariMatch"].ToString());
                         DateTime datemaxparimatch = Convert.ToDateTime(row["datemaxpariMatch"].ToString());
                         DateTime dateparimatch = Convert.ToDateTime(row["datepariMatch"].ToString());
                         int recompensematch = Convert.ToInt16(row["recompensepariMatch"].ToString());
                         string libellematch = Convert.ToString(row["libelleMatch"].ToString());
-                        string typepari = Convert.ToString(row["typePari"].ToString());
                         int eliminatoirematch = Convert.ToInt16(row["eliminatoireMatch"].ToString());
-                        DateTime ecartmatch = Convert.ToDateTime(row["ecartMatch"].ToString());
+                        string libelleecartmacth = Convert.ToString(row["libelleecartmatch"]);
+                        int ecartmatch = Convert.ToInt32(row["ecartMatch"].ToString());
                         int penalitematch = Convert.ToInt16(row["penaliteMatch"].ToString());
+
+                        Pari pa = new Pari(datemaxparimatch, dateparimatch, libellematch, recompensematch, ecartmatch, libelleecartmacth, penalitematch, eliminatoirematch);
+                        listdespari.Add(pa);
                     }
+
                 }
 
             }

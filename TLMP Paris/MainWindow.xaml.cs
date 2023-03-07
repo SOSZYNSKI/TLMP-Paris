@@ -57,11 +57,11 @@ namespace TLMP_Paris
         public MainWindow()
         {
             InitializeComponent();
-            pageViewer.Content = new Accueil();
             loading.Visibility = Visibility.Hidden;
             promotions = adopromotions.getall();
             listeParis = listeparisADO.getall();
             Users = ADOuser.getall();
+            pageViewer.Content = new Accueil();
         }
 
         private void returnButton(object sender, RoutedEventArgs e)

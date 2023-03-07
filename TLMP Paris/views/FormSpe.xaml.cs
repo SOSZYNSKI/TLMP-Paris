@@ -62,7 +62,7 @@ namespace TLMP_Paris.views
             string libelleForm = txt_libelle.Text.ToString();
             int recompenseForm = Convert.ToInt16(txt_recompense.Text);
             int pointPenaliteForm = Convert.ToInt16(txt_penalitepoints.Text);
-            Pari pari = new Pari(DateMaxPariForm, dateMatchForm, libelleForm, recompenseForm, range,libellerange, pointPenaliteForm);
+            Pari pari = new Pari(DateMaxPariForm, dateMatchForm, libelleForm, recompenseForm, range, libellerange, pointPenaliteForm, 0);
             MainWindow.listeParis.Add(pari);
         }
 

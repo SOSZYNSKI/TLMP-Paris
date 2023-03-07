@@ -30,16 +30,7 @@ namespace TLMP_Paris.Classe
         public int IdPari { get => idPari; set => idPari = value; }
         public string Libelle { get => libelle; set => libelle = value; }
 
-        public Pari(DateTime datemax, DateTime datematch,string libelles,int pointearn,int elimination)
-        {
-            this.DateMax = datemax;
-            this.DateMatch = datematch;
-            this.PointsEarn = pointearn;
-            this.Libelle = libelles;
-            this.Elimination = elimination;
-        }
-
-        public Pari(DateTime datemax, DateTime datematch, string libelles, int pointearn,int range,string rangelibelle, int penality)
+        public Pari(DateTime datemax, DateTime datematch, string libelles, int pointearn,int range, string rangelibelle, int penality, int elimination)
         {
             this.DateMax = datemax;
             this.Rangelibelle = rangelibelle;
@@ -48,6 +39,7 @@ namespace TLMP_Paris.Classe
             this.Libelle = libelles;
             this.Range = range;
             this.Penality = penality;
+            this.Elimination = elimination;
 
         }
 

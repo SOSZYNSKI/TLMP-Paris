@@ -41,7 +41,7 @@ namespace TLMP_Paris
                 labelle_date_match_1.Content = listpariaccueil[0].DateMatch;
                 labelle_date_pari_1.Content = listpariaccueil[0].DateMax;
                 labelle_recompense_1.Content = listpariaccueil[0].PointsEarn;
-                libelle_match_1.Content = listpariaccueil[0].Libelle; ;
+                libelle_match_1.Content = listpariaccueil[0].Libelle;
 
                 if (listpariaccueil[0].Elimination == 1)
                 {

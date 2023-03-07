@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using TLMP_Paris.Classe;
+using TLMP_Paris.classes;
 
 namespace TLMP_Paris.views
 {
@@ -63,7 +64,7 @@ namespace TLMP_Paris.views
 
             }
 
-            Pari pari = new Pari(datePariMaxForm, DateMatchForm, libelleForm, Convert.ToInt16(txt_earn.Text),eliminationForm);
+            Pari pari = new Pari(datePariMaxForm, DateMatchForm, libelleForm, Convert.ToInt16(txt_earn.Text), 0, "test", 0, eliminationForm);
             MainWindow.listeParis.Add(pari);
         }
 

@@ -89,11 +89,12 @@ namespace TLMP_Paris.classes
                     savinguser.ExecuteNonQuery();
                     connexion.Close();
                 }
+                connexion.Open();
+                string resetautoincrementpa = "DBCC CHECKIDENT('parimatch', RESEED, 0)";
+
                 foreach (Pari pa in listpromo)
                 {
-                    connexion.Open();
-                    string resetautoincrementpa = "DBCC CHECKIDENT('parimatch', RESEED, 0, 1)";
-                    string savepa = $"INSERT INTO parimatch (datemaxpariMatch, datepariMatch, resultatMatch, recompensepariMatch, libelleMatch, typePari, eliminatoireMatch, ecartMatch, libelleecartMatch, penaliteMatch) VALUES ({pa.DateMax},{pa.DateMatch},{pa.ResultMatch},{pa.PointsEarn},{pa.Libelle},);";
+                    string savepa = $"INSERT INTO parimatch (datemaxpariMatch, datepariMatch, resultatMatch, recompensepariMatch, libelleMatch, eliminatoireMatch, ecartMatch, libelleecartMatch, penaliteMatch) VALUES ({"'" + pa.DateMax + "'"},{"'" + pa.DateMatch + "'"},{Convert.ToInt32(pa.ResultMatch)},{Convert.ToInt32(pa.PointsEarn)},{"'" + Convert.ToString(pa.Libelle) + "'"},{Convert.ToInt32(pa.Elimination)}, {Convert.ToInt32(pa.Range)}, {"'" + Convert.ToString(pa.Rangelibelle) + "'"}, {Convert.ToInt32(pa.Penality)});";
                     SqlCommand resetincrementpar = new SqlCommand(resetautoincrementpa, connexion);
                     SqlCommand savingparimatch = new SqlCommand(savepa, connexion);
                     resetincrementpar.ExecuteNonQuery();
