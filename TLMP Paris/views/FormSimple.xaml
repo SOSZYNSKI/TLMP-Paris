@@ -29,7 +29,7 @@
         <ComboBox x:Name="combo_years_pari" HorizontalAlignment="Left" Margin="727,231,0,0" VerticalAlignment="Top" Width="51"/>
         <TextBox x:Name="txt_equipe_coming" HorizontalAlignment="Left" Height="36" Margin="621,291,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="157" FontSize="14"/>
         <TextBox x:Name="txt_earn" HorizontalAlignment="Left" Height="36" Margin="621,360,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="157" FontSize="14"/>
-        <Button Content="Creer" HorizontalAlignment="Center" Margin="0,414,0,0" VerticalAlignment="Top" Height="32" Width="102" Click="Button_Click"/>
+        <Button x:Name="Creer" Content="Creer" HorizontalAlignment="Center" Margin="0,414,0,0" VerticalAlignment="Top" Height="32" Width="102" Click="Button_Click"/>
 
     </Grid>
 </Page>

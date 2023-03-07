@@ -23,7 +23,8 @@ namespace TLMP_Paris
         public CreerParis()
         {
             InitializeComponent();
-            if(MainWindow.listeParis.Count > 0)
+            btn_validate_pari.IsEnabled = false;
+            if (MainWindow.listeParis.Count > 0)
             {
                 if(MainWindow.listeParis.Count > 1)
                 {
@@ -36,7 +37,6 @@ namespace TLMP_Paris
                 lbl_score_last_paris_simple.Content = $"{dernierPari.ResultMatch}";
             }
         }
-
         private void btn_validate_pari_Click(object sender, RoutedEventArgs e)
         {
             MainWindow windowMain = ((MainWindow)Application.Current.MainWindow);
@@ -48,6 +48,16 @@ namespace TLMP_Paris
                 windowMain.pageHistory.Add(windowMain.pageViewer.Content);
                 windowMain.pageViewer.Content = new views.FormSpe();
             }
+        }
+
+        private void chk_special_Checked(object sender, RoutedEventArgs e)
+        {
+            btn_validate_pari.IsEnabled = true;
+        }
+
+        private void chk_simple_Checked(object sender, RoutedEventArgs e)
+        {
+            btn_validate_pari.IsEnabled = true;
         }
     }
 }

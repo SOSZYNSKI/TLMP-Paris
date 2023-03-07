@@ -41,8 +41,8 @@
         <Grid HorizontalAlignment="Center" Margin="0,706,0,0" VerticalAlignment="Top">
             <Rectangle x:Name="rectangle_form" HorizontalAlignment="Center" Height="311" Stroke="Black" VerticalAlignment="Top" Width="800"/>
             <Label x:Name="lbl_formulaire" Content="Formulaire" HorizontalAlignment="Center" Height="61" VerticalAlignment="Top" Width="300" HorizontalContentAlignment="Center" FontSize="36" FontWeight="Bold" VerticalContentAlignment="Center"/>
-            <RadioButton x:Name="chk_simple" GroupName="pariType" Content="Simple ?" HorizontalAlignment="Left" Height="34" Margin="85,138,0,0" VerticalAlignment="Top" Width="130" FontSize="22"/>
-            <RadioButton x:Name="chk_special" GroupName="pariType" Content="Special ?" HorizontalAlignment="Left" Height="34" Margin="584,138,0,0" VerticalAlignment="Top" Width="130" FontSize="22"/>
+            <RadioButton x:Name="chk_simple" GroupName="pariType" Content="Simple ?" HorizontalAlignment="Left" Height="34" Margin="85,138,0,0" VerticalAlignment="Top" Width="130" FontSize="22" Checked="chk_simple_Checked"/>
+            <RadioButton x:Name="chk_special" GroupName="pariType" Content="Special ?" HorizontalAlignment="Left" Height="34" Margin="584,138,0,0" VerticalAlignment="Top" Width="130" FontSize="22" Checked="chk_special_Checked"/>
             <Button x:Name="btn_validate_pari" Content="Valider" HorizontalAlignment="Center" Height="34" Margin="0,221,0,0" VerticalAlignment="Top" Width="160" Click="btn_validate_pari_Click"/>
 
         </Grid>
