@@ -55,15 +55,102 @@ namespace TLMP_Paris.views
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            DateTime dateMatchForm = new DateTime(Convert.ToInt16(combo_years_match.Text), Convert.ToInt16(combo_months_match.Text), Convert.ToInt16(combo_day_match.Text));
-            DateTime DateMaxPariForm = new DateTime(Convert.ToInt16(combo_years_pari.Text), Convert.ToInt16(combo_months_pari.Text), Convert.ToInt16(combo_day_pari.Text));
-            int range = Convert.ToInt16(combo_ecart_point.SelectedItem.ToString());
-            string libellerange = txt_libelle_ecart.Text;
-            string libelleForm = txt_libelle.Text.ToString();
-            int recompenseForm = Convert.ToInt16(txt_recompense.Text);
-            int pointPenaliteForm = Convert.ToInt16(txt_penalitepoints.Text);
-            Pari pari = new Pari(DateMaxPariForm, dateMatchForm, libelleForm, recompenseForm, range, libellerange, pointPenaliteForm, 0);
-            MainWindow.listeParis.Add(pari);
+            if(txt_penalitepoints.Text == string.Empty)
+            {
+                txt_penalitepoints.Background = Brushes.Red;
+                txt_recompense.Background = Brushes.White;
+                txt_libelle.Background = Brushes.White;
+                txt_libelle_ecart.Background = Brushes.White;
+                MessageBox.Show("Erreur, vous n'avez pas remplis les conditions pour créer un pari", "Erreur, manque quelque chose", MessageBoxButton.OK);
+            }
+            else if(txt_recompense.Text == string.Empty)
+            {
+                txt_penalitepoints.Background = Brushes.White;
+                txt_recompense.Background = Brushes.Red;
+                txt_libelle.Background = Brushes.White;
+                txt_libelle_ecart.Background = Brushes.White;
+                MessageBox.Show("Erreur, vous n'avez pas remplis les conditions pour créer un pari", "Erreur, manque quelque chose", MessageBoxButton.OK);
+            }
+            else if(txt_libelle.Text == string.Empty)
+            {
+                txt_penalitepoints.Background = Brushes.White;
+                txt_recompense.Background = Brushes.White;
+                txt_libelle.Background = Brushes.Red;
+                txt_libelle_ecart.Background = Brushes.White;
+                MessageBox.Show("Erreur, vous n'avez pas remplis les conditions pour créer un pari", "Erreur, manque quelque chose", MessageBoxButton.OK);
+            }
+            else if (txt_libelle_ecart.Text == string.Empty)
+            {
+                txt_penalitepoints.Background = Brushes.White;
+                txt_recompense.Background = Brushes.White;
+                txt_libelle.Background = Brushes.White;
+                txt_libelle_ecart.Background = Brushes.Red;
+                MessageBox.Show("Erreur, vous n'avez pas remplis les conditions pour créer un pari", "Erreur, manque quelque chose", MessageBoxButton.OK);
+            }
+            else if(combo_ecart_point.Text == string.Empty)
+            {
+                txt_penalitepoints.Background = Brushes.White;
+                txt_recompense.Background = Brushes.White;
+                txt_libelle.Background = Brushes.White;
+                txt_libelle_ecart.Background = Brushes.White;
+                MessageBox.Show("Erreur, vous n'avez pas donnée d'écart", "Erreur, manque quelque chose", MessageBoxButton.OK);
+            }
+            else if(combo_day_match.SelectedItem == null || combo_months_match.SelectedItem == null || combo_years_match.SelectedItem == null)
+            {
+                txt_penalitepoints.Background = Brushes.White;
+                txt_recompense.Background = Brushes.White;
+                txt_libelle.Background = Brushes.White;
+                txt_libelle_ecart.Background = Brushes.White;
+                MessageBox.Show("Erreur, vous n'avez pas précisé correctement la date du match", "Erreur, manque quelque chose", MessageBoxButton.OK);
+            }
+            else if(combo_day_pari.SelectedItem == null|| combo_months_pari.SelectedItem == null|| combo_years_pari.SelectedItem == null)
+            {
+                txt_penalitepoints.Background = Brushes.White;
+                txt_recompense.Background = Brushes.White;
+                txt_libelle.Background = Brushes.White;
+                txt_libelle_ecart.Background = Brushes.White;
+                MessageBox.Show("Erreur, vous n'avez pas précisé correctement la date de fin pour les paris", "Erreur, manque quelque chose", MessageBoxButton.OK);
+            }
+            else if(int.TryParse(txt_recompense.Text, out int num) == false)
+            {
+                txt_recompense.Background = Brushes.Red;
+                txt_penalitepoints.Background = Brushes.White;
+                txt_libelle.Background = Brushes.White;
+                txt_libelle_ecart.Background = Brushes.White;
+                MessageBox.Show("Erreur, vous n'avez pas rentré une donnée correcte dans les récompenses, veuillez rentrer un chiffre/nombre", "Erreur, manque quelque chose", MessageBoxButton.OK);
+            }
+            else if(int.TryParse(txt_penalitepoints.Text, out int num1) == false)
+            {
+                txt_penalitepoints.Background = Brushes.Red;
+                txt_recompense.Background = Brushes.White;
+                txt_libelle.Background = Brushes.White;
+                txt_libelle_ecart.Background = Brushes.White;
+                MessageBox.Show("Erreur, vous n'avez pas rentré une donnée correcte dans les pénalité de points, veuillez rentrer un chiffre/nombre", "Erreur, manque quelque chose", MessageBoxButton.OK);
+            }
+            else
+            {
+                DateTime dateMatchForm = new DateTime(Convert.ToInt16(combo_years_match.Text), Convert.ToInt16(combo_months_match.Text), Convert.ToInt16(combo_day_match.Text));
+                DateTime DateMaxPariForm = new DateTime(Convert.ToInt16(combo_years_pari.Text), Convert.ToInt16(combo_months_pari.Text), Convert.ToInt16(combo_day_pari.Text));
+                int range = Convert.ToInt16(combo_ecart_point.SelectedItem.ToString());
+                string libellerange = txt_libelle_ecart.Text;
+                string libelleForm = txt_libelle.Text.ToString();
+                int recompenseForm = Convert.ToInt16(txt_recompense.Text);
+                int pointPenaliteForm = Convert.ToInt16(txt_penalitepoints.Text);
+                Pari pari = new Pari(DateMaxPariForm, dateMatchForm, libelleForm, recompenseForm, range, libellerange, pointPenaliteForm);
+                MainWindow.listeParis.Add(pari);
+                MessageBox.Show("Réussite !, votre paris " + pari.Libelle + " à bien été créée", "Réussite, votre pari à bien été créée", MessageBoxButton.OK);
+                txt_penalitepoints.Text = "";
+                txt_recompense.Text = "";
+                txt_libelle.Text = "";
+                txt_libelle_ecart.Text = "";
+                combo_day_pari.SelectedItem = 1;
+                combo_months_pari.SelectedItem = "1";
+                combo_years_pari.SelectedItem = "2022";
+                combo_day_match.SelectedItem = 1;
+                combo_months_match.SelectedItem = "1";
+                combo_years_match.SelectedItem = "2022";
+                combo_ecart_point.SelectedItem = 1;
+            }
         }
 
         private void combo_months_match_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -132,6 +219,11 @@ namespace TLMP_Paris.views
                 combo_day_pari.ItemsSource = listComboDateDay;
                 combo_day_pari.Items.Refresh();
             }
+        }
+
+        private void txt_libelle_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }

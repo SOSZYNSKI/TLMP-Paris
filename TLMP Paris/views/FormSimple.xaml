@@ -9,42 +9,27 @@
       Title="FormSimple">
 
     <Grid x:Name="grid_FormSimple" Background="White">
-        <Label x:Name="lbl_formSimple" Content="Formulaire de création d'un pari simple" HorizontalAlignment="Center" Margin="0,53,0,0" VerticalAlignment="Top" Width="428" Height="49" FontSize="24"/>
-        <Rectangle HorizontalAlignment="Center" Height="3" Margin="0,107,0,0" Stroke="Black" VerticalAlignment="Top" Width="716"/>
-        <Rectangle HorizontalAlignment="Center" Height="200" Margin="0,141,0,0" Stroke="Black" VerticalAlignment="Top" Width="1" RenderTransformOrigin="0.5,0.5">
-            <Rectangle.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform ScaleX="-1"/>
-                    <SkewTransform/>
-                    <RotateTransform/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Rectangle.RenderTransform>
-        </Rectangle>
-        <Label x:Name="lbl_equipe1" Content="Equipe Domicile :" HorizontalAlignment="Left" Margin="57,243,0,0" VerticalAlignment="Top" Width="144" Height="36" FontSize="16"/>
-        <Label x:Name="lbl_match" Content="Date et heure Match :" HorizontalAlignment="Left" Margin="137,136,0,0" VerticalAlignment="Top" Width="165" Height="36" FontSize="16"/>
-        <Label x:Name="lbl_end_pari" Content="Heure fin période pari :" HorizontalAlignment="Left" Margin="528,136,0,0" VerticalAlignment="Top" Width="172" Height="36" FontSize="16"/>
-        <Label x:Name="lbl_equipe2" Content="Equipe visiteuse :" HorizontalAlignment="Left" Margin="444,239,0,0" VerticalAlignment="Top" Width="162" Height="36" FontSize="16"/>
-        <Label x:Name="lbl_earning" Content="Récompense :" HorizontalAlignment="Left" Margin="439,301,0,0" VerticalAlignment="Top" Width="152" Height="36" FontSize="16"/>
-        <Label x:Name="lbl_eliminate" Content="Eliminatoire :" HorizontalAlignment="Left" Margin="57,305,0,0" VerticalAlignment="Top" Width="144" Height="36" FontSize="16"/>
-        <CheckBox x:Name="check_yes" Content="oui" HorizontalAlignment="Left" Margin="232,313,0,0" VerticalAlignment="Top" Height="18" Width="50" FontSize="14"/>
-        <CheckBox x:Name="check_no" Content="non" HorizontalAlignment="Left" Margin="333,314,0,0" VerticalAlignment="Top" Height="18" Width="47" FontSize="14"/>
-        <TextBox x:Name="txt_equipe_home" HorizontalAlignment="Left" Height="36" Margin="228,243,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="157" FontSize="14"/>
-        <ComboBox x:Name="combo_day_match1" HorizontalAlignment="Left" Margin="186,193,0,0" VerticalAlignment="Top" Width="42"/>
-        <ComboBox x:Name="combo_months_match1" HorizontalAlignment="Left" Margin="71,193,0,0" VerticalAlignment="Top" Width="42" SelectionChanged="combo_months_match1_SelectionChanged"/>
-        <ComboBox x:Name="combo_years" HorizontalAlignment="Left" Margin="308,193,0,0" VerticalAlignment="Top" Width="50"/>
-        <ComboBox x:Name="combo_day_pari" HorizontalAlignment="Left" Margin="585,193,0,0" VerticalAlignment="Top" Width="41" RenderTransformOrigin="0.302,-0.874"/>
-        <ComboBox x:Name="combo_months_pari" HorizontalAlignment="Left" Margin="466,193,0,0" VerticalAlignment="Top" Width="42" SelectionChanged="combo_months_pari_SelectionChanged"/>
-        <ComboBox x:Name="combo_years_pari" HorizontalAlignment="Left" Margin="700,193,0,0" VerticalAlignment="Top" Width="50"/>
-        <TextBox x:Name="txt_equipe_coming" HorizontalAlignment="Left" Height="36" Margin="621,239,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="157" FontSize="14"/>
-        <TextBox x:Name="txt_earn" HorizontalAlignment="Left" Height="36" Margin="621,301,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="157" FontSize="14"/>
-        <Button Content="Creer" HorizontalAlignment="Center" Margin="0,364,0,0" VerticalAlignment="Top" Height="32" Width="102" Click="Button_Click"/>
-        <Label x:Name="monthstrt" Content="Mois :" HorizontalAlignment="Left" Margin="24,191,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="daystrt" Content="Jour :" HorizontalAlignment="Left" Margin="129,191,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="yearstrt" Content="Année : " HorizontalAlignment="Left" Margin="240,191,0,0" VerticalAlignment="Top" Width="62"/>
-        <Label x:Name="monthend" Content="Mois :" HorizontalAlignment="Left" Margin="419,191,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="dayend" Content="Jour :" HorizontalAlignment="Left" Margin="528,191,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="yearend" Content="Année : " HorizontalAlignment="Left" Margin="633,191,0,0" VerticalAlignment="Top" Width="62"/>
+        <Label x:Name="lbl_formSimple" Content="Formulaire de création d'un pari simple" HorizontalAlignment="Center" Margin="0,131,0,0" VerticalAlignment="Top" Width="428" Height="49" FontSize="24"/>
+        <Rectangle HorizontalAlignment="Center" Height="3" Margin="0,185,0,0" Stroke="Black" VerticalAlignment="Top" Width="716"/>
+        <Rectangle HorizontalAlignment="Center" Height="200" Margin="0,209,0,0" Stroke="Black" VerticalAlignment="Top" Width="1"/>
+        <Label x:Name="lbl_equipe1" Content="Equipe Domicile :" HorizontalAlignment="Left" Margin="57,291,0,0" VerticalAlignment="Top" Width="144" Height="36" FontSize="16"/>
+        <Label x:Name="lbl_match" Content="Date et heure Match :" HorizontalAlignment="Left" Margin="57,225,0,0" VerticalAlignment="Top" Width="170" Height="36" FontSize="16"/>
+        <Label x:Name="lbl_end_pari" Content="Heure fin période pari :" HorizontalAlignment="Left" Margin="444,225,0,0" VerticalAlignment="Top" Width="182" Height="36" FontSize="16"/>
+        <Label x:Name="lbl_equipe2" Content="Equipe visiteuse :" HorizontalAlignment="Left" Margin="444,291,0,0" VerticalAlignment="Top" Width="182" Height="36" FontSize="16"/>
+        <Label x:Name="lbl_earning" Content="Récompense :" HorizontalAlignment="Left" Margin="444,361,0,0" VerticalAlignment="Top" Width="182" Height="36" FontSize="16"/>
+        <Label x:Name="lbl_eliminate" Content="Eliminatoire :" HorizontalAlignment="Left" Margin="57,361,0,0" VerticalAlignment="Top" Width="144" Height="36" FontSize="16"/>
+        <CheckBox x:Name="check_yes" Content="oui" HorizontalAlignment="Left" Margin="228,369,0,0" VerticalAlignment="Top" Height="18" Width="50" FontSize="14"/>
+        <CheckBox x:Name="check_no" Content="non" HorizontalAlignment="Left" Margin="334,370,0,0" VerticalAlignment="Top" Height="18" Width="47" FontSize="14"/>
+        <TextBox x:Name="txt_equipe_home" HorizontalAlignment="Left" Height="36" Margin="228,291,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="157" FontSize="14"/>
+        <ComboBox x:Name="combo_day_match1" HorizontalAlignment="Left" Margin="228,232,0,0" VerticalAlignment="Top" Width="41"/>
+        <ComboBox x:Name="combo_months_match1" HorizontalAlignment="Left" Margin="274,232,0,0" VerticalAlignment="Top" Width="42" SelectionChanged="combo_months_match1_SelectionChanged"/>
+        <ComboBox x:Name="combo_years" HorizontalAlignment="Left" Margin="334,232,0,0" VerticalAlignment="Top" Width="51"/>
+        <ComboBox x:Name="combo_day_pari" HorizontalAlignment="Left" Margin="621,231,0,0" VerticalAlignment="Top" Width="41"/>
+        <ComboBox x:Name="combo_months_pari" HorizontalAlignment="Left" Margin="667,231,0,0" VerticalAlignment="Top" Width="42" SelectionChanged="combo_months_pari_SelectionChanged"/>
+        <ComboBox x:Name="combo_years_pari" HorizontalAlignment="Left" Margin="727,231,0,0" VerticalAlignment="Top" Width="51"/>
+        <TextBox x:Name="txt_equipe_coming" HorizontalAlignment="Left" Height="36" Margin="621,291,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="157" FontSize="14"/>
+        <TextBox x:Name="txt_earn" HorizontalAlignment="Left" Height="36" Margin="621,360,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="157" FontSize="14"/>
+        <Button x:Name="Creer" Content="Creer" HorizontalAlignment="Center" Margin="0,414,0,0" VerticalAlignment="Top" Height="32" Width="102" Click="Button_Click"/>
 
     </Grid>
 </Page>
