@@ -59,5 +59,14 @@ namespace TLMP_Paris
         {
             btn_validate_pari.IsEnabled = true;
         }
+        private void chk_special_Checked(object sender, RoutedEventArgs e)
+        {
+            btn_validate_pari.IsEnabled = true;
+        }
+
+        private void chk_simple_Checked(object sender, RoutedEventArgs e)
+        {
+            btn_validate_pari.IsEnabled = true;
+        }
     }
 }

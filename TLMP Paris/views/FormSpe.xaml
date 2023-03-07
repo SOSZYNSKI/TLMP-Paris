@@ -9,28 +9,34 @@
       Title="FormSpe">
 
     <Grid x:Name="grid_FormSpe" Background="White">
-        <Label x:Name="lbl_formSpe" Content="Formulaire de création d'un pari spécial" HorizontalAlignment="Center" Margin="0,131,0,0" VerticalAlignment="Top" Width="428" Height="49" FontSize="24"/>
-        <Rectangle HorizontalAlignment="Center" Height="3" Margin="0,185,0,0" Stroke="Black" VerticalAlignment="Top" Width="716"/>
-        <Rectangle HorizontalAlignment="Center" Height="200" Margin="0,209,0,0" Stroke="Black" VerticalAlignment="Top" Width="1"/>
-        <Label x:Name="lbl_libelle" Content="Libelle :" HorizontalAlignment="Left" Margin="57,291,0,0" VerticalAlignment="Top" Width="144" Height="36" FontSize="16"/>
-        <Label x:Name="lbl_match" Content="Date et heure Match :" HorizontalAlignment="Left" Margin="57,225,0,0" VerticalAlignment="Top" Width="170" Height="36" FontSize="16"/>
-        <Label x:Name="lbl_end_pari" Content="Heure fin période pari :" HorizontalAlignment="Left" Margin="444,225,0,0" VerticalAlignment="Top" Width="182" Height="36" FontSize="16"/>
-        <Label x:Name="lbl_recompense" Content="Récompense :" HorizontalAlignment="Left" Margin="444,291,0,0" VerticalAlignment="Top" Width="182" Height="36" FontSize="16"/>
-        <Label x:Name="lbl_penalitepoints" Content="Penalité Points:" HorizontalAlignment="Left" Margin="444,361,0,0" VerticalAlignment="Top" Width="182" Height="36" FontSize="16"/>
-        <Label x:Name="lbl_ecart" Content="Ecart :" HorizontalAlignment="Left" Margin="57,361,0,0" VerticalAlignment="Top" Width="144" Height="36" FontSize="16"/>
-        <TextBox x:Name="txt_libelle" HorizontalAlignment="Left" Height="36" Margin="228,291,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="157" FontSize="14"/>
-        <ComboBox x:Name="combo_ecart_point" HorizontalAlignment="Left" Margin="160,367,0,61" Width="41"/>
-        <ComboBox x:Name="combo_months_match" HorizontalAlignment="Left" Margin="274,232,0,0" VerticalAlignment="Top" Width="42" SelectionChanged="combo_months_match_SelectionChanged"/>
-        <ComboBox x:Name="combo_years_match" HorizontalAlignment="Left" Margin="334,232,0,0" VerticalAlignment="Top" Width="51"/>
-        <ComboBox x:Name="combo_day_pari" HorizontalAlignment="Left" Margin="621,231,0,0" VerticalAlignment="Top" Width="41"/>
-        <ComboBox x:Name="combo_months_pari" HorizontalAlignment="Left" Margin="667,231,0,0" VerticalAlignment="Top" Width="42" SelectionChanged="combo_months_pari_SelectionChanged"/>
-        <ComboBox x:Name="combo_years_pari" HorizontalAlignment="Left" Margin="727,231,0,0" VerticalAlignment="Top" Width="51"/>
-        <TextBox x:Name="txt_recompense" HorizontalAlignment="Left" Height="36" Margin="621,291,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="157" FontSize="14"/>
-        <TextBox x:Name="txt_penalitepoints" HorizontalAlignment="Left" Height="36" Margin="621,360,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="157" FontSize="14"/>
-        <Button Content="Creer" HorizontalAlignment="Center" Margin="0,414,0,0" VerticalAlignment="Top" Height="32" Width="102" Click="Button_Click"/>
-        <ComboBox x:Name="combo_day_match" HorizontalAlignment="Left" Margin="227,232,0,0" VerticalAlignment="Top" Width="41"/>
-        <Label x:Name="lbl_ecart_Copy" Content="libelle" HorizontalAlignment="Left" Margin="227,361,0,0" VerticalAlignment="Top" Width="68" Height="36" FontSize="16"/>
-        <TextBox x:Name="txt_libelle_ecart" HorizontalAlignment="Left" Height="36" Margin="295,361,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="90" FontSize="14"/>
+        <Label x:Name="lbl_formSpe" Content="Formulaire de création d'un pari spécial" HorizontalAlignment="Center" Margin="0,71,0,0" VerticalAlignment="Top" Width="428" Height="49" FontSize="24"/>
+        <Rectangle HorizontalAlignment="Center" Height="3" Margin="0,125,0,0" Stroke="Black" VerticalAlignment="Top" Width="716"/>
+        <Rectangle HorizontalAlignment="Center" Height="200" Margin="0,155,0,0" Stroke="Black" VerticalAlignment="Top" Width="1"/>
+        <Label x:Name="lbl_libelle" Content="Libelle :" HorizontalAlignment="Left" Margin="58,255,0,0" VerticalAlignment="Top" Width="144" Height="36" FontSize="16"/>
+        <Label x:Name="lbl_match" Content="Date et heure Match :" HorizontalAlignment="Left" Margin="136,155,0,0" VerticalAlignment="Top" Width="170" Height="36" FontSize="16"/>
+        <Label x:Name="lbl_end_pari" Content="Heure fin période pari :" HorizontalAlignment="Left" Margin="518,155,0,0" VerticalAlignment="Top" Width="182" Height="36" FontSize="16"/>
+        <Label x:Name="lbl_recompense" Content="Récompense :" HorizontalAlignment="Left" Margin="444,255,0,0" VerticalAlignment="Top" Width="122" Height="36" FontSize="16"/>
+        <Label x:Name="lbl_penalitepoints" Content="Pénalité Points :" HorizontalAlignment="Left" Margin="444,309,0,0" VerticalAlignment="Top" Width="122" Height="36" FontSize="16"/>
+        <Label x:Name="lbl_ecart" Content="Ecart :" HorizontalAlignment="Left" Margin="58,309,0,0" VerticalAlignment="Top" Width="57" Height="36" FontSize="16"/>
+        <TextBox x:Name="txt_libelle" HorizontalAlignment="Left" Height="36" Margin="207,255,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="157" FontSize="14"/>
+        <ComboBox x:Name="combo_ecart_point" HorizontalAlignment="Left" Margin="140,316,0,112" Width="41"/>
+        <ComboBox x:Name="combo_months_match" HorizontalAlignment="Left" Margin="73,209,0,0" VerticalAlignment="Top" Width="42" SelectionChanged="combo_months_match_SelectionChanged"/>
+        <ComboBox x:Name="combo_years_match" HorizontalAlignment="Left" Margin="289,209,0,0" VerticalAlignment="Top" Width="51" RenderTransformOrigin="0.098,-0.383"/>
+        <ComboBox x:Name="combo_day_pari" HorizontalAlignment="Left" Margin="588,209,0,0" VerticalAlignment="Top" Width="42"/>
+        <ComboBox x:Name="combo_months_pari" HorizontalAlignment="Left" Margin="471,209,0,0" VerticalAlignment="Top" Width="42" SelectionChanged="combo_months_pari_SelectionChanged"/>
+        <ComboBox x:Name="combo_years_pari" HorizontalAlignment="Left" Margin="707,209,0,0" VerticalAlignment="Top" Width="51"/>
+        <TextBox x:Name="txt_recompense" HorizontalAlignment="Left" Height="36" Margin="621,255,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="157" FontSize="14"/>
+        <TextBox x:Name="txt_penalitepoints" HorizontalAlignment="Left" Height="36" Margin="621,309,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="157" FontSize="14"/>
+        <Button Content="Creer" HorizontalAlignment="Center" Margin="0,371,0,0" VerticalAlignment="Top" Height="32" Width="102" Click="Button_Click"/>
+        <ComboBox x:Name="combo_day_match" HorizontalAlignment="Left" Margin="181,209,0,0" VerticalAlignment="Top" Width="40"/>
+        <Label x:Name="lbl_ecart_Copy" Content="libelle" HorizontalAlignment="Left" Margin="207,309,0,0" VerticalAlignment="Top" Width="62" Height="36" FontSize="16"/>
+        <TextBox x:Name="txt_libelle_ecart" HorizontalAlignment="Left" Height="36" Margin="274,309,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="90" FontSize="14"/>
+        <Label Content="Mois :" HorizontalAlignment="Left" Margin="19,207,0,0" VerticalAlignment="Top"/>
+        <Label Content="Jour :" HorizontalAlignment="Left" Margin="130,207,0,0" VerticalAlignment="Top"/>
+        <Label Content="Année :" HorizontalAlignment="Left" Margin="234,207,0,0" VerticalAlignment="Top"/>
+        <Label Content="Mois :" HorizontalAlignment="Left" Margin="424,207,0,0" VerticalAlignment="Top"/>
+        <Label Content="Jour :" HorizontalAlignment="Left" Margin="537,207,0,0" VerticalAlignment="Top"/>
+        <Label Content="Année :" HorizontalAlignment="Left" Margin="649,207,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Page>
