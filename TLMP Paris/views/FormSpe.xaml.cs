@@ -136,9 +136,6 @@ namespace TLMP_Paris.views
                 string libelleForm = txt_libelle.Text.ToString();
                 int recompenseForm = Convert.ToInt16(txt_recompense.Text);
                 int pointPenaliteForm = Convert.ToInt16(txt_penalitepoints.Text);
-                Pari pari = new Pari(DateMaxPariForm, dateMatchForm, libelleForm, recompenseForm, range, libellerange, pointPenaliteForm);
-                MainWindow.listeParis.Add(pari);
-                MessageBox.Show("Réussite !, votre paris " + pari.Libelle + " à bien été créée", "Réussite, votre pari à bien été créée", MessageBoxButton.OK);
                 txt_penalitepoints.Text = "";
                 txt_recompense.Text = "";
                 txt_libelle.Text = "";
@@ -150,6 +147,10 @@ namespace TLMP_Paris.views
                 combo_months_match.SelectedItem = "1";
                 combo_years_match.SelectedItem = "2022";
                 combo_ecart_point.SelectedItem = 1;
+
+                Pari pari = new Pari(DateMaxPariForm, dateMatchForm, libelleForm, recompenseForm, range, libellerange, pointPenaliteForm, 0);
+                MainWindow.listeParis.Add(pari);
+                MessageBox.Show("Réussite !, votre paris " + pari.Libelle + " à bien été créée", "Réussite, votre pari à bien été créée", MessageBoxButton.OK);
             }
         }
 

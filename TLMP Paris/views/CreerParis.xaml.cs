@@ -49,16 +49,6 @@ namespace TLMP_Paris
                 windowMain.pageViewer.Content = new views.FormSpe();
             }
         }
-
-        private void chk_special_Checked(object sender, RoutedEventArgs e)
-        {
-            btn_validate_pari.IsEnabled = true;
-        }
-
-        private void chk_simple_Checked(object sender, RoutedEventArgs e)
-        {
-            btn_validate_pari.IsEnabled = true;
-        }
         private void chk_special_Checked(object sender, RoutedEventArgs e)
         {
             btn_validate_pari.IsEnabled = true;
