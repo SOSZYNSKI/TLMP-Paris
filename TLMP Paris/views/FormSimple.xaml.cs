@@ -133,11 +133,7 @@ namespace TLMP_Paris.views
                 else if (check_no.IsChecked == true)
                 {
                     eliminationForm = 0;
-
                 }
-                Pari pari = new Pari(datePariMaxForm, DateMatchForm, libelleForm, Convert.ToInt16(txt_earn.Text), eliminationForm);
-                MainWindow.listeParis.Add(pari);
-                MessageBox.Show("Sucess!, le paris " + pari.Libelle + "a bien été crée", " Succes, pari crée", MessageBoxButton.OK);
                 combo_day_match1.SelectedItem = 1;
                 combo_months_match1.SelectedItem = 1;
                 combo_years.SelectedItem = 1;
