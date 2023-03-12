@@ -213,8 +213,7 @@ namespace TLMP_Paris.views
                 combo_day_pari.ItemsSource = listNombrejourPari;
                 combo_day_pari.Items.Refresh();
             }
-            
         }
-    }   
+    }
 }
 
