@@ -143,9 +143,9 @@ namespace TLMP_Paris.views
                 txt_earn.Text = string.Empty;
                 txt_equipe_coming.Text = string.Empty;
                 txt_equipe_home.Text = string.Empty;
-
-                Pari pari = new Pari(datePariMaxForm, DateMatchForm, libelleForm, Convert.ToInt16(txt_earn.Text), 0, "test", 0, eliminationForm);
+                Pari pari = new Pari(datePariMaxForm, DateMatchForm,libelleForm, num, 0,"aucune",0, eliminationForm);
                 MainWindow.listeParis.Add(pari);
+                MessageBox.Show("Réussite !, votre paris " + pari.Libelle + " à bien été créée", "Réussite, votre pari à bien été créé", MessageBoxButton.OK);
             }
         }
         private void combo_months_match1_SelectionChanged(object sender, SelectionChangedEventArgs e)
