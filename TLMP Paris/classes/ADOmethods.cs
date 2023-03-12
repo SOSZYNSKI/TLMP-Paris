@@ -15,15 +15,6 @@ namespace TLMP_Paris.classes
     {
         public static SqlConnection connexion = new SqlConnection("Data Source=sql.reseau-labo.fr;User ID=admin_ltmp_db;Password=ltmp_admin_553;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
 
-        public static void Close()
-        {
-            connexion.Close();
-        }
-
-        public static void Open()
-        {
-            connexion.Open();
-        }
 
         public static void deleteall()
         {
@@ -42,14 +33,11 @@ namespace TLMP_Paris.classes
                 sqldelusers.ExecuteNonQuery();
                 sqldelpromo.ExecuteNonQuery();
                 sqldelparimatch.ExecuteNonQuery();
+                connexion.Close();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Une erreur c'est produite" + ex, "Erreur SQL", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-            finally
-            {
-                connexion.Close();
             }
         }
 
@@ -71,7 +59,6 @@ namespace TLMP_Paris.classes
                     Int32 idrecup = Convert.ToInt32(savingpromo.ExecuteScalar());
                     pro.IdPromotion = idrecup;
                 }
-                connexion.Close();
 
                 foreach (PromotionProf professeur in listepromoprof)
                 {
@@ -80,16 +67,12 @@ namespace TLMP_Paris.classes
                     Int32 idrecup = Convert.ToInt32(savingpromo.ExecuteScalar());
                     professeur.IdPromotion = idrecup;
                 }
-                connexion.Close();
                 foreach (User u in lalisteuser)
                 {
-                    connexion.Open();
                     string saveu = $"INSERT INTO users (prenomUsers, nomUsers, mdpUsers, loginUsers, totalpointUsers) VALUES ({u.UserName},{u.SecondName},{u.UserPassword}, {u.UserLogin}, {u.TotalPoint});";
                     SqlCommand savinguser = new SqlCommand(saveu, connexion);
                     savinguser.ExecuteNonQuery();
-                    connexion.Close();
                 }
-                connexion.Open();
                 string resetautoincrementpa = "DBCC CHECKIDENT('parimatch', RESEED, 0)";
 
                 foreach (Pari pa in listpromo)
@@ -99,16 +82,12 @@ namespace TLMP_Paris.classes
                     SqlCommand savingparimatch = new SqlCommand(savepa, connexion);
                     resetincrementpar.ExecuteNonQuery();
                     savingparimatch.ExecuteNonQuery();
-                    connexion.Close();
                 }
+                connexion.Close();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Une erreur c'est produite" + ex, "Erreur SQL", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-            finally
-            {
-                connexion.Close();
             }
         }
     }    
