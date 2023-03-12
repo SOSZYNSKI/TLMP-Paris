@@ -145,75 +145,73 @@ namespace TLMP_Paris.views
                 txt_equipe_home.Text = string.Empty;
 
                 Pari pari = new Pari(datePariMaxForm, DateMatchForm, libelleForm, Convert.ToInt16(txt_earn.Text), 0, "test", 0, eliminationForm);
-                MessageBox.Show("Sucess!, le paris " + pari.Libelle + "a bien été crée", " Succes, pari crée", MessageBoxButton.OK);
                 MainWindow.listeParis.Add(pari);
             }
-        }
 
-        private void combo_months_match1_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            listNombreJour.Clear();
-            if (Convert.ToInt16(combo_months_match1.SelectedItem.ToString()) == 2)
+            private void combo_months_match1_SelectionChanged(object sender, SelectionChangedEventArgs e)
             {
-                for (int i = 0; i <= 28; i++)
+                listNombreJour.Clear();
+                if (Convert.ToInt16(combo_months_match1.SelectedItem.ToString()) == 2)
                 {
-                    listNombreJour.Add(i);
+                    for (int i = 0; i <= 28; i++)
+                    {
+                        listNombreJour.Add(i);
+                    }
+                    combo_day_match1.ItemsSource = listNombreJour;
+                    combo_day_match1.Items.Refresh();
                 }
-                combo_day_match1.ItemsSource = listNombreJour;
-                combo_day_match1.Items.Refresh();
-            }
-            else if (Convert.ToInt16(combo_months_match1.SelectedItem.ToString()) % 2 == 1)
-            {
-                for (int i = 0; i <= 31; i++)
+                else if (Convert.ToInt16(combo_months_match1.SelectedItem.ToString()) % 2 == 1)
                 {
-                    listNombreJour.Add(i);
+                    for (int i = 0; i <= 31; i++)
+                    {
+                        listNombreJour.Add(i);
+                    }
+                    combo_day_match1.ItemsSource = listNombreJour;
+                    combo_day_match1.Items.Refresh();
                 }
-                combo_day_match1.ItemsSource = listNombreJour;
-                combo_day_match1.Items.Refresh();
-            }
-            else
-            {
-                for (int i = 0; i <= 30; i++)
+                else
                 {
-                    listNombreJour.Add(i);
+                    for (int i = 0; i <= 30; i++)
+                    {
+                        listNombreJour.Add(i);
+                    }
+                    combo_day_match1.ItemsSource = listNombreJour;
+                    combo_day_match1.Items.Refresh();
                 }
-                combo_day_match1.ItemsSource = listNombreJour;
-                combo_day_match1.Items.Refresh();
             }
-        }
 
-        private void combo_months_pari_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            listNombrejourPari.Clear();
-            if (Convert.ToInt16(combo_months_pari.SelectedItem.ToString()) == 2)
+            private void combo_months_pari_SelectionChanged(object sender, SelectionChangedEventArgs e)
             {
-                for (int i = 0; i <= 28; i++)
+                listNombrejourPari.Clear();
+                if (Convert.ToInt16(combo_months_pari.SelectedItem.ToString()) == 2)
                 {
-                    listNombrejourPari.Add(i);
+                    for (int i = 0; i <= 28; i++)
+                    {
+                        listNombrejourPari.Add(i);
+                    }
+                    combo_day_pari.ItemsSource = listNombrejourPari;
+                    combo_day_pari.Items.Refresh();
                 }
-                combo_day_pari.ItemsSource = listNombrejourPari;
-                combo_day_pari.Items.Refresh();
-            }
-            else if (Convert.ToInt16(combo_months_pari.SelectedItem.ToString()) % 2 == 1)
-            {
-                for (int i = 0; i <= 31; i++)
+                else if (Convert.ToInt16(combo_months_pari.SelectedItem.ToString()) % 2 == 1)
                 {
-                    listNombrejourPari.Add(i);
+                    for (int i = 0; i <= 31; i++)
+                    {
+                        listNombrejourPari.Add(i);
+                    }
+                    combo_day_pari.ItemsSource = listNombrejourPari;
+                    combo_day_pari.Items.Refresh();
                 }
-                combo_day_pari.ItemsSource = listNombrejourPari;
-                combo_day_pari.Items.Refresh();
-            }
-            else
-            {
-                for (int i = 0; i <= 30; i++)
+                else
                 {
-                    listNombrejourPari.Add(i);
+                    for (int i = 0; i <= 30; i++)
+                    {
+                        listNombrejourPari.Add(i);
 
+                    }
+                    combo_day_pari.ItemsSource = listNombrejourPari;
+                    combo_day_pari.Items.Refresh();
                 }
-                combo_day_pari.ItemsSource = listNombrejourPari;
-                combo_day_pari.Items.Refresh();
             }
         }
     }
 }
-
