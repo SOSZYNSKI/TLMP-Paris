@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using TLMP_Paris.Classe;
 using System.Windows;
 using System.Diagnostics;
+using System.Security.Cryptography;
 
 namespace TLMP_Paris.classes
 {
@@ -21,17 +22,17 @@ namespace TLMP_Paris.classes
             try
             {
                 connexion.Open();
-                string delparie = "DELETE FROM parie";
-                string delu = "DELETE FROM users";
                 string delpromo = "DELETE FROM promotions";
+                string delu = "DELETE FROM users";
+                string delparie = "DELETE FROM parie;";
                 string delparimatch = "DELETE FROM parimatch";
                 SqlCommand sqldelusers = new SqlCommand(delu, connexion);
                 SqlCommand sqldelparie = new SqlCommand(delparie, connexion);
                 SqlCommand sqldelpromo = new SqlCommand(delpromo, connexion);
                 SqlCommand sqldelparimatch = new SqlCommand(delparimatch, connexion);
-                sqldelparie.ExecuteNonQuery();
                 sqldelusers.ExecuteNonQuery();
                 sqldelpromo.ExecuteNonQuery();
+                sqldelparie.ExecuteNonQuery();
                 sqldelparimatch.ExecuteNonQuery();
                 connexion.Close();
             }
@@ -46,42 +47,86 @@ namespace TLMP_Paris.classes
             try
             {
                 connexion.Open();
+                int id = 0;
                 SqlCommand cmdId = new SqlCommand();
                 cmdId.CommandText = "resetId";
                 cmdId.CommandType = CommandType.StoredProcedure;
                 cmdId.Connection = connexion;
                 cmdId.ExecuteNonQuery();
-               
+                string resetautoincrementpa = "DBCC CHECKIDENT('parimatch', RESEED, 0)";
+                string restauIncrementPromo = "DBCC CHECKIDENT('promotions',RESEED,0)";
+                string restauIncrementPromoProf = "DBCC CHECKIDENT('promotionsprofesseurs',RESEED,0)";
+                string restauIncrementUser = "DBCC CHECKIDENT('users',RESEED,0)";
+
                 foreach (Promotion pro in lalistepromo)
                 {
+                    id = 0;
+                    id = id + 1;
+                    string activateIdentityInsertQuery = "SET IDENTITY_INSERT promotions ON";
+                    string deactivateIdentityInsertQuery = "SET IDENTITY_INSERT promotions OFF";
+                    SqlCommand onid = new SqlCommand(activateIdentityInsertQuery, connexion);
+                    SqlCommand offid = new SqlCommand(deactivateIdentityInsertQuery, connexion);
                     string savep = $"INSERT INTO promotions (nomPromotion, nombrepersonnesPromotion) VALUES ('{pro.PromotionName}',{pro.NombreTotal});SELECT @@IDENTITY";
                     SqlCommand savingpromo = new SqlCommand(savep, connexion);
+                    SqlCommand resetincrement = new SqlCommand(restauIncrementPromo, connexion);
                     Int32 idrecup = Convert.ToInt32(savingpromo.ExecuteScalar());
+                    onid.ExecuteNonQuery();
+                    resetincrement.ExecuteNonQuery();
+                    savingpromo.ExecuteNonQuery();
                     pro.IdPromotion = idrecup;
+                    offid.ExecuteNonQuery();
                 }
 
                 foreach (PromotionProf professeur in listepromoprof)
                 {
-                    string savep = $"INSERT INTO promotionsprofesseurs (nomProfesseurpromotion, nombrepersonnepromotionProfesseur) VALUES ('{professeur.PromotionName}',{professeur.NombreTotal});SELECT @@IDENTITY";
+                    id = 0;
+                    id = id + 1;
+                    string activateIdentityInsertQuery = "SET IDENTITY_INSERT promotionsprofesseurs ON";
+                    string deactivateIdentityInsertQuery = "SET IDENTITY_INSERT promotionsprofesseurs OFF";
+                    SqlCommand onid = new SqlCommand(activateIdentityInsertQuery, connexion);
+                    SqlCommand offid = new SqlCommand(deactivateIdentityInsertQuery, connexion);
+                    string savep = $"INSERT INTO promotionsprofesseurs (nomProfesseurpromotion, nombrepersonnepromotionProfesseur) VALUES ('{id},{professeur.PromotionName}',{professeur.NombreTotal});SELECT @@IDENTITY";
                     SqlCommand savingpromo = new SqlCommand(savep, connexion);
+                    SqlCommand resetincrement = new SqlCommand(restauIncrementPromoProf, connexion);
                     Int32 idrecup = Convert.ToInt32(savingpromo.ExecuteScalar());
+                    onid.ExecuteNonQuery();
+                    resetincrement.ExecuteNonQuery();
                     professeur.IdPromotion = idrecup;
+                    savingpromo.ExecuteNonQuery();
+                    offid.ExecuteNonQuery();
                 }
+
                 foreach (User u in lalisteuser)
                 {
-                    string saveu = $"INSERT INTO users (prenomUsers, nomUsers, mdpUsers, loginUsers, totalpointUsers) VALUES ({u.UserName},{u.SecondName},{u.UserPassword}, {u.UserLogin}, {u.TotalPoint});";
+                    id = 0;
+                    id = id + 1;
+                    string activateIdentityInsertQuery = "SET IDENTITY_INSERT users ON";
+                    string deactivateIdentityInsertQuery = "SET IDENTITY_INSERT users OFF";
+                    SqlCommand onid = new SqlCommand(activateIdentityInsertQuery, connexion);
+                    SqlCommand offid = new SqlCommand(deactivateIdentityInsertQuery, connexion);
+                    string saveu = $"INSERT INTO users (prenomUsers, nomUsers, mdpUsers, loginUsers, totalpointUsers) VALUES ({id},{u.UserName},{u.SecondName},{u.UserPassword}, {u.UserLogin}, {u.TotalPoint});";
+                    SqlCommand resetincrement = new SqlCommand(restauIncrementUser, connexion);
                     SqlCommand savinguser = new SqlCommand(saveu, connexion);
+                    onid.ExecuteNonQuery();
+                    resetincrement.ExecuteNonQuery();
                     savinguser.ExecuteNonQuery();
+                    offid.ExecuteNonQuery();
                 }
-                string resetautoincrementpa = "DBCC CHECKIDENT('parimatch', RESEED, 0)";
 
                 foreach (Pari pa in listpromo)
                 {
-                    string savepa = $"INSERT INTO parimatch (datemaxpariMatch, datepariMatch, resultatMatch, recompensepariMatch, libelleMatch, eliminatoireMatch, ecartMatch, libelleecartMatch, penaliteMatch) VALUES ({"'" + pa.DateMax + "'"},{"'" + pa.DateMatch + "'"},{Convert.ToInt32(pa.ResultMatch)},{Convert.ToInt32(pa.PointsEarn)},{"'" + Convert.ToString(pa.Libelle) + "'"},{Convert.ToInt32(pa.Elimination)}, {Convert.ToInt32(pa.Range)}, {"'" + Convert.ToString(pa.Rangelibelle) + "'"}, {Convert.ToInt32(pa.Penality)});";
+                    id = id + 1;
+                    string activateIdentityInsertQuery = "SET IDENTITY_INSERT parimatch ON";
+                    string deactivateIdentityInsertQuery = "SET IDENTITY_INSERT parimatch OFF";
+                    SqlCommand onid = new SqlCommand(activateIdentityInsertQuery, connexion);
+                    SqlCommand offid = new SqlCommand(deactivateIdentityInsertQuery, connexion);
+                    string savepa = $"INSERT INTO parimatch (idpariMatch,datemaxpariMatch, datepariMatch, resultatMatch, recompensepariMatch, libelleMatch, eliminatoireMatch, ecartMatch, libelleecartMatch, penaliteMatch) VALUES ({id},{"'" + pa.DateMax + "'"},{"'" + pa.DateMatch + "'"},{Convert.ToInt32(pa.ResultMatch)},{Convert.ToInt32(pa.PointsEarn)},{"'" + Convert.ToString(pa.Libelle) + "'"},{Convert.ToInt32(pa.Elimination)}, {Convert.ToInt32(pa.Range)}, {"'" + Convert.ToString(pa.Rangelibelle) + "'"}, {Convert.ToInt32(pa.Penality)});";
                     SqlCommand resetincrementpar = new SqlCommand(resetautoincrementpa, connexion);
                     SqlCommand savingparimatch = new SqlCommand(savepa, connexion);
+                    onid.ExecuteNonQuery();
                     resetincrementpar.ExecuteNonQuery();
                     savingparimatch.ExecuteNonQuery();
+                    offid.ExecuteNonQuery();
                 }
                 connexion.Close();
             }

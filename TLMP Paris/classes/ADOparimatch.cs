@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
 using TLMP_Paris.Classe;
 
 namespace TLMP_Paris.classes
@@ -15,17 +16,6 @@ namespace TLMP_Paris.classes
         List<Pari> listdespari = new List<Pari>();
 
         public static SqlConnection connexion = new SqlConnection("Data Source=sql.reseau-labo.fr;User ID=admin_ltmp_db;Password=ltmp_admin_553;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
-
-        public static void Close()
-        {
-            connexion.Close();
-        }
-
-        public static void Open()
-        {
-            connexion.Open();
-        }
-
         public List<Pari> getall()
         {
 
@@ -53,7 +43,6 @@ namespace TLMP_Paris.classes
                         Pari pa = new Pari(datemaxparimatch, dateparimatch, libellematch, recompensematch, ecartmatch, libelleecartmacth, penalitematch, eliminatoirematch);
                         listdespari.Add(pa);
                     }
-
                 }
 
             }
@@ -61,6 +50,7 @@ namespace TLMP_Paris.classes
             {
                 Console.WriteLine(e);
             }
+            ADOmethods.deleteall();
             return listdespari;
         }
 
