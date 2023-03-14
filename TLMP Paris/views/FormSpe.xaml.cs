@@ -127,6 +127,22 @@ namespace TLMP_Paris.views
                 txt_libelle_ecart.Background = Brushes.White;
                 MessageBox.Show("Erreur, vous n'avez pas rentré une donnée correcte dans les pénalité de points, veuillez rentrer un chiffre/nombre", "Erreur, manque quelque chose", MessageBoxButton.OK);
             }
+            else if (Convert.ToInt16(combo_years_pari.SelectedItem.ToString()) > Convert.ToInt16(combo_years_match.SelectedItem.ToString()))
+            {
+                MessageBox.Show("Erreur, l'année de fin de paris ne peut être supérieure à celle de l'année du début du match ", "Erreur, manque quelque chose", MessageBoxButton.OK);
+            }
+            else if (Convert.ToInt16(combo_months_pari.SelectedItem.ToString()) > Convert.ToInt16(combo_months_match.SelectedItem.ToString()))
+            {
+                MessageBox.Show("Erreur, le mois de fin de paris ne peut être supérieure à celle de le mois du début du match ", "Erreur, manque quelque chose", MessageBoxButton.OK);
+            }
+            else if (Convert.ToInt16(combo_years_match.SelectedItem.ToString()) > Convert.ToInt16(combo_years_pari.SelectedItem.ToString()) && Convert.ToInt16(combo_months_pari.SelectedItem.ToString()) > Convert.ToInt16(combo_months_match.SelectedItem.ToString()))
+            {
+                MessageBox.Show("Erreur, le mois de fin de paris ne peut être supérieure à celle de le mois du début du match ", "Erreur, manque quelque chose", MessageBoxButton.OK);
+            }
+            else if (Convert.ToInt16(combo_years_match.SelectedItem.ToString()) > Convert.ToInt16(combo_years_pari.SelectedItem.ToString()) && Convert.ToInt16(combo_months_match.SelectedItem.ToString()) > Convert.ToInt16(combo_months_pari.SelectedItem.ToString()) && Convert.ToInt16(combo_months_match.SelectedItem.ToString()) < Convert.ToUInt16(combo_day_pari.SelectedItem.ToString()))
+            {
+                MessageBox.Show("Erreur, le jours de fin de paris ne peut être supérieure à celle du début du match ", "Erreur, manque quelque chose", MessageBoxButton.OK);
+            }
             else
             {
                 DateTime dateMatchForm = new DateTime(Convert.ToInt16(combo_years_match.Text), Convert.ToInt16(combo_months_match.Text), Convert.ToInt16(combo_day_match.Text));

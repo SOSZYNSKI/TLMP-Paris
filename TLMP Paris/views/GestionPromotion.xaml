@@ -18,11 +18,12 @@
             </DataGrid.Columns>
         </DataGrid>
         <Button x:Name="btn_add" Content="Ajouter" HorizontalAlignment="Left" Height="37" Margin="47,733,0,0" VerticalAlignment="Top" Width="152" RenderTransformOrigin="0.025,0.9" Click="btn_add_Click"/>
-        <Button x:Name="btn_del" Content="Supprimer" HorizontalAlignment="Center" Margin="0,733,0,0" VerticalAlignment="Top" Height="37" Width="152" Click="btn_del_Click"/>
-        <Button x:Name="btn_edit" Content="Modifier" HorizontalAlignment="Left" Margin="614,733,0,0" VerticalAlignment="Top" Height="37" Width="152" RenderTransformOrigin="0.525,1.498" Click="Button_Click"/>
-        <TextBox x:Name="txt_Name" HorizontalAlignment="Left" Margin="47,686,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="136" Height="30"/>
-        <ComboBox x:Name="ComboListUser" HorizontalAlignment="Center" Margin="0,686,0,0" VerticalAlignment="Top" Width="126" Height="30"/>
-        <TextBox x:Name="txt_diminutif" HorizontalAlignment="Left" Margin="188,686,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="136" Height="30"/>
+        <Button x:Name="btn_del" Content="Supprimer" HorizontalAlignment="Left" Margin="225,733,0,0" VerticalAlignment="Top" Height="37" Width="152" Click="btn_del_Click"/>
+        <Button x:Name="btn_modif" Content="Modifier" HorizontalAlignment="Left" Margin="406,733,0,0" VerticalAlignment="Top" Height="37" Width="152" RenderTransformOrigin="0.525,1.498"/>
+        <TextBox x:Name="txt_Name" HorizontalAlignment="Left" Margin="145,686,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="136" Height="30"/>
+        <ComboBox x:Name="ComboListUser" HorizontalAlignment="Left" Margin="640,686,0,0" VerticalAlignment="Top" Width="126" Height="30"/>
+        <TextBox x:Name="txt_diminutif" HorizontalAlignment="Center" Margin="0,686,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="136" Height="30"/>
+        <Button x:Name="btn_adduser" Content="Ajouter User" HorizontalAlignment="Left" Margin="627,733,0,0" VerticalAlignment="Top" Height="37" Width="152" RenderTransformOrigin="0.525,1.498" Click="btn_modif_Copy_Click"/>
 
     </Grid>
 </Page>

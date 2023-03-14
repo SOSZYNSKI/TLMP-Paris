@@ -60,51 +60,44 @@ namespace TLMP_Paris.classes
 
                 foreach (Promotion pro in lalistepromo)
                 {
-                    id = 0;
                     id = id + 1;
                     string activateIdentityInsertQuery = "SET IDENTITY_INSERT promotions ON";
                     string deactivateIdentityInsertQuery = "SET IDENTITY_INSERT promotions OFF";
                     SqlCommand onid = new SqlCommand(activateIdentityInsertQuery, connexion);
                     SqlCommand offid = new SqlCommand(deactivateIdentityInsertQuery, connexion);
-                    string savep = $"INSERT INTO promotions (nomPromotion, nombrepersonnesPromotion) VALUES ('{pro.PromotionName}',{pro.NombreTotal});SELECT @@IDENTITY";
+                    string savep = $"INSERT INTO promotions (idPromotion,nomPromotion,diminutifs,nombrepersonnesPromotion) VALUES ({id},'{pro.PromotionName}','{pro.PromotionDiminutif}',{pro.NombreTotal});SELECT @@IDENTITY";
                     SqlCommand savingpromo = new SqlCommand(savep, connexion);
                     SqlCommand resetincrement = new SqlCommand(restauIncrementPromo, connexion);
-                    Int32 idrecup = Convert.ToInt32(savingpromo.ExecuteScalar());
                     onid.ExecuteNonQuery();
                     resetincrement.ExecuteNonQuery();
                     savingpromo.ExecuteNonQuery();
-                    pro.IdPromotion = idrecup;
                     offid.ExecuteNonQuery();
                 }
-
+                id = 0;
                 foreach (PromotionProf professeur in listepromoprof)
                 {
-                    id = 0;
                     id = id + 1;
                     string activateIdentityInsertQuery = "SET IDENTITY_INSERT promotionsprofesseurs ON";
                     string deactivateIdentityInsertQuery = "SET IDENTITY_INSERT promotionsprofesseurs OFF";
                     SqlCommand onid = new SqlCommand(activateIdentityInsertQuery, connexion);
                     SqlCommand offid = new SqlCommand(deactivateIdentityInsertQuery, connexion);
-                    string savep = $"INSERT INTO promotionsprofesseurs (nomProfesseurpromotion, nombrepersonnepromotionProfesseur) VALUES ('{id},{professeur.PromotionName}',{professeur.NombreTotal});SELECT @@IDENTITY";
+                    string savep = $"INSERT INTO promotionsprofesseurs (idPromotionprofesseur,nomProfesseurpromotion,diminutifsProfesseur,nombrepersonnepromotionProfesseur) VALUES ('{id},{professeur.PromotionName}','{professeur.DiminutifPromProf}',{professeur.NombreTotal});SELECT @@IDENTITY";
                     SqlCommand savingpromo = new SqlCommand(savep, connexion);
                     SqlCommand resetincrement = new SqlCommand(restauIncrementPromoProf, connexion);
-                    Int32 idrecup = Convert.ToInt32(savingpromo.ExecuteScalar());
                     onid.ExecuteNonQuery();
                     resetincrement.ExecuteNonQuery();
-                    professeur.IdPromotion = idrecup;
                     savingpromo.ExecuteNonQuery();
                     offid.ExecuteNonQuery();
                 }
-
+                id = 0;
                 foreach (User u in lalisteuser)
                 {
-                    id = 0;
                     id = id + 1;
                     string activateIdentityInsertQuery = "SET IDENTITY_INSERT users ON";
                     string deactivateIdentityInsertQuery = "SET IDENTITY_INSERT users OFF";
                     SqlCommand onid = new SqlCommand(activateIdentityInsertQuery, connexion);
                     SqlCommand offid = new SqlCommand(deactivateIdentityInsertQuery, connexion);
-                    string saveu = $"INSERT INTO users (prenomUsers, nomUsers, mdpUsers, loginUsers, totalpointUsers) VALUES ({id},{u.UserName},{u.SecondName},{u.UserPassword}, {u.UserLogin}, {u.TotalPoint});";
+                    string saveu = $"INSERT INTO users (idUser,prenomUsers, nomUsers, mdpUsers, loginUsers, totalpointUsers) VALUES ({id},{u.UserName},{u.SecondName},{u.UserPassword}, {u.UserLogin}, {u.TotalPoint});";
                     SqlCommand resetincrement = new SqlCommand(restauIncrementUser, connexion);
                     SqlCommand savinguser = new SqlCommand(saveu, connexion);
                     onid.ExecuteNonQuery();
@@ -112,7 +105,7 @@ namespace TLMP_Paris.classes
                     savinguser.ExecuteNonQuery();
                     offid.ExecuteNonQuery();
                 }
-
+                id = 0;
                 foreach (Pari pa in listpromo)
                 {
                     id = id + 1;

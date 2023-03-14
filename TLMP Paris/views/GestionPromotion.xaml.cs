@@ -49,11 +49,6 @@ namespace TLMP_Paris
 
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void btn_add_Click(object sender, RoutedEventArgs e)
         {
 
@@ -70,7 +65,6 @@ namespace TLMP_Paris
                 Promotion promo = objet as Promotion;
                 object user = ComboListUser.SelectedItem;
                 User userChoose = user as User;
-                promo.AddUser(userChoose);
                 dgd_view_tabpromotion.Items.Refresh();
                 ComboListUser.Items.Refresh();
             }
@@ -82,6 +76,27 @@ namespace TLMP_Paris
             Promotion promo = objet as Promotion;
             MainWindow.promotions.Remove(promo);
             dgd_view_tabpromotion.Items.Refresh();
+
+        }
+
+        private void btn_modif_Click(object sender, RoutedEventArgs e)
+        {
+            object promotion = dgd_view_tabpromotion.SelectedItem;
+            Promotion promo = promotion as Promotion;
+            promo.PromotionName = txt_Name.Text;
+            promo.PromotionDiminutif = txt_diminutif.Text;
+            dgd_view_tabpromotion.Items.Refresh();
+        }
+
+        private void btn_modif_Copy_Click(object sender, RoutedEventArgs e)
+        {
+            object objet = dgd_view_tabpromotion.SelectedItem;
+            Promotion promo = objet as Promotion;
+            object user = ComboListUser.SelectedItem;
+            User userChoose = user as User;
+            promo.AddUser(userChoose);
+            dgd_view_tabpromotion.Items.Refresh();
+            ComboListUser.Items.Refresh();
 
         }
     }
