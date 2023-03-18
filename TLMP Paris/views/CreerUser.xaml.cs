@@ -74,16 +74,27 @@ namespace TLMP_Paris.views
                 MessageBox.Show("Les mot de passes ne sont pas similaires", "Erreur, mot de passe invalide", MessageBoxButton.OK);
                 return;
             };
-            User newUser = new(txt_box_nom.Text, txt_box_prenom.Text, 0, txt_box_password.Text, txt_box_userlogin.Text, userTotalPoints, -1, MainWindow.promotions.ToList()[c_box_promotion.SelectedIndex].IdPromotion);
+            User newUser = new(txt_box_nom.Text, txt_box_prenom.Text, 0, password_hash(txt_box_password.Text), txt_box_userlogin.Text, userTotalPoints, -1, MainWindow.promotions.ToList()[c_box_promotion.SelectedIndex]);
             MainWindow.Users.Add(newUser);
             txt_box_nom.Text = "";
-            txt_box_password.Text = "";
+            txt_box_password.Text = ""; 
             txt_box_points.Text = "";
             txt_box_prenom.Text = "";
             txt_box_userlogin.Text = "";
             txt_box_confirmpassword.Text = "";
             c_box_promotion.SelectedIndex = -1;
             MessageBox.Show("Utilisateur crée avec succès !", "Utilisateur crée", MessageBoxButton.OK);
+        }
+
+        public string password_hash(string password)
+        {
+            var bytes = new UTF8Encoding().GetBytes(password);
+            byte[] hashBytes;
+            using (var algorithm = new System.Security.Cryptography.SHA512Managed())
+            {
+                hashBytes = algorithm.ComputeHash(bytes);
+            }
+            return Convert.ToBase64String(hashBytes);
         }
     }
 }
