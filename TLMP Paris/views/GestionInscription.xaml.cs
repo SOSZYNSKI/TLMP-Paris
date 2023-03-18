@@ -74,6 +74,7 @@ namespace TLMP_Paris
             MainWindow.Users.Remove(selectedUser);
             tbl_tableau_classement.Items.Refresh();
             txt_box_userlogin.IsEnabled = false;
+            txt_box_userlogin.Text = "";
             btn_modifier_user.IsEnabled = false;
             btn_supprimer_user.IsEnabled = false;
         }
@@ -97,6 +98,10 @@ namespace TLMP_Paris
             {
                 userF.UserLogin = txt_box_userlogin.Text;
             });
+            txt_box_userlogin.IsEnabled = false;
+            txt_box_userlogin.Text = "";
+            btn_modifier_user.IsEnabled = false;
+            btn_supprimer_user.IsEnabled = false;
         }
 
         private void tbl_tableau_classement_SelectionChanged(object sender, SelectionChangedEventArgs e)
