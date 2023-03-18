@@ -4,9 +4,8 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:TLMP_Paris"
-      mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="GestionInscription">
+      mc:Ignorable="d" d:DesignWidth="800"
+      Title="GestionInscription" Height="543">
 
     <Grid>
         <Label x:Name="lbl_tableau_classement" Content="Tableau de Classement" HorizontalAlignment="Left" Height="37" Margin="323,10,0,0" VerticalAlignment="Top" Width="350" HorizontalContentAlignment="Center" FontSize="20"/>
@@ -19,7 +18,7 @@
                 <DataGridTextColumn Width="2*" Header="Points pariés" Binding="{Binding TotalPoint}" />
             </DataGrid.Columns>
         </DataGrid>
-        <Button x:Name="btn_import" Content="Importer nouveaux utilisateurs" HorizontalAlignment="Left" Height="24" Margin="608,372,0,0" VerticalAlignment="Top" Width="168" FontStretch="Normal" Click="btn_importer_Click" FontStyle="Normal"/>
+        <Button x:Name="btn_import" Content="Importer nouveaux utilisateurs" HorizontalAlignment="Left" Height="24" Margin="608,372,0,0" VerticalAlignment="Top" Width="168" FontStretch="Normal" FontStyle="Normal" Click="btn_import_Click"/>
         <Rectangle x:Name="rectangle_left" HorizontalAlignment="Left" Height="371" Margin="30,52,0,0" Stroke="Black" VerticalAlignment="Top" Width="128"/>
         <Label x:Name="lbl_filtres" Content="Filtres :" HorizontalAlignment="Left" Height="24" Margin="36,23,0,0" VerticalAlignment="Top" Width="116" HorizontalContentAlignment="Center"/>
         <Grid HorizontalAlignment="Left" Height="77" VerticalAlignment="Top" Width="126" Margin="32,55,0,0">
@@ -40,8 +39,21 @@
         <Button x:Name="btn_créer_user" Content="Créer un user" HorizontalAlignment="Left" Height="22" Margin="608,412,0,0" VerticalAlignment="Top" Width="168" FontStretch="Normal" Click="btn_importer_Click" FontStyle="Normal"/>
         <Button x:Name="btn_modifier_user" Content="Modifier un user" HorizontalAlignment="Left" Height="20" Margin="384,372,0,0" VerticalAlignment="Top" Width="190" Click="btn_modifier_user_Click" IsEnabled="False"/>
         <Button x:Name="btn_supprimer_user" Content="Supprimer un user" HorizontalAlignment="Left" Height="22" Margin="384,412,0,0" VerticalAlignment="Top" Width="190" Click="btn_supprimer_user_Click" IsEnabled="False"/>
-        <TextBox x:Name="txt_box_userlogin" HorizontalAlignment="Left" Height="21" Margin="182,372,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="166" IsEnabled="False"/>
-        <Label x:Name="lbl_userlogin" Content="Nom d'Utilisateur" HorizontalAlignment="Left" Height="27" Margin="179,351,0,0" VerticalAlignment="Top" Width="133"/>
-
+        <Grid HorizontalAlignment="Left" Height="42" Margin="179,351,0,0" VerticalAlignment="Top" Width="169">
+            <TextBox x:Name="txt_box_userlogin" HorizontalAlignment="Left" Height="21" Margin="3,21,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="166" IsEnabled="False"/>
+            <Label x:Name="lbl_userlogin" Content="Nom d'Utilisateur" HorizontalAlignment="Left" Height="27" VerticalAlignment="Top" Width="133"/>
+        </Grid>
+        <Grid HorizontalAlignment="Left" Height="42" Margin="179,398,0,0" VerticalAlignment="Top" Width="169">
+            <TextBox x:Name="txt_box_prenom" HorizontalAlignment="Left" Height="21" Margin="3,21,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="166" IsEnabled="False"/>
+            <Label x:Name="lbl_prenom" Content="Prenom" HorizontalAlignment="Left" Height="27" VerticalAlignment="Top" Width="133"/>
+        </Grid>
+        <Grid HorizontalAlignment="Left" Height="42" Margin="179,445,0,0" VerticalAlignment="Top" Width="169">
+            <TextBox x:Name="txt_box_nom" HorizontalAlignment="Left" Height="21" Margin="3,21,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="166" IsEnabled="False"/>
+            <Label x:Name="lbl_nom" Content="Nom" HorizontalAlignment="Left" Height="27" VerticalAlignment="Top" Width="133"/>
+        </Grid>
+        <Grid HorizontalAlignment="Left" Height="42" Margin="179,492,0,0" VerticalAlignment="Top" Width="169">
+            <TextBox x:Name="txt_box_points" HorizontalAlignment="Left" Height="21" Margin="3,21,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="166" IsEnabled="False"/>
+            <Label x:Name="lbl_points" Content="Total de points" HorizontalAlignment="Left" Height="27" VerticalAlignment="Top" Width="133"/>
+        </Grid>
     </Grid>
 </Page>

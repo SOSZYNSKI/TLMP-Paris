@@ -75,6 +75,12 @@ namespace TLMP_Paris
             tbl_tableau_classement.Items.Refresh();
             txt_box_userlogin.IsEnabled = false;
             txt_box_userlogin.Text = "";
+            txt_box_prenom.IsEnabled = false;
+            txt_box_prenom.Text = "";
+            txt_box_nom.IsEnabled = false;
+            txt_box_nom.Text = "";
+            txt_box_points.IsEnabled = false;
+            txt_box_points.Text = "";
             btn_modifier_user.IsEnabled = false;
             btn_supprimer_user.IsEnabled = false;
         }
@@ -84,32 +90,89 @@ namespace TLMP_Paris
             if (tbl_tableau_classement.SelectedIndex == null) return;
             object user = tbl_tableau_classement.SelectedItem;
             List<string> errors = new();
+            int userTotalPoints;
             Regex usernamePattern = new("^[a-zA-Z0-9]+$");
-            if (txt_box_userlogin.Text == string.Empty || usernamePattern.IsMatch(txt_box_userlogin.Text) == false)
+            Regex stringPattern = new("^[a-zA-Z0-9]{3,60}$");
+            if (txt_box_userlogin.Text == string.Empty || usernamePattern.IsMatch(txt_box_userlogin.Text) == false ||
+                txt_box_prenom.Text == string.Empty || stringPattern.IsMatch(txt_box_prenom.Text) == false ||
+                txt_box_nom.Text == string.Empty || stringPattern.IsMatch(txt_box_nom.Text) == false ||
+                txt_box_points.Text == string.Empty || !int.TryParse(txt_box_points.Text, out userTotalPoints))
             {
                 errors.Add("Il y a plusieurs erreurs :");
                 if (txt_box_userlogin.Text == string.Empty) errors.Add("- Le nom d'utilisateur est vide");
                 if (usernamePattern.IsMatch(txt_box_userlogin.Text) == false) errors.Add("- Le nom d'utilisateur n'est pas conforme");
+                if (txt_box_prenom.Text == string.Empty) errors.Add("- Le prénom est vide");
+                if (stringPattern.IsMatch(txt_box_prenom.Text) == false) errors.Add("- Le prénom n'est pas conforme");
+                if (txt_box_nom.Text == string.Empty) errors.Add("- Le nom est vide");
+                if (stringPattern.IsMatch(txt_box_nom.Text) == false) errors.Add("- Le nom n'est pas conforme");
+                if (txt_box_points.Text == string.Empty) errors.Add("- Le total de points est vide");
+                if (!int.TryParse(txt_box_points.Text, out userTotalPoints)) errors.Add("- Le nombre de points doit être un nombre");
                 MessageBox.Show(string.Join('\n', errors.ToArray()), "Erreurs", MessageBoxButton.OK);
+                return;
+            }
+            if(userTotalPoints < 0)
+            {
+                MessageBox.Show(string.Join('\n', "Le nombre de points doit être supérieur ou égal à 0", "Erreur, total de points invalide", MessageBoxButton.OK));
                 return;
             }
             User selectedUser = user as User;
             MainWindow.Users.Where(c => c.IdUser == selectedUser.IdUser).ToList().ForEach(userF =>
             {
                 userF.UserLogin = txt_box_userlogin.Text;
+                userF.UserName = txt_box_prenom.Text;
+                userF.SecondName = txt_box_nom.Text;
+                userF.TotalPoint = userTotalPoints;
             });
             tbl_tableau_classement.Items.Refresh();
             txt_box_userlogin.IsEnabled = false;
             txt_box_userlogin.Text = "";
+            txt_box_prenom.IsEnabled = false;
+            txt_box_prenom.Text = "";
+            txt_box_nom.IsEnabled = false;
+            txt_box_nom.Text = "";
+            txt_box_points.IsEnabled = false;
+            txt_box_points.Text = "";
             btn_modifier_user.IsEnabled = false;
             btn_supprimer_user.IsEnabled = false;
         }
 
         private void tbl_tableau_classement_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-             txt_box_userlogin.IsEnabled = true;
-             btn_modifier_user.IsEnabled = true;
-             btn_supprimer_user.IsEnabled = true;
+            if(tbl_tableau_classement.SelectedIndex != null)
+            {
+                if(tbl_tableau_classement.SelectedItem != null)
+                {
+                    txt_box_userlogin.IsEnabled = true;
+                    txt_box_userlogin.Text = (tbl_tableau_classement.SelectedItem as User).UserLogin;
+                    txt_box_prenom.IsEnabled = true;
+                    txt_box_prenom.Text = (tbl_tableau_classement.SelectedItem as User).UserName;
+                    txt_box_nom.IsEnabled = true;
+                    txt_box_nom.Text = (tbl_tableau_classement.SelectedItem as User).SecondName;
+                    txt_box_points.IsEnabled = true;
+                    txt_box_points.Text = (tbl_tableau_classement.SelectedItem as User).TotalPoint.ToString();
+                    btn_modifier_user.IsEnabled = true;
+                    btn_supprimer_user.IsEnabled = true;
+                }
+            } else
+            {
+                txt_box_userlogin.IsEnabled = false;
+                txt_box_userlogin.Text = "";
+                txt_box_prenom.IsEnabled = false;
+                txt_box_prenom.Text = "";
+                txt_box_nom.IsEnabled = false;
+                txt_box_nom.Text = "";
+                txt_box_points.IsEnabled = false;
+                txt_box_points.Text = "";
+                btn_modifier_user.IsEnabled = false;
+                btn_supprimer_user.IsEnabled = false;
+            }
+        }
+
+        private void btn_import_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow windowMain = ((MainWindow)Application.Current.MainWindow);
+            windowMain.pageHistory.Add(windowMain.pageViewer.Content);
+            windowMain.pageViewer.Content = new views.ImporterAD();
         }
     }
 }
