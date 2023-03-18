@@ -10,12 +10,12 @@
 
     <Grid Background="White">
         <Grid HorizontalAlignment="Left" Height="47" Margin="428,92,0,0" VerticalAlignment="Top" Width="192">
-            <TextBox x:Name="txt_box_prenom" HorizontalAlignment="Left" Height="23" Margin="4,24,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188"/>
-            <Label x:Name="lbl_prenom" Content="Nom" HorizontalAlignment="Left" VerticalAlignment="Top" Width="188"/>
+            <TextBox x:Name="txt_box_nom" HorizontalAlignment="Left" Height="23" Margin="4,24,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188"/>
+            <Label x:Name="lbl_nom" Content="Nom" HorizontalAlignment="Left" VerticalAlignment="Top" Width="188"/>
         </Grid>
         <Grid HorizontalAlignment="Left" Height="47" Margin="162,92,0,0" VerticalAlignment="Top" Width="192">
-            <TextBox x:Name="txt_box_nom" HorizontalAlignment="Left" Height="23" Margin="4,24,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188"/>
-            <Label x:Name="lbl_nom" Content="Prénom" HorizontalAlignment="Left" VerticalAlignment="Top" Width="188"/>
+            <TextBox x:Name="txt_box_prenom" HorizontalAlignment="Left" Height="23" Margin="4,24,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188"/>
+            <Label x:Name="lbl_prenom" Content="Prénom" HorizontalAlignment="Left" VerticalAlignment="Top" Width="188"/>
         </Grid>
         <Grid HorizontalAlignment="Left" Height="47" Margin="162,154,0,0" VerticalAlignment="Top" Width="192">
             <TextBox x:Name="txt_box_userlogin" HorizontalAlignment="Left" Height="23" Margin="4,24,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188"/>
