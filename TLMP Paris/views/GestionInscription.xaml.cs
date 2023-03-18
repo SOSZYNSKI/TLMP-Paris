@@ -30,7 +30,8 @@ namespace TLMP_Paris
             characters.AddRange(new string[] {"aucun", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"});
             cbox_searchby_lastname.ItemsSource = characters;
             cbox_searchby_firstname.ItemsSource = characters;
-            cbox_searchby_promotion.ItemsSource = characters;
+            cbox_searchby_promotion.ItemsSource = MainWindow.promotions;
+            cbox_searchby_promotion.DisplayMemberPath = "PromotionName";
             tbl_tableau_classement.ItemsSource = MainWindow.Users;
         }
 
@@ -59,14 +60,9 @@ namespace TLMP_Paris
                     if (cbox_searchby_firstname.SelectedIndex > 0 && user.UserName.ToLower().StartsWith(characters[cbox_searchby_firstname.SelectedIndex])) tmpCheck = true;
                     else if (cbox_searchby_firstname.SelectedIndex > 0 && tmpCheck == true) tmpCheck = false;
                 }
-                if (txtbox_searchby_promotion.Text.Length > 0) {
-                    if (user.Promotion.PromotionName.ToLower() == txtbox_searchby_promotion.Text.ToLower()) tmpCheck = true;
-                    else tmpCheck = false;
-                } else {
-                    if (cbox_searchby_promotion.SelectedIndex > 0 && user.Promotion.PromotionName.ToLower().StartsWith(characters[cbox_searchby_promotion.SelectedIndex])) tmpCheck = true;
-                    else if (cbox_searchby_promotion.SelectedIndex > 0 && tmpCheck == true) tmpCheck = false;
-                }
-                if (txtbox_searchby_lastname.Text.Length < 1 && txtbox_searchby_firstname.Text.Length < 1 && txtbox_searchby_promotion.Text.Length < 1 && cbox_searchby_firstname.SelectedIndex < 1 && cbox_searchby_lastname.SelectedIndex < 1 && cbox_searchby_promotion.SelectedIndex < 1) return true;
+                if (cbox_searchby_promotion.SelectedIndex > 0 && user.Promotion.IdPromotion == (cbox_searchby_promotion.SelectedItem as Promotion).IdPromotion) tmpCheck = true;
+                else if (cbox_searchby_promotion.SelectedIndex > 0 && tmpCheck == true) tmpCheck = false;
+                if (txtbox_searchby_lastname.Text.Length < 1 && txtbox_searchby_firstname.Text.Length < 1 && cbox_searchby_firstname.SelectedIndex < 1 && cbox_searchby_lastname.SelectedIndex < 1 && cbox_searchby_promotion.SelectedIndex < 1) return true;
                 return tmpCheck;
             }).ToList();
         }
