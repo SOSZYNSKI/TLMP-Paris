@@ -42,7 +42,7 @@ namespace TLMP_Paris.classes
             }
         }
 
-        public static void saveall(List<User> lalisteuser, List<Promotion> lalistepromo,List<PromotionProf> listepromoprof, List<Pari> listpromo)
+        public static void saveall(List<Promotion> lalistepromo,List<PromotionProf> listepromoprof, List<User> lalisteuser, List<Pari> listpromo)
         {
             try
             {
