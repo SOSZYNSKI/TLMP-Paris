@@ -98,6 +98,7 @@ namespace TLMP_Paris
             {
                 userF.UserLogin = txt_box_userlogin.Text;
             });
+            tbl_tableau_classement.Items.Refresh();
             txt_box_userlogin.IsEnabled = false;
             txt_box_userlogin.Text = "";
             btn_modifier_user.IsEnabled = false;

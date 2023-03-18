@@ -14,7 +14,6 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Width="2*" Header="Nom" Binding="{Binding SecondName}" />
                 <DataGridTextColumn Width="2*" Header="Prénom" Binding="{Binding UserName}" />
-                <DataGridTextColumn Width="2*" Header="Nom d'utilisateur" Binding="{Binding UserLogin}" />
                 <DataGridTextColumn Width="2*" Header="Promotion" Binding="{Binding Promotion.PromotionName}" />
                 <DataGridTextColumn Width="2*" Header="Paris" Binding="{Binding Paris.Count}" />
                 <DataGridTextColumn Width="2*" Header="Points pariés" Binding="{Binding TotalPoint}" />
