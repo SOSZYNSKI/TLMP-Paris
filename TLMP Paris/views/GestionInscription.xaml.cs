@@ -73,9 +73,9 @@ namespace TLMP_Paris
             User selectedUser = user as User;
             MainWindow.Users.Remove(selectedUser);
             tbl_tableau_classement.Items.Refresh();
-            txt_box_userlogin.IsEnabled = true;
-            btn_modifier_user.IsEnabled = true;
-            btn_supprimer_user.IsEnabled = true;
+            txt_box_userlogin.IsEnabled = false;
+            btn_modifier_user.IsEnabled = false;
+            btn_supprimer_user.IsEnabled = false;
         }
 
         private void btn_modifier_user_Click(object sender, RoutedEventArgs e)
@@ -101,12 +101,9 @@ namespace TLMP_Paris
 
         private void tbl_tableau_classement_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if(tbl_tableau_classement.SelectedIndex > 0)
-            {
-                txt_box_userlogin.IsEnabled = true;
-                btn_modifier_user.IsEnabled = true;
-                btn_supprimer_user.IsEnabled = true;
-            }
+             txt_box_userlogin.IsEnabled = true;
+             btn_modifier_user.IsEnabled = true;
+             btn_supprimer_user.IsEnabled = true;
         }
     }
 }

@@ -10,7 +10,7 @@
 
     <Grid>
         <Label x:Name="lbl_tableau_classement" Content="Tableau de Classement" HorizontalAlignment="Left" Height="37" Margin="323,10,0,0" VerticalAlignment="Top" Width="350" HorizontalContentAlignment="Center" FontSize="20"/>
-        <DataGrid x:Name="tbl_tableau_classement" HorizontalAlignment="Left" Height="294" Margin="182,52,0,0" VerticalAlignment="Top" Width="594" AutoGenerateColumns="False" SelectionChanged="tbl_tableau_classement_SelectionChanged">
+        <DataGrid x:Name="tbl_tableau_classement" HorizontalAlignment="Left" Height="294" Margin="182,52,0,0" VerticalAlignment="Top" Width="594" AutoGenerateColumns="False" SelectionChanged="tbl_tableau_classement_SelectionChanged" IsReadOnly="True">
             <DataGrid.Columns>
                 <DataGridTextColumn Width="2*" Header="Nom" Binding="{Binding SecondName}" />
                 <DataGridTextColumn Width="2*" Header="Prénom" Binding="{Binding UserName}" />
