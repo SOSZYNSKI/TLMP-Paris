@@ -99,5 +99,10 @@ namespace TLMP_Paris
             ComboListUser.Items.Refresh();
 
         }
+
+        private void ComboListUser_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            
+        }
     }
 }
