@@ -74,7 +74,21 @@ namespace TLMP_Paris
         {
             object objet = dgd_view_tabpromotion.SelectedItem;
             Promotion promo = objet as Promotion;
+            int promoID = promo.IdPromotion;
+            if(MainWindow.Users.Where(c => c.IdPromotion == promoID || c.Promotion.IdPromotion == promoID).Count() > 0)
+            {
+                MessageBox.Show("Des utilisateurs sont affectés à cette promotion, merci de leur changer de promotion ou de les supprimés avant la suppression de la promotion", "Erreur, suppression impossible", MessageBoxButton.OK);
+                return;
+            }
             MainWindow.promotions.Remove(promo);
+            MainWindow.Users.ForEach(user =>
+            {
+                if (user.IdPromotion >= promoID) user.IdPromotion--;
+            });
+            MainWindow.promotions.ForEach(promotion =>
+            {
+                if (promotion.IdPromotion >= promoID) promotion.IdPromotion--;
+            });
             dgd_view_tabpromotion.Items.Refresh();
 
         }
