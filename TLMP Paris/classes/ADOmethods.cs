@@ -95,7 +95,7 @@ namespace TLMP_Paris.classes
                     id = id + 1;
                     string activateIdentityInsertQuery = "SET IDENTITY_INSERT users ON";
                     string deactivateIdentityInsertQuery = "SET IDENTITY_INSERT users OFF";
-                    string getUserPromotionRequest = $"SELECT * FROM promotions WHERE nomPromotion = {u.Promotion.PromotionName};";
+                    string getUserPromotionRequest = $"SELECT * FROM promotions WHERE nomPromotion = '{u.Promotion.PromotionName}';";
                     SqlCommand onid = new SqlCommand(activateIdentityInsertQuery, connexion);
                     SqlCommand offid = new SqlCommand(deactivateIdentityInsertQuery, connexion);
                     SqlCommand userPromotion = new SqlCommand(getUserPromotionRequest, connexion);
