@@ -34,7 +34,7 @@ namespace TLMP_Paris.views
         {
             List<string> errors = new();
             Regex stringPattern = new("^[a-zA-Z0-9]{3,60}$");
-            Regex passwordPattern = new("^(?=.*[a-z])(?=.*[A-Z]).{8,30}$");
+            Regex passwordPattern = new("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,30}$");
             Regex usernamePattern = new("^[a-zA-Z0-9]+$");
             if (txt_box_nom.Text == string.Empty || txt_box_password.Text == string.Empty || txt_box_prenom.Text == string.Empty || txt_box_points.Text == string.Empty || txt_box_userlogin.Text == string.Empty)
             {
@@ -58,13 +58,14 @@ namespace TLMP_Paris.views
                 MessageBox.Show("Le total de points n'est pas un nombre", "Erreur, entrée invalide", MessageBoxButton.OK);
                 return;
             };
-            if(stringPattern.IsMatch(txt_box_nom.Text) == false || stringPattern.IsMatch(txt_box_prenom.Text) == false || passwordPattern.IsMatch(txt_box_password.Text) == false || usernamePattern.IsMatch(txt_box_userlogin.Text) == false)
+            if(stringPattern.IsMatch(txt_box_nom.Text) == false || stringPattern.IsMatch(txt_box_prenom.Text) == false || passwordPattern.IsMatch(txt_box_password.Text) == false || usernamePattern.IsMatch(txt_box_userlogin.Text) == false || userTotalPoints < 0)
             {
                 errors.Add("Une ou plusieurs entrées ne sont pas comformes :");
                 if (stringPattern.IsMatch(txt_box_nom.Text) == false) errors.Add("- Nom");
                 if (stringPattern.IsMatch(txt_box_prenom.Text) == false) errors.Add("- Prénom");
                 if (usernamePattern.IsMatch(txt_box_userlogin.Text) == false) errors.Add("- Nom d'Utilisateur");
-                if (passwordPattern.IsMatch(txt_box_password.Text) == false) errors.Add("- Mot de passe");
+                if (passwordPattern.IsMatch(txt_box_password.Text) == false) errors.Add("- Le mot de passe doit avoir une minuscule, une majuscule et un chiffre (minimum 8 caractères)");
+                if (userTotalPoints < 0) errors.Add("- Le total de points doit être supérieur ou égal à 0");
                 MessageBox.Show(string.Join('\n', errors.ToArray()), "Erreur, entrées non conformes", MessageBoxButton.OK);
                 return;
             }
@@ -80,6 +81,8 @@ namespace TLMP_Paris.views
             txt_box_points.Text = "";
             txt_box_prenom.Text = "";
             txt_box_userlogin.Text = "";
+            txt_box_confirmpassword.Text = "";
+            c_box_promotion.SelectedIndex = -1;
             MessageBox.Show("Utilisateur crée avec succès !", "Utilisateur crée", MessageBoxButton.OK);
         }
     }
