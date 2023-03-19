@@ -9,31 +9,35 @@
       Title="CreerUser">
 
     <Grid Background="White">
-        <Grid HorizontalAlignment="Left" Height="47" Margin="302,138,0,0" VerticalAlignment="Top" Width="192">
-            <TextBox x:Name="txt_box_prenom" HorizontalAlignment="Left" Height="23" Margin="4,24,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188"/>
-            <Label x:Name="lbl_prenom" Content="Nom" HorizontalAlignment="Left" VerticalAlignment="Top" Width="188"/>
-        </Grid>
-        <Grid HorizontalAlignment="Left" Height="47" Margin="302,86,0,0" VerticalAlignment="Top" Width="192">
+        <Grid HorizontalAlignment="Left" Height="47" Margin="428,92,0,0" VerticalAlignment="Top" Width="192">
             <TextBox x:Name="txt_box_nom" HorizontalAlignment="Left" Height="23" Margin="4,24,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188"/>
-            <Label x:Name="lbl_nom" Content="Prénom" HorizontalAlignment="Left" VerticalAlignment="Top" Width="188"/>
+            <Label x:Name="lbl_nom" Content="Nom" HorizontalAlignment="Left" VerticalAlignment="Top" Width="188"/>
         </Grid>
-        <Grid HorizontalAlignment="Left" Height="47" Margin="302,190,0,0" VerticalAlignment="Top" Width="192">
+        <Grid HorizontalAlignment="Left" Height="47" Margin="162,92,0,0" VerticalAlignment="Top" Width="192">
+            <TextBox x:Name="txt_box_prenom" HorizontalAlignment="Left" Height="23" Margin="4,24,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188"/>
+            <Label x:Name="lbl_prenom" Content="Prénom" HorizontalAlignment="Left" VerticalAlignment="Top" Width="188"/>
+        </Grid>
+        <Grid HorizontalAlignment="Left" Height="47" Margin="162,154,0,0" VerticalAlignment="Top" Width="192">
             <TextBox x:Name="txt_box_userlogin" HorizontalAlignment="Left" Height="23" Margin="4,24,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188"/>
             <Label x:Name="lbl_userlogin" Content="Nom d'utilisateur" HorizontalAlignment="Left" VerticalAlignment="Top" Width="188"/>
         </Grid>
-        <Grid HorizontalAlignment="Left" Height="47" Margin="302,242,0,0" VerticalAlignment="Top" Width="192">
+        <Grid HorizontalAlignment="Left" Height="47" Margin="162,219,0,0" VerticalAlignment="Top" Width="192">
             <TextBox x:Name="txt_box_password" HorizontalAlignment="Left" Height="23" Margin="4,24,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188"/>
             <Label x:Name="lbl_password" Content="Mot de passe" HorizontalAlignment="Left" VerticalAlignment="Top" Width="188"/>
         </Grid>
-        <Grid HorizontalAlignment="Left" Height="47" Margin="302,294,0,0" VerticalAlignment="Top" Width="192">
+        <Grid HorizontalAlignment="Left" Height="47" Margin="428,219,0,0" VerticalAlignment="Top" Width="192">
+            <TextBox x:Name="txt_box_confirmpassword" HorizontalAlignment="Left" Height="23" Margin="4,24,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188"/>
+            <Label x:Name="lbl_confirmpassword" Content="Confirmer le Mot de passe" HorizontalAlignment="Left" VerticalAlignment="Top" Width="188"/>
+        </Grid>
+        <Grid HorizontalAlignment="Left" Height="48" Margin="428,156,0,0" VerticalAlignment="Top" Width="192">
             <TextBox x:Name="txt_box_points" HorizontalAlignment="Left" Height="23" Margin="4,24,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188"/>
             <Label x:Name="lbl_points" Content="Total de Points" HorizontalAlignment="Left" VerticalAlignment="Top" Width="188"/>
         </Grid>
-        <Grid HorizontalAlignment="Left" Height="47" Margin="302,346,0,0" VerticalAlignment="Top" Width="192">
+        <Grid HorizontalAlignment="Left" Height="47" Margin="302,289,0,0" VerticalAlignment="Top" Width="192">
             <Label x:Name="lbl_promotion" Content="Promotion" HorizontalAlignment="Left" VerticalAlignment="Top" Width="188"/>
             <ComboBox x:Name="c_box_promotion" HorizontalAlignment="Left" Height="23" Margin="4,24,0,0" VerticalAlignment="Top" Width="188"/>
         </Grid>
-        <Button x:Name="btn_creer" Content="Créer" HorizontalAlignment="Center" Height="26" Margin="0,411,0,0" VerticalAlignment="Top" Width="188" Click="btn_creer_Click"/>
+        <Button x:Name="btn_creer" Content="Créer" HorizontalAlignment="Center" Height="26" Margin="0,374,0,0" VerticalAlignment="Top" Width="188" Click="btn_creer_Click"/>
         <Label x:Name="lbl_creer_user" Content="Créer un utilisateur" HorizontalAlignment="Left" Margin="231,30,0,0" VerticalAlignment="Top" FontSize="36" FontWeight="Bold"/>
     </Grid>
 </Page>
