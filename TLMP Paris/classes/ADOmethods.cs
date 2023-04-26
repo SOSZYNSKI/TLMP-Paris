@@ -89,18 +89,19 @@ namespace TLMP_Paris.classes
                     savingpromo.ExecuteNonQuery();
                     offid.ExecuteNonQuery();
                 }
+
                 id = 0;
                 foreach (User u in lalisteuser)
                 {
                     id = id + 1;
                     string activateIdentityInsertQuery = "SET IDENTITY_INSERT users ON";
                     string deactivateIdentityInsertQuery = "SET IDENTITY_INSERT users OFF";
-                    string getUserPromotionRequest = $"SELECT * FROM promotions WHERE nomPromotion = '{u.Promotion.PromotionName}';";
+                    string getUserPromotionRequest = $"SELECT idPromotion FROM promotions WHERE nomPromotion = '{u.Promotion.PromotionName}';";
                     SqlCommand onid = new SqlCommand(activateIdentityInsertQuery, connexion);
                     SqlCommand offid = new SqlCommand(deactivateIdentityInsertQuery, connexion);
                     SqlCommand userPromotion = new SqlCommand(getUserPromotionRequest, connexion);
-                    SqlDataReader userPromo = userPromotion.ExecuteReader();
-                    string saveu = $"INSERT INTO users (idUser,prenomUsers, nomUsers, mdpUsers, loginUsers, totalpointUsers, FK_users_promotions) VALUES ({id},{u.UserName},{u.SecondName},{u.UserPassword}, {u.UserLogin}, {u.TotalPoint}, {userPromo.GetString("idPromotion")});";
+                    int iduser = (int)userPromotion.ExecuteScalar();
+                    string saveu = $"INSERT INTO users (idUsers,prenomUsers, nomUsers, mdpUsers, loginUsers, totalpointUsers, FK_users_promotions) VALUES ({id},'{u.UserName}','{u.SecondName}','{u.UserPassword}', '{u.UserLogin}', {u.TotalPoint}, {iduser});";
                     SqlCommand resetincrement = new SqlCommand(restauIncrementUser, connexion);
                     SqlCommand savinguser = new SqlCommand(saveu, connexion);
                     onid.ExecuteNonQuery();
