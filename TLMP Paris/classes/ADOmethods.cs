@@ -101,7 +101,7 @@ namespace TLMP_Paris.classes
                     SqlCommand offid = new SqlCommand(deactivateIdentityInsertQuery, connexion);
                     SqlCommand userPromotion = new SqlCommand(getUserPromotionRequest, connexion);
                     int iduser = (int)userPromotion.ExecuteScalar();
-                    string saveu = $"INSERT INTO users (idUsers,prenomUsers, nomUsers, mdpUsers, loginUsers, totalpointUsers, FK_users_promotions) VALUES ({id},'{u.UserName}','{u.SecondName}','{u.UserPassword}', '{u.UserLogin}', {u.TotalPoint}, {iduser});";
+                    string saveu = $"INSERT INTO users (idUsers,prenomUsers, nomUsers, mdpUsers, loginUsers, totalpointUsers,totalpointgagneUsers,FK_users_promotions) VALUES ({id},'{u.UserName}','{u.SecondName}','{u.UserPassword}', '{u.UserLogin}',{u.NumberWinParis}, {u.TotalPoint}, {iduser});";
                     SqlCommand resetincrement = new SqlCommand(restauIncrementUser, connexion);
                     SqlCommand savinguser = new SqlCommand(saveu, connexion);
                     onid.ExecuteNonQuery();
