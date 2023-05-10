@@ -59,8 +59,8 @@ namespace TLMP_Paris
             InitializeComponent();
             loading.Visibility = Visibility.Hidden;
             promotions = adopromotions.getall();
-            listeParis = listeparisADO.getall();
             Users = ADOuser.getall();
+            listeParis = listeparisADO.getall();
             pageViewer.Content = new Accueil();
         }
 
