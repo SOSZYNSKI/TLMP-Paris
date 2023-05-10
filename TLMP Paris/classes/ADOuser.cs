@@ -32,7 +32,9 @@ namespace TLMP_Paris.classes
             {
                 using (SqlDataAdapter all = new SqlDataAdapter("SELECT * FROM users", connexion))
                 {
+                    DataTable dtTest = new();
                     DataSet dsTest = new();
+                    all.Fill(dtTest);
                     all.Fill(dsTest);
                     var firstColumn = dsTest.Tables[0].Rows;
                     foreach (DataRow row in firstColumn)
@@ -45,10 +47,15 @@ namespace TLMP_Paris.classes
                         int totalpoint = Convert.ToInt32(row["totalpointUsers"].ToString());
                         int iduser = Convert.ToInt32(row["idUsers"].ToString());
                         int idpromotion = Convert.ToInt32(row["FK_users_promotions"].ToString());
-                        //listuser.Add(new User(username, secondname, numberwinpari, userpassword, userlogin, totalpoint, iduser, idpromotion));
+                        foreach(Promotion promo in MainWindow.promotions)
+                        {
+                            if(promo.IdPromotion == idpromotion)
+                            {
+                                listuser.Add(new User(username, secondname, numberwinpari, userpassword, userlogin, totalpoint, iduser, promo));
+                            }
+                        }
                     }
                 }
-
             }
             catch (Exception e)
             {
