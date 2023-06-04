@@ -41,12 +41,12 @@ namespace TLMP_Paris.classes
                     {
                         string username = row["prenomUsers"].ToString();
                         string secondname = row["nomUsers"].ToString();
-                        int numberwinpari = Convert.ToInt32(row["totalpointgagneUsers"]);
+                        int numberwinpari = Convert.ToInt32(row["totalpointgagneUsers"].ToString());
                         string userpassword = row["mdpUsers"].ToString();
                         string userlogin = row["loginUsers"].ToString();
-                        int totalpoint = Convert.ToInt32(row["totalpointUsers"]);
-                        int iduser = Convert.ToInt32(row["idUsers"]);
-                        int idpromotion = Convert.ToInt32(row["FK_users_promotions"]);
+                        int totalpoint = Convert.ToInt32(row["totalpointUsers"].ToString());
+                        int iduser = Convert.ToInt32(row["idUsers"].ToString());
+                        int idpromotion = Convert.ToInt32(row["FK_users_promotions"].ToString());
                         foreach(Promotion promo in MainWindow.promotions)
                         {
                             if(promo.IdPromotion == idpromotion)
