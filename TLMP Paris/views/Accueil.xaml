@@ -22,10 +22,6 @@
             <Rectangle HorizontalAlignment="Center" Height="29" VerticalAlignment="Top" Width="658" Fill="#FF434343"/>
             <Label x:Name="lbl_topUsers" Content="Classement des utilisateurs" HorizontalAlignment="Center" VerticalAlignment="Top" Width="588" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="16" Height="29"/>
         </Grid>
-        <Rectangle HorizontalAlignment="Left" Height="78" Margin="64,520,0,0" Stroke="Black" VerticalAlignment="Top" Width="317" />
-        <Rectangle HorizontalAlignment="Left" Height="78" Margin="64,626,0,0" Stroke="Black" VerticalAlignment="Top" Width="317"/>
-        <Rectangle HorizontalAlignment="Left" Height="78" Margin="421,626,0,0" Stroke="Black" VerticalAlignment="Top" Width="308"/>
-        <Rectangle HorizontalAlignment="Left" Height="78" Margin="421,520,0,0" Stroke="Black" VerticalAlignment="Top" Width="308"/>
         <TextBlock x:Name="txt_welcome_message" HorizontalAlignment="Center" Height="39" Margin="0,25,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="658" Text="Bonjour x vous êtes actuellement sur la page d'accueil" TextAlignment="Center" FontSize="24"/>
         <Label Content="TLMP Paris" HorizontalAlignment="Left" Height="24" Margin="64,90,0,0" VerticalAlignment="Top" Width="174" RenderTransformOrigin="0.859,0.848"/>
         <Label Content="TLMP Paris" HorizontalAlignment="Left" Height="23" Margin="64,240,0,0" VerticalAlignment="Top" Width="174"/>
@@ -48,6 +44,17 @@
         <Label x:Name="labelle_range_1" Content="Label" HorizontalAlignment="Left" Margin="222,155,0,0" VerticalAlignment="Top" Width="216"/>
         <Label x:Name="labelle_range_2" Content="Label" HorizontalAlignment="Left" Margin="222,300,0,0" VerticalAlignment="Top" Width="203"/>
         <Label x:Name="labelle_range_3" Content="Label" HorizontalAlignment="Left" Margin="222,437,0,0" VerticalAlignment="Top" Width="216"/>
+        <DataGrid x:Name="tableau_pari" HorizontalAlignment="Center" Height="139" Margin="0,488,0,0" VerticalAlignment="Top" Width="658" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="2*" Header="Libelle" Binding="{Binding Libelle}" />
+                <DataGridTextColumn Width="2*" Header="Récompense" Binding="{Binding PointsEarn}" />
+                <DataGridTextColumn Width="2*" Header="Date Match" Binding="{Binding DateMatch}" />
+                <DataGridTextColumn Width="2*" Header="Éliminatoire" Binding="{Binding Elimination}" />
+                <DataGridTextColumn Width="2*" Header="Point de pénalité" Binding="{Binding Penality}" />
+                <DataGridTextColumn Width="2*" Header="Range Max" Binding="{Binding Range}" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Name="bouton_suppr_pari" Content="Supprimer" HorizontalAlignment="Center" Margin="0,662,0,0" VerticalAlignment="Top" Height="41" Width="658" Click="Button_Click"/>
 
     </Grid>
 </Page>

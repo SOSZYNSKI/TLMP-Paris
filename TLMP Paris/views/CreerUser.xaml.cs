@@ -75,6 +75,8 @@ namespace TLMP_Paris.views
                 return;
             };
             User newUser = new(txt_box_prenom.Text, txt_box_nom.Text, 0,txt_box_password.Text, txt_box_userlogin.Text,Convert.ToInt32(txt_box_points.Text), -1, MainWindow.promotions.ToList()[c_box_promotion.SelectedIndex]);
+            Promotion p = c_box_promotion.SelectedItem as Promotion;
+            p.AddUser(newUser);
             MainWindow.Users.Add(newUser);
             txt_box_nom.Text = "";
             txt_box_password.Text = ""; 

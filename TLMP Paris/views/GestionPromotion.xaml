@@ -7,23 +7,28 @@
     
       xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" x:Class="TLMP_Paris.GestionPromotion"
       mc:Ignorable="d" d:DesignWidth="800"
-      Title="GestionPromotion" Height="819">
+      Title="GestionPromotion" Height="794">
 
-    <Grid Height="800">
+    <Grid Margin="0,10,0,144">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="636*"/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
         <Label x:Name="lbl_tabpromotion" Content="Tableau des promotions" HorizontalAlignment="Center" Height="37" Margin="0,10,0,0" VerticalAlignment="Top" Width="220" FontSize="20"/>
-        <DataGrid x:Name="dgd_view_tabpromotion" Margin="47,47,34,0" SelectionChanged="DataGrid_SelectionChanged" Height="634" VerticalAlignment="Top" AutoGenerateColumns="False">
+        <DataGrid x:Name="dgd_view_tabpromotion" Margin="47,47,34,0" SelectionChanged="DataGrid_SelectionChanged" Height="426" VerticalAlignment="Top" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Width="2*" Header="Nom Promotion" Binding="{Binding PromotionName}" />
                 <DataGridTextColumn Width="2*" Header="Nombre Users" Binding="{Binding NombreTotal}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button x:Name="btn_add" Content="Ajouter" HorizontalAlignment="Left" Height="37" Margin="47,733,0,0" VerticalAlignment="Top" Width="152" RenderTransformOrigin="0.025,0.9" Click="btn_add_Click"/>
-        <Button x:Name="btn_del" Content="Supprimer" HorizontalAlignment="Left" Margin="225,733,0,0" VerticalAlignment="Top" Height="37" Width="152" Click="btn_del_Click"/>
-        <Button x:Name="btn_modif" Content="Modifier" HorizontalAlignment="Left" Margin="406,733,0,0" VerticalAlignment="Top" Height="37" Width="152" RenderTransformOrigin="0.525,1.498"/>
-        <TextBox x:Name="txt_Name" HorizontalAlignment="Left" Margin="145,686,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="136" Height="30"/>
-        <ComboBox x:Name="ComboListUser" HorizontalAlignment="Left" Margin="640,686,0,0" VerticalAlignment="Top" Width="126" Height="30" SelectionChanged="ComboListUser_SelectionChanged"/>
-        <TextBox x:Name="txt_diminutif" HorizontalAlignment="Center" Margin="0,686,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="136" Height="30"/>
-        <Button x:Name="btn_adduser" Content="Ajouter User" HorizontalAlignment="Left" Margin="627,733,0,0" VerticalAlignment="Top" Height="37" Width="152" RenderTransformOrigin="0.525,1.498" Click="btn_modif_Copy_Click"/>
+        <Button x:Name="btn_add" Content="Ajouter" HorizontalAlignment="Left" Height="37" Margin="45,559,0,0" VerticalAlignment="Top" Width="150" RenderTransformOrigin="0.025,0.9" Click="btn_add_Click"/>
+        <Button x:Name="btn_del" Content="Supprimer" HorizontalAlignment="Left" Margin="220,559,0,0" VerticalAlignment="Top" Height="37" Width="150" Click="btn_del_Click"/>
+        <Button x:Name="btn_modif" Content="Modifier" HorizontalAlignment="Left" Margin="399,559,0,0" VerticalAlignment="Top" Height="37" Width="149" RenderTransformOrigin="0.525,1.498"/>
+        <TextBox x:Name="txt_Name" HorizontalAlignment="Left" Margin="142,512,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="134" Height="30"/>
+        <ComboBox x:Name="ComboListUser" HorizontalAlignment="Left" Margin="629,512,0,0" VerticalAlignment="Top" Width="124" Height="30" SelectionChanged="ComboListUser_SelectionChanged"/>
+        <TextBox x:Name="txt_diminutif" HorizontalAlignment="Left" Margin="326,512,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="134" Height="30"/>
+        <Button x:Name="btn_adduser" Content="Ajouter User" HorizontalAlignment="Left" Margin="616,559,0,0" VerticalAlignment="Top" Height="37" Width="150" RenderTransformOrigin="0.525,1.498" Click="btn_modif_Copy_Click"/>
 
     </Grid>
 </Page>

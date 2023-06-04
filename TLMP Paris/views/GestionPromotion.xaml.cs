@@ -26,7 +26,6 @@ namespace TLMP_Paris
     {
         public GestionPromotion()
         {
-
             InitializeComponent();
             dgd_view_tabpromotion.ItemsSource = MainWindow.promotions;
             txt_Name.Text = "Name";
@@ -42,11 +41,29 @@ namespace TLMP_Paris
             }
             ComboListUser.ItemsSource = ListComboUserPromotion;
             ComboListUser.Items.Refresh();
+
+            if (dgd_view_tabpromotion.SelectedIndex != null)
+            {
+                btn_del.IsEnabled = false;
+                btn_modif.IsEnabled = false;
+            }
         }
 
         private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            btn_del.IsEnabled = true;
+            btn_modif.IsEnabled = true;
 
+            /*if (dgd_view_tabpromotion.SelectedIndex == null)
+            {
+                btn_del.IsEnabled = true;
+                btn_modif.IsEnabled = true;
+            }
+            else
+            {
+                btn_del.IsEnabled = false;
+                btn_modif.IsEnabled = false;
+            }*/
         }
 
         private void btn_add_Click(object sender, RoutedEventArgs e)

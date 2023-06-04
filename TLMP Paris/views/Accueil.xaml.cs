@@ -29,8 +29,10 @@ namespace TLMP_Paris
             List<Pari> listpariaccueil = new();
 
             InitializeComponent();
+            tableau_pari.ItemsSource = MainWindow.listeParis;
             tbl_topUsers.ItemsSource = MainWindow.Users;
             tbl_topUsers.Items.Refresh();
+            tableau_pari.Items.Refresh();
 
             if(MainWindow.listeParis.Count() >= 3)
             {
@@ -167,5 +169,23 @@ namespace TLMP_Paris
             }
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            string message = "Voulez-vous vraiment supprimer le pari sélectionné ?";
+            string title = "Suppression d'un Pari";
+            MessageBoxButton buttons = MessageBoxButton.YesNo;
+            MessageBoxResult result = MessageBox.Show(message, title, buttons);
+            if (result == MessageBoxResult.Yes)
+            {
+                Pari pari = tableau_pari.SelectedItem as Pari;
+                MainWindow.listeParis.Remove(pari);
+                tableau_pari.Items.Refresh();
+            }
+            else
+            {
+                
+            }
+            
+        }
     }
 }

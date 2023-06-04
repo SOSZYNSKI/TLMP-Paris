@@ -71,6 +71,8 @@ namespace TLMP_Paris
         {
             object user = tbl_tableau_classement.SelectedItem;
             User selectedUser = user as User;
+            Promotion promotion = selectedUser.Promotion as Promotion;
+            promotion.NombreTotal = promotion.NombreTotal - 1;
             MainWindow.Users.Remove(selectedUser);
             tbl_tableau_classement.Items.Refresh();
             txt_box_userlogin.IsEnabled = false;

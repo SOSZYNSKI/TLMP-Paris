@@ -55,5 +55,10 @@ namespace TLMP_Paris.Classe
         {
             return SecondName;
         }
+
+        public Promotion GetPromotion() 
+        { 
+            return this.promotion; 
+        }
     }
 }
