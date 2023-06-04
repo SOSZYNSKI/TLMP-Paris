@@ -53,17 +53,6 @@ namespace TLMP_Paris
         {
             btn_del.IsEnabled = true;
             btn_modif.IsEnabled = true;
-
-            /*if (dgd_view_tabpromotion.SelectedIndex == null)
-            {
-                btn_del.IsEnabled = true;
-                btn_modif.IsEnabled = true;
-            }
-            else
-            {
-                btn_del.IsEnabled = false;
-                btn_modif.IsEnabled = false;
-            }*/
         }
 
         private void btn_add_Click(object sender, RoutedEventArgs e)
